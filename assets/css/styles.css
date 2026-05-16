@@ -2532,6 +2532,169 @@
     margin-top:48px;
   }
 
+  /* ─── HERO GUIDANCE LINE: DECORATIVO DESKTOP/TABLET ─── */
+  .hero-guidance{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+    opacity:.78;
+  }
+  .hero-guidance svg{
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  .hero-guidance .guidance-ribbons{
+    transform-origin:center;
+    animation:guidanceDrift 24s cubic-bezier(.4,0,.18,1) infinite;
+  }
+  .hero-guidance .guidance-depth-path{
+    fill:none;
+    stroke:rgba(14,31,56,.09);
+    stroke-width:10;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:.14 .86;
+    stroke-dashoffset:1;
+    filter:blur(10px);
+    animation:guidanceDepth 24s cubic-bezier(.4,0,.18,1) infinite;
+  }
+  .hero-guidance .guidance-path{
+    fill:none;
+    stroke:url(#guidanceLine);
+    stroke-width:1;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:.22 .78;
+    stroke-dashoffset:1;
+    filter:url(#guidanceGlow);
+    animation:guidanceTrace 24s cubic-bezier(.4,0,.18,1) infinite;
+  }
+  .hero-guidance .guidance-path-a{
+    stroke-width:1.05;
+  }
+  .hero-guidance .guidance-path-b{
+    stroke-width:.65;
+    stroke:rgba(241,236,222,.16);
+    stroke-dasharray:.16 .84;
+    filter:blur(.15px);
+    animation:guidanceTraceSecondary 24s cubic-bezier(.4,0,.18,1) infinite;
+  }
+  .hero-guidance .guidance-glint{
+    fill:none;
+    stroke:rgba(184,149,89,.42);
+    stroke-width:.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:.08 .92;
+    stroke-dashoffset:1;
+    filter:url(#guidanceGlow);
+    animation:guidanceGlint 24s cubic-bezier(.4,0,.18,1) infinite;
+  }
+  .hero-centered{
+    position:relative;
+    z-index:1;
+  }
+
+  @keyframes guidanceDrift{
+    0%, 100%{
+      transform:translate3d(-4px,-2px,0) scale(1);
+    }
+    42%{
+      transform:translate3d(8px,4px,0) scale(1.012);
+    }
+    74%{
+      transform:translate3d(3px,7px,0) scale(.992);
+    }
+  }
+  @keyframes guidanceDepth{
+    0%, 12%{
+      opacity:0;
+      stroke-dashoffset:1;
+    }
+    30%{
+      opacity:.34;
+    }
+    48%{
+      opacity:.2;
+    }
+    72%{
+      opacity:.1;
+      stroke-dashoffset:0;
+    }
+    88%, 100%{
+      opacity:0;
+      stroke-dashoffset:-.28;
+    }
+  }
+  @keyframes guidanceTrace{
+    0%, 12%{
+      opacity:0;
+      stroke-dashoffset:1;
+    }
+    28%{
+      opacity:.5;
+    }
+    44%{
+      opacity:.42;
+    }
+    56%{
+      opacity:.18;
+      stroke-dashoffset:.26;
+      filter:url(#guidanceGlow) blur(.35px);
+    }
+    72%{
+      opacity:.26;
+      filter:url(#guidanceGlow);
+      stroke-dashoffset:0;
+    }
+    88%, 100%{
+      opacity:0;
+      stroke-dashoffset:-.28;
+      filter:url(#guidanceGlow) blur(.8px);
+    }
+  }
+  @keyframes guidanceTraceSecondary{
+    0%, 18%{
+      opacity:0;
+      stroke-dashoffset:1;
+    }
+    36%{
+      opacity:.24;
+    }
+    58%{
+      opacity:.12;
+      stroke-dashoffset:.22;
+    }
+    76%{
+      opacity:.18;
+      stroke-dashoffset:0;
+    }
+    90%, 100%{
+      opacity:0;
+      stroke-dashoffset:-.2;
+    }
+  }
+  @keyframes guidanceGlint{
+    0%, 30%{
+      opacity:0;
+      stroke-dashoffset:1;
+    }
+    42%{
+      opacity:.42;
+    }
+    54%{
+      opacity:.2;
+      stroke-dashoffset:0;
+    }
+    66%, 100%{
+      opacity:0;
+      stroke-dashoffset:-.18;
+    }
+  }
+
   /* ─── HERO PROOF STRIP (solo desktop) ─── */
   .hero-proof{
     margin-top:56px;
@@ -2604,10 +2767,19 @@
     .hero-proof{
       display:none;
     }
+    .hero-guidance{
+      display:none;
+    }
     /* Eyebrow más compacto */
     .hero .hero-eyebrow{
       margin-bottom:24px;
       font-size:9px;
+    }
+  }
+
+  @media(max-width:767px){
+    .hero-guidance{
+      display:none;
     }
   }
 
@@ -2673,6 +2845,9 @@
       opacity:1 !important;
       transform:none !important;
       animation:none !important;
+    }
+    .hero-guidance{
+      display:none !important;
     }
   }
 
@@ -3033,6 +3208,9 @@
       font-size:10.5px;
     }
     .hero-proof{
+      display:none;
+    }
+    .hero-guidance{
       display:none;
     }
     section#situaciones{
