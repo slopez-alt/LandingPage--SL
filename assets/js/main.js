@@ -7,69 +7,6 @@
   },{threshold:.05, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('[data-anim]').forEach(el=>io.observe(el));
 
-  // -------- HERO SCROLL EXIT FADE --------
-  // Subtle opacity + translateY as user scrolls out of hero.
-  // No scroll hijacking. Uses rAF. Disabled on mobile and reduced-motion.
-  (function(){
-    'use strict';
-    var hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    // Bail if user prefers reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var heroGrid = hero.querySelector('.hero-grid');
-    if (!heroGrid || heroGrid.children.length < 2) return;
-
-    var left  = heroGrid.children[0]; // headline + CTAs
-    var right = heroGrid.children[1]; // dashboard panel
-
-    var raf = null;
-    var MOBILE_BP = 720;
-
-    function resetStyles() {
-      left.style.transform  = '';
-      left.style.opacity    = '';
-      right.style.transform = '';
-      right.style.opacity   = '';
-    }
-
-    function applyFade() {
-      // Disable on mobile — no effect, just reset
-      if (window.innerWidth <= MOBILE_BP) {
-        resetStyles();
-        raf = null;
-        return;
-      }
-
-      var heroH   = hero.offsetHeight;
-      var scrollY = window.scrollY;
-
-      // p = 0 when fully in view, 1 when hero is fully scrolled past
-      var p = Math.min(Math.max(scrollY / heroH, 0), 1);
-
-      // Left column: very gentle — keeps headline readable longest
-      // Max: translateY -10px, opacity 0.85
-      left.style.transform  = 'translateY(' + -(p * 10).toFixed(2) + 'px)';
-      left.style.opacity    = (1 - p * 0.15).toFixed(3);
-
-      // Right panel: slightly more expressive exit
-      // Max: translateY -22px, opacity 0.7
-      right.style.transform = 'translateY(' + -(p * 22).toFixed(2) + 'px)';
-      right.style.opacity   = (1 - p * 0.30).toFixed(3);
-
-      raf = null;
-    }
-
-    window.addEventListener('scroll', function() {
-      if (!raf) raf = requestAnimationFrame(applyFade);
-    }, { passive: true });
-
-    // On resize: if we cross the mobile breakpoint, reset inline styles
-    window.addEventListener('resize', function() {
-      if (window.innerWidth <= MOBILE_BP) resetStyles();
-    }, { passive: true });
-  })();
 
   // Single-open FAQ
   document.querySelectorAll('details.q').forEach(d=>{
@@ -110,7 +47,7 @@
       phTargets.forEach(el => {
         el.placeholder = el.getAttribute(lang === 'en' ? 'data-en-placeholder' : 'data-es-placeholder') || '';
       });
-      TOGGLE.querySelectorAll('span[data-l]').forEach(s => {
+      document.querySelectorAll('.lang span[data-l]').forEach(s => {
         s.classList.toggle('on', s.getAttribute('data-l') === lang);
       });
       try { localStorage.setItem('sl_lang', lang); } catch(e) {}
@@ -181,14 +118,15 @@
     update();
   })();
 
-  // -------- HOVER LIGHT TRACKING — Cards premium (solo desktop) --------
-  // Radial gradient sutil que sigue el cursor en cards premium.
+  // -------- HOVER LIGHT TRACKING — Solo elementos clickeables (desktop) --------
+  // Fase 1: eliminado de .pq-item y .proc (elementos informativos, no clickeables).
+  // Mantenido únicamente en .ct y .case que son tarjetas de clientes/casos.
   (function(){
     if (!window.matchMedia('(hover: hover)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var GOLD_GRADIENT = 'rgba(200,169,106,.07)';
-    var selectors = '.pq-item, .proc, .ct, .case';
+    var selectors = '.ct, .case';
 
     document.querySelectorAll(selectors).forEach(function(card) {
       card.addEventListener('mousemove', function(e) {

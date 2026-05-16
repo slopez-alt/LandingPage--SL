@@ -1350,12 +1350,10 @@
 
   /* --- PARA QUIÉN — CARDS PREMIUM --- */
   .pq-item{
-    transition:background .28s ease, box-shadow .28s ease, transform .28s cubic-bezier(0.19,1,0.22,1);
+    transition:background .28s ease;
   }
   .pq-item:hover{
     background:rgba(184,149,89,.04);
-    box-shadow:inset 0 0 0 1px rgba(184,149,89,.2);
-    transform:translateY(-2px);
   }
   .pq-icon{display:flex;align-items:center;gap:8px}
   .pq-icon::before{
@@ -1369,9 +1367,9 @@
   .proc:hover{background:rgba(184,149,89,.03)}
   .proc .step-num{
     opacity:.55;
-    transition:opacity .25s ease, transform .28s cubic-bezier(0.19,1,0.22,1);
+    transition:opacity .25s ease;
   }
-  .proc:hover .step-num{opacity:.8;transform:translateY(-2px)}
+  .proc:hover .step-num{opacity:.8}
 
   /* --- SERVICIOS — HOVER PREMIUM --- */
   .svc:hover{
@@ -1386,15 +1384,7 @@
     opacity:.32;
   }
 
-  /* --- STATUS ROWS en sección atrasados (hover) --- */
-  #atrasados .status-row{
-    transition:background .2s ease, border-color .2s ease;
-    border-radius:3px;
-  }
-  #atrasados .status-row:hover{
-    background:rgba(255,255,255,.07) !important;
-    border-color:rgba(255,255,255,.16) !important;
-  }
+  /* --- STATUS ROWS removidos de index.html (sección V rediseñada) --- */
 
   /* --- SECTION TAG REFINEMENT --- */
   .section-tag::before{opacity:.75}
@@ -2436,16 +2426,7 @@
   section#atrasados .atrasados-body{
     color:rgba(255,255,255,.65);
   }
-  /* Status rows on dark navy bg */
-  section#atrasados .status-row{
-    background:rgba(255,255,255,.04) !important;
-    border:1px solid rgba(255,255,255,.08) !important;
-    color:rgba(255,255,255,.7) !important;
-  }
-  section#atrasados .status-row:hover{
-    background:rgba(255,255,255,.07) !important;
-    border-color:rgba(255,255,255,.15) !important;
-  }
+  /* Status rows removidos de index.html; el bloque de proceso usa .atrasados-process */
 
   /* ─── 5. sl-mark-wrap → ink (restored) ─── */
   .sl-mark-wrap{background:var(--ink)}
@@ -2514,4 +2495,266 @@
   }
   .sit-ctas .btn{
     flex-shrink:0;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     FASE 2 — HERO REFINEMENT + MOBILE ADAPTATION
+     Hero más editorial en desktop, adaptado en móvil,
+     header simplificado, sección I más accesible.
+     ══════════════════════════════════════════════════════════ */
+
+  /* ─── HERO DESKTOP: PADDING Y DIMENSIONES ─── */
+  /* Override final del padding — hero ahora solo tiene bloque de texto */
+  .hero{ padding:120px 0 96px }
+
+  /* Headline más dominante — el hero tiene más espacio vacío */
+  .hero h1.hero-title{
+    font-size:clamp(46px,6vw,82px);
+    letter-spacing:-.026em;
+    max-width:860px;
+  }
+
+  /* Subheadline: ligeramente más relajado */
+  .hero .hero-sub{
+    font-size:17.5px;
+    line-height:1.76;
+    margin-top:30px;
+    max-width:580px;
+  }
+
+  /* Bloque central: más amplio para llenar la pantalla */
+  .hero-centered{
+    max-width:860px;
+  }
+
+  /* CTAs: más separación inferior para que el proof strip respire */
+  .hero .hero-ctas{
+    margin-top:48px;
+  }
+
+  /* ─── HERO PROOF STRIP (solo desktop) ─── */
+  .hero-proof{
+    margin-top:56px;
+    padding-top:26px;
+    border-top:1px solid rgba(255,255,255,.06);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.18);
+    text-align:center;
+  }
+
+  /* Proof strip entra con stagger después de los CTAs */
+  .hero-centered .hero-proof{
+    opacity:0;
+    transform:translateY(22px);
+  }
+  .hero-centered[data-anim].in .hero-proof{
+    animation:heroReveal .85s .80s cubic-bezier(0.19,1,0.22,1) both;
+  }
+
+  /* ─── HERO-SUB: DESKTOP / MÓVIL ─── */
+  .hero-sub-mobile{ display:none }
+
+  /* ─── HEADER MÓVIL: OCULTAR CTA, SOLO LOGO + HAMBURGUESA ─── */
+  @media(max-width:720px){
+    .nav-cta a.btn{
+      display:none;
+    }
+  }
+
+  /* ─── HERO MÓVIL: COMPACTO Y DIRECTO ─── */
+  @media(max-width:720px){
+    .hero{
+      padding:52px 0 40px;
+    }
+    .hero-centered{
+      max-width:100%;
+    }
+    .hero h1.hero-title{
+      font-size:clamp(32px,9.5vw,42px);
+      letter-spacing:-.018em;
+      max-width:100%;
+      line-height:1.08;
+    }
+    .hero .hero-sub{
+      font-size:15px;
+      line-height:1.65;
+      margin-top:20px;
+      max-width:100%;
+    }
+    .hero-sub-desktop{ display:none }
+    .hero-sub-mobile{ display:block }
+    .hero .hero-ctas{
+      margin-top:32px;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .hero .hero-ctas .btn{
+      width:100%;
+      max-width:340px;
+      justify-content:center;
+    }
+    /* Ocultar proof strip en móvil — no es prioritario */
+    .hero-proof{
+      display:none;
+    }
+    /* Eyebrow más compacto */
+    .hero .hero-eyebrow{
+      margin-bottom:24px;
+      font-size:9px;
+    }
+  }
+
+  /* ─── SECCIÓN I — LLEGADA MÁS RÁPIDA EN MÓVIL ─── */
+  @media(max-width:720px){
+    section#situaciones{
+      padding-top:48px !important;
+      padding-bottom:56px !important;
+    }
+    /* Reducir la transición decorativa entre hero y sección I */
+    .sec-trans{
+      height:12px;
+    }
+    .st-dk-lt{
+      height:16px;
+    }
+  }
+
+  /* ─── GRID AJUSTES MÓVIL GENERALES ─── */
+  @media(max-width:720px){
+    /* Para quién: ya colapsa a 1 columna, reducir padding de items */
+    .pq-item,.pq-item:nth-child(3n){
+      padding:22px 0;
+    }
+    /* Proceso: reducir padding de cards */
+    .proc{
+      padding:28px 0;
+    }
+    /* Situaciones: gap reducido */
+    .sit-grid{
+      gap:32px;
+    }
+    /* Servicios mini-grid: ya es 1 columna */
+    .svc-mini-cell{
+      padding:20px 22px;
+    }
+    /* CTA final: más compacto */
+    .final-cta{
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .final-cta .btn{
+      width:100%;
+      max-width:340px;
+      justify-content:center;
+    }
+  }
+
+  /* ─── @1080px: hero ajustes intermedios ─── */
+  @media(max-width:1080px){
+    .hero{
+      padding:88px 0 72px;
+    }
+    .hero h1.hero-title{
+      font-size:clamp(42px,5.2vw,68px);
+    }
+  }
+
+  /* ─── PREFERS-REDUCED-MOTION: FASE 2 ─── */
+  @media(prefers-reduced-motion:reduce){
+    .hero-centered .hero-proof{
+      opacity:1 !important;
+      transform:none !important;
+      animation:none !important;
+    }
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     FASE 1 — UX FIXES
+     Hero simplificado, hover corregidos, móvil mejorado.
+     ══════════════════════════════════════════════════════════ */
+
+  /* --- ATRASADOS GRID RESPONSIVE (reemplaza inline style) --- */
+  .atrasados-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  /* --- ATRASADOS PROCESS STEPS --- */
+  .atrasados-process{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .atrasados-step{
+    display:grid;
+    grid-template-columns:36px 1fr;
+    gap:18px;
+    align-items:flex-start;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .atrasados-step:last-child{border-bottom:none}
+  .atrasados-step-num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    letter-spacing:.08em;
+    font-weight:500;
+    padding-top:3px;
+    flex-shrink:0;
+  }
+  .atrasados-step-title{
+    font-size:14.5px;
+    color:rgba(255,255,255,.88);
+    font-weight:500;
+    line-height:1.3;
+    margin-bottom:5px;
+  }
+  .atrasados-step-desc{
+    font-size:13px;
+    color:rgba(255,255,255,.42);
+    line-height:1.55;
+    font-weight:300;
+  }
+
+  /* --- LANG TOGGLE MÓVIL ONLY --- */
+  .lang-mob-only{
+    display:none;
+  }
+
+  /* --- MOBILE RESPONSIVE FIXES --- */
+  @media(max-width:720px){
+    /* Atrasados grid: 1 columna */
+    .atrasados-grid{
+      grid-template-columns:1fr;
+      gap:40px;
+    }
+    /* Steven inner grid: 1 columna (override inline style) */
+    #steven > .container > [data-anim]{
+      grid-template-columns:1fr !important;
+      gap:40px !important;
+    }
+    /* Mostrar lang toggle dentro del menú móvil abierto */
+    .nav-links.mob-open .lang-mob-only{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 0;
+      border-top:1px solid var(--line);
+      width:100%;
+    }
+    /* Atrasados process steps: más compacto en móvil */
+    .atrasados-step{
+      padding:14px 0;
+    }
   }
