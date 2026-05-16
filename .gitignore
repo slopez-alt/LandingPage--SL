@@ -1,0 +1,85 @@
+# === SISTEMA OPERATIVO ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === EDITOR ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# === NODE (si se agrega en el futuro) ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# === BUILD OUTPUTS (si se agrega build en el futuro) ===
+dist/
+build/
+.next/
+out/
+.nuxt/
+.output/
+
+# === VARIABLES DE ENTORNO ===
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# NO ignorar .env.example
+
+# === LOGS ===
+*.log
+logs/
+*.error
+
+# === CACHE ===
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# === COBERTURA DE TESTS ===
+coverage/
+.nyc_output/
+
+# === ARCHIVOS TEMPORALES / LOCALES ===
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*_old.*
+*_bak.*
+*_backup.*
+*_copy.*
+*.draft
+
+# === ARCHIVOS ESPECÍFICOS DE ESTE PROYECTO (no incluir en repositorio) ===
+# Versiones legacy/archivo (nombres con espacios — sin comillas en git)
+SL Accounting Services PR.html
+SL Accounting Services PR v1.html
+SL Accounting Services PR v2.html
+SL Accounting Services PR (standalone).html
+# Scripts de utilidad internos
+generate_ppt.py
+*.pptx
+# Assets internos / datos base64
+assets/logo-data-url.txt
+assets/logo.b64.txt
+# Carpeta de uploads duplicados
+uploads/
+# ZIPs de entrega generados localmente
+*.zip
