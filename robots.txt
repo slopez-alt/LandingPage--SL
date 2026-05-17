@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://accountingsl.com/sitemap.xml
+
+Disallow: /privacy/
+Disallow: /terms/

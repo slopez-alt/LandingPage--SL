@@ -866,3 +866,65 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     reveals.forEach(function(el) { revealObserver.observe(el); });
   })();
+
+  // -------- GA4 EVENT TRACKING --------
+  // Conecta todos los data-track-event existentes con GA4
+  (function(){
+    document.querySelectorAll('[data-track-event]').forEach(function(el){
+      el.addEventListener('click', function(){
+        if (typeof gtag === 'undefined') return;
+        gtag('event', el.getAttribute('data-track-event'), {
+          event_category: el.getAttribute('data-track-section') || '',
+          event_label:    el.getAttribute('data-track-label')   || ''
+        });
+      });
+    });
+    // Email clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        if (typeof gtag !== 'undefined') gtag('event', 'email_click', { event_category: 'contact' });
+      });
+    });
+  })();
+
+  // -------- BLOG: Tabla de contenidos + scroll tracking --------
+  (function(){
+    var tocList = document.getElementById('toc-list');
+    var content = document.getElementById('blog-content');
+    if (!tocList || !content) return;
+
+    var headings = content.querySelectorAll('h2');
+    if (!headings.length) {
+      var tocBox = document.getElementById('blog-toc');
+      if (tocBox) tocBox.style.display = 'none';
+      return;
+    }
+
+    headings.forEach(function(h, i){
+      if (!h.id) h.id = 'seccion-' + (i + 1);
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.replace(/\s+/g, ' ').trim();
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    var links = tocList.querySelectorAll('a');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          links.forEach(function(l){
+            l.classList.toggle('toc-active', l.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+
+    headings.forEach(function(h){ observer.observe(h); });
+  })();

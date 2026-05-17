@@ -22,10 +22,27 @@
 <meta property="og:image:alt" content="SL Accounting Services PR logo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://accountingsl.com/assets/og-image.png">
+<!-- hreflang bilingüe — cambiar la URL según la página -->
+<link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/servicios/" />
+<link rel="alternate" hreflang="en"    href="https://accountingsl.com/servicios/" />
+<link rel="alternate" hreflang="x-default" href="https://accountingsl.com/servicios/" />
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQFQZD4KT0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NQFQZD4KT0', {
+    page_title: document.title,
+    page_location: window.location.href
+  });
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script async src="https://tally.so/widgets/embed.js"></script>
+<script defer src="https://tally.so/widgets/embed.js"></script>
 <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
@@ -51,6 +68,7 @@
           <a href="/herramientas/calendario-contributivo-pr/" data-en="PR Tax Calendar">Calendario Contributivo PR</a>
         </div>
       </div>
+      <a href="/blog/" data-en="Blog" data-track-event="nav_click" data-track-section="header" data-track-label="nav_blog">Blog</a>
       <a href="/contacto/" data-en="Contact">Contacto</a>
     </nav>
     <div class="nav-cta">
