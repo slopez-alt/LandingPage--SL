@@ -112,14 +112,25 @@
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.nav-links');
     if(!toggle || !nav) return;
+
+    function closeDropdowns(){
+      nav.querySelectorAll('.nav-dropdown.open').forEach(function(drop){
+        drop.classList.remove('open');
+        const btn = drop.querySelector('.nav-drop-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
     toggle.addEventListener('click', function(){
       const open = nav.classList.toggle('mob-open');
       toggle.setAttribute('aria-expanded', open);
+      if (!open) closeDropdowns();
     });
     // close on link click
     nav.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
         nav.classList.remove('mob-open');
+        closeDropdowns();
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
@@ -127,6 +138,7 @@
     document.addEventListener('click', function(e){
       if(!e.target.closest('.nav') && nav.classList.contains('mob-open')){
         nav.classList.remove('mob-open');
+        closeDropdowns();
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
@@ -294,6 +306,500 @@
     form.addEventListener('change', updateCalculator);
     document.addEventListener('sl:langchange', updateCalculator);
     updateCalculator();
+  })();
+
+  // -------- PR TAX CALENDAR RULE ENGINE --------
+  (function(){
+    const root = document.querySelector('[data-tax-calendar]');
+    if (!root) return;
+
+    const calendarData = window.SL_TAX_CALENDAR_PR || {};
+    const taxCalendarRules = calendarData.taxCalendarRules || [];
+    const sourceObligationChecklist = calendarData.sourceObligationChecklist || [];
+    const validateCalendarRulesCompleteness = calendarData.validateCalendarRulesCompleteness || function(){
+      return { sourceCount: 0, loadedCount: 0, missingCount: 0, duplicateCount: 0, requiresReviewCount: 0, confirmedSourceCount: 0, pendingSourceCount: 0, missing: [], duplicates: [] };
+    };
+    const validation = validateCalendarRulesCompleteness(sourceObligationChecklist, taxCalendarRules);
+    console.info('Calendar Rules Validation:', validation);
+
+    const els = {
+      nextTitle: document.getElementById('calendarNextTitle'),
+      nextDate: document.getElementById('calendarNextDate'),
+      next7: document.getElementById('calendarNext7'),
+      next30: document.getElementById('calendarNext30'),
+      thisMonth: document.getElementById('calendarThisMonth'),
+      requiresReview: document.getElementById('calendarRequiresReview'),
+      pendingSources: document.getElementById('calendarPendingSources'),
+      agencySummary: document.getElementById('calendarAgencySummary'),
+      monthLabel: document.getElementById('calendarMonthLabel'),
+      monthGrid: document.getElementById('calendarMonthGrid'),
+      dayDetail: document.getElementById('calendarDayDetail'),
+      deadlineList: document.getElementById('deadlineList'),
+      reviewList: document.getElementById('calendarReviewList'),
+      technicalRows: document.getElementById('calendarTechnicalRows'),
+      validationStatus: document.getElementById('calendarValidationStatus'),
+      tableSearch: document.getElementById('calendarTableSearch'),
+      prevMonth: document.getElementById('calendarPrevMonth'),
+      nextMonth: document.getElementById('calendarNextMonth'),
+      expandToggle: document.getElementById('calendarExpandToggle'),
+      filters: document.querySelectorAll('[data-calendar-filter]'),
+      rangeButtons: document.querySelectorAll('[data-agenda-range]'),
+    };
+
+    const state = {
+      today: startOfDay(new Date()),
+      viewDate: startOfDay(new Date()),
+      activeFilter: 'all',
+      agendaRange: '7',
+      tableSearch: '',
+      isExpanded: false,
+      selectedDayKey: '',
+    };
+
+    function getCurrentLang(){
+      return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'es';
+    }
+
+    function startOfDay(date) {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+
+    function addDays(date, days) {
+      const next = new Date(date);
+      next.setDate(next.getDate() + days);
+      return startOfDay(next);
+    }
+
+    function addBusinessDays(date, businessDays) {
+      let current = startOfDay(date);
+      let remaining = businessDays;
+      while (remaining > 0) {
+        current = addDays(current, 1);
+        if (current.getDay() !== 0 && current.getDay() !== 6) remaining -= 1;
+      }
+      return current;
+    }
+
+    function adjustDueDate(date, adjustmentRule) {
+      const adjusted = startOfDay(date);
+      if (adjustmentRule !== 'next_business_day_if_weekend') return adjusted;
+      if (adjusted.getDay() === 6) return addDays(adjusted, 2);
+      if (adjusted.getDay() === 0) return addDays(adjusted, 1);
+      return adjusted;
+      // Future phase: apply official Puerto Rico and federal holidays here.
+    }
+
+    function buildEvent(rule, year, month, day, options) {
+      const rawDate = new Date(year, month - 1, day);
+      const dueDate = adjustDueDate(rawDate, rule.adjustmentRule);
+      return Object.assign({
+        id: rule.id + '-' + year + '-' + month + '-' + day,
+        obligationId: rule.id,
+        sourceKey: rule.sourceKey,
+        title: rule.title,
+        agency: rule.agency,
+        appliesTo: rule.appliesTo,
+        frequency: rule.frequency,
+        ruleType: rule.ruleType,
+        dueRuleText: rule.dueRuleText,
+        adjustmentRule: rule.adjustmentRule,
+        sourceConfirmed: rule.sourceConfirmed,
+        sourceStatus: rule.sourceStatus,
+        notes: rule.notes,
+        requiresReview: rule.requiresReview,
+        dueDate: dueDate,
+      }, options || {});
+    }
+
+    function generateEventsForYear(year, rules) {
+      return rules.flatMap(function(rule){
+        if (rule.ruleType === 'fixed_day_monthly') {
+          return Array.from({ length: 12 }, function(_, monthIndex){
+            return buildEvent(rule, year, monthIndex + 1, rule.day);
+          });
+        }
+        if (rule.ruleType === 'fixed_annual') {
+          return [buildEvent(rule, year, rule.month, rule.day)];
+        }
+        if (rule.ruleType === 'fixed_quarterly' || rule.ruleType === 'quarterly_specific_dates' || rule.ruleType === 'semiannual_specific_dates') {
+          return (rule.dates || []).map(function(date){
+            const eventYear = date.month === 1 && rule.frequency === 'quarterly' ? year + 1 : year;
+            return buildEvent(rule, eventYear, date.month, date.day);
+          });
+        }
+        if (rule.ruleType === 'date_window') {
+          return [buildEvent(rule, year, rule.startMonth, rule.startDay, {
+            windowEndDate: adjustDueDate(new Date(year, rule.endMonth - 1, rule.endDay), rule.adjustmentRule),
+          })];
+        }
+        if (rule.ruleType === 'relative_to_date') {
+          return [Object.assign(buildEvent(rule, year, rule.baseMonth, rule.baseDay), {
+            dueDate: adjustDueDate(addBusinessDays(new Date(year, rule.baseMonth - 1, rule.baseDay), rule.businessDaysAfter || 0), rule.adjustmentRule),
+          })];
+        }
+        if ((rule.ruleType === 'manual_review' || rule.ruleType === 'variable') && rule.approximateMonth) {
+          return [buildEvent(rule, year, rule.approximateMonth, 1, { isApproximate: true })];
+        }
+        return [];
+      }).sort(function(a, b){ return a.dueDate - b.dueDate; });
+    }
+
+    function getUpcomingDeadlines(events, currentDate) {
+      const today = startOfDay(currentDate);
+      return events
+        .filter(function(event){ return startOfDay(event.dueDate) >= today; })
+        .map(function(event){
+          const daysRemaining = Math.round((startOfDay(event.dueDate) - today) / 86400000);
+          return Object.assign({}, event, {
+            daysRemaining: daysRemaining,
+            urgency: getUrgency(daysRemaining),
+          });
+        })
+        .sort(function(a, b){ return a.dueDate - b.dueDate; });
+    }
+
+    function getUrgency(daysRemaining) {
+      if (daysRemaining < 0) return 'overdue';
+      if (daysRemaining <= 7) return 'critical';
+      if (daysRemaining <= 30) return 'soon';
+      return 'normal';
+    }
+
+    function ruleMatchesFilter(rule, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'source_confirmed') return rule.sourceStatus === 'confirmed';
+      if (filter === 'pending_review') return rule.sourceStatus !== 'confirmed';
+      if (filter === 'requires_review') return !!rule.requiresReview;
+      return rule.agency === filter || rule.agency.indexOf(filter) !== -1 || rule.appliesTo.includes(filter);
+    }
+
+    function eventMatchesFilter(event, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'source_confirmed') return event.sourceStatus === 'confirmed';
+      if (filter === 'pending_review') return event.sourceStatus !== 'confirmed';
+      if (filter === 'requires_review') return !!event.requiresReview;
+      return event.agency === filter || event.agency.indexOf(filter) !== -1 || event.appliesTo.includes(filter);
+    }
+
+    function formatDate(date, options) {
+      return new Intl.DateTimeFormat(getCurrentLang() === 'en' ? 'en-US' : 'es-PR', options || {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      }).format(date);
+    }
+
+    function labelForEvent(event) { return event.title; }
+    function appliesLabel(item) { return item.appliesTo.join(' · '); }
+
+    function shortTitle(title) {
+      return title
+        .replace(' — ', ' ')
+        .replace('Planilla ', '')
+        .replace('Depósito ', '')
+        .replace('Contribución ', 'Contr. ')
+        .replace('Hacienda PR', 'Hacienda')
+        .replace('Federal', 'Fed.')
+        .replace('Annual ', '')
+        .slice(0, 44);
+    }
+
+    function reviewMark(item) {
+      return item.sourceStatus !== 'confirmed' || item.requiresReview ? '<sup class="calendar-review-mark">*</sup>' : '';
+    }
+
+    function frequencyLabel(frequency) {
+      const labels = {
+        mensual: ['Mensual', 'Monthly'],
+        trimestral: ['Trimestral', 'Quarterly'],
+        anual: ['Anual', 'Annual'],
+        semestral: ['Semestral', 'Semiannual'],
+        una_sola_vez: ['Una sola vez', 'One time'],
+        por_transacción: ['Por transacción', 'Per transaction'],
+        mensual___bisemanal: ['Mensual / Bisemanal', 'Monthly / semiweekly'],
+      };
+      const value = labels[frequency] || [frequency.replace(/_/g, ' '), frequency.replace(/_/g, ' ')];
+      return getCurrentLang() === 'en' ? value[1] : value[0];
+    }
+
+    function daysLabel(days) {
+      const lang = getCurrentLang();
+      if (days === 0) return lang === 'en' ? 'Today' : 'Hoy';
+      if (days === 1) return lang === 'en' ? '1 day left' : 'Falta 1 día';
+      return lang === 'en' ? days + ' days left' : 'Faltan ' + days + ' días';
+    }
+
+    function urgencyLabel(urgency) {
+      const labels = { overdue: ['Vencido', 'Overdue'], critical: ['Crítico', 'Critical'], soon: ['Pronto', 'Soon'], normal: ['Normal', 'Normal'] };
+      const value = labels[urgency] || labels.normal;
+      return getCurrentLang() === 'en' ? value[1] : value[0];
+    }
+
+    function sourceStatusLabel(item) {
+      if (item.sourceStatus === 'confirmed') return getCurrentLang() === 'en' ? 'Source confirmed' : 'Fuente confirmada';
+      return getCurrentLang() === 'en' ? 'Pending review' : 'Pendiente de revisión';
+    }
+
+    function automationLabel(item) {
+      if (item.requiresReview) return getCurrentLang() === 'en' ? 'Requires review' : 'Requiere revisión';
+      return getCurrentLang() === 'en' ? 'Automatic' : 'Automático';
+    }
+
+    function getFilteredRules() {
+      return taxCalendarRules.filter(function(rule){ return ruleMatchesFilter(rule, state.activeFilter); });
+    }
+
+    function getFilteredEvents() {
+      const year = state.viewDate.getFullYear();
+      const years = [year - 1, year, year + 1];
+      return years.flatMap(function(y){ return generateEventsForYear(y, taxCalendarRules); })
+        .filter(function(event){ return eventMatchesFilter(event, state.activeFilter); });
+    }
+
+    function filterByAgendaRange(events) {
+      const upcoming = getUpcomingDeadlines(events, state.today);
+      if (state.agendaRange === '7') return upcoming.filter(function(event){ return event.daysRemaining <= 7; }).slice(0, 10);
+      if (state.agendaRange === '30') return upcoming.filter(function(event){ return event.daysRemaining <= 30; }).slice(0, 10);
+      if (state.agendaRange === 'month') {
+        return upcoming.filter(function(event){
+          return event.dueDate.getFullYear() === state.today.getFullYear() && event.dueDate.getMonth() === state.today.getMonth();
+        }).slice(0, 10);
+      }
+      return upcoming.filter(function(event){ return event.dueDate.getFullYear() === state.viewDate.getFullYear(); }).slice(0, 10);
+    }
+
+    function renderDashboard(events, rules) {
+      const upcoming = getUpcomingDeadlines(events, state.today).filter(function(event){ return !event.requiresReview || event.isApproximate; });
+      const next = upcoming[0];
+      const next7 = upcoming.filter(function(event){ return event.daysRemaining <= 7; }).length;
+      const next30 = upcoming.filter(function(event){ return event.daysRemaining <= 30; }).length;
+      const thisMonth = events.filter(function(event){ return event.dueDate.getFullYear() === state.today.getFullYear() && event.dueDate.getMonth() === state.today.getMonth(); });
+      const agencyCounts = thisMonth.reduce(function(map, event){ map[event.agency] = (map[event.agency] || 0) + 1; return map; }, {});
+      const topAgency = Object.keys(agencyCounts).sort(function(a, b){ return agencyCounts[b] - agencyCounts[a]; })[0];
+
+      els.nextTitle.textContent = next ? labelForEvent(next) : (getCurrentLang() === 'en' ? 'No upcoming deadlines' : 'Sin próximos vencimientos');
+      els.nextDate.textContent = next ? formatDate(next.dueDate) + ' · ' + daysLabel(next.daysRemaining) : '—';
+      els.next7.textContent = next7;
+      els.next30.textContent = next30;
+      els.thisMonth.textContent = thisMonth.length;
+      els.requiresReview.textContent = rules.filter(function(rule){ return rule.requiresReview; }).length;
+      els.pendingSources.textContent = rules.filter(function(rule){ return rule.sourceStatus !== 'confirmed'; }).length;
+      els.agencySummary.textContent = topAgency || (getCurrentLang() === 'en' ? 'No obligations this month' : 'Sin obligaciones este mes');
+    }
+
+    function renderMonth(events) {
+      const year = state.viewDate.getFullYear();
+      const month = state.viewDate.getMonth();
+      els.monthLabel.textContent = new Intl.DateTimeFormat(getCurrentLang() === 'en' ? 'en-US' : 'es-PR', { month: 'long', year: 'numeric' }).format(state.viewDate);
+      const firstDay = new Date(year, month, 1);
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const leadingDays = firstDay.getDay();
+      const cells = [];
+      for (let i = 0; i < leadingDays; i++) cells.push({ muted: true });
+      for (let day = 1; day <= daysInMonth; day++) cells.push({ day: day, date: new Date(year, month, day) });
+      while (cells.length % 7 !== 0) cells.push({ muted: true });
+      els.monthGrid.innerHTML = cells.map(function(cell){
+        if (cell.muted) return '<div class="calendar-day is-muted" aria-hidden="true"></div>';
+        const dayEvents = events.filter(function(event){ return event.dueDate.getFullYear() === year && event.dueDate.getMonth() === month && event.dueDate.getDate() === cell.day; });
+        const isToday = cell.date.getTime() === state.today.getTime();
+        const dayKey = year + '-' + (month + 1) + '-' + cell.day;
+        const visibleEvents = dayEvents.slice(0, 2);
+        const moreCount = Math.max(0, dayEvents.length - visibleEvents.length);
+        return '<div class="calendar-day' + (isToday ? ' is-today' : '') + (state.selectedDayKey === dayKey ? ' is-selected' : '') + '" data-calendar-day="' + dayKey + '">' +
+          '<div class="calendar-day-num"><span>' + cell.day + '</span></div>' +
+          visibleEvents.map(function(event){
+            return '<div class="calendar-event-pill"><span>' + shortTitle(labelForEvent(event)) + reviewMark(event) + '</span><span class="agency">' + event.agency + '</span></div>';
+          }).join('') +
+          (moreCount ? '<button type="button" class="calendar-more-pill" data-calendar-day="' + dayKey + '">+' + moreCount + ' ' + (getCurrentLang() === 'en' ? 'more' : 'más') + '</button>' : '') +
+        '</div>';
+      }).join('');
+      renderDayDetail(events);
+    }
+
+    function renderDayDetail(events) {
+      if (!els.dayDetail) return;
+      if (!state.selectedDayKey) {
+        els.dayDetail.hidden = true;
+        els.dayDetail.innerHTML = '';
+        return;
+      }
+      const parts = state.selectedDayKey.split('-').map(Number);
+      const selectedDate = new Date(parts[0], parts[1] - 1, parts[2]);
+      const dayEvents = events.filter(function(event){
+        return event.dueDate.getFullYear() === parts[0] && event.dueDate.getMonth() === parts[1] - 1 && event.dueDate.getDate() === parts[2];
+      });
+      if (!dayEvents.length) {
+        els.dayDetail.hidden = true;
+        els.dayDetail.innerHTML = '';
+        return;
+      }
+      els.dayDetail.hidden = false;
+      els.dayDetail.innerHTML = '<div class="calendar-day-detail-head">' +
+        '<div><span class="section-tag">' + (getCurrentLang() === 'en' ? 'Day detail' : 'Detalle del día') + '</span><h3>' + formatDate(selectedDate, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) + '</h3></div>' +
+        '<button type="button" id="calendarCloseDayDetail">' + (getCurrentLang() === 'en' ? 'Close' : 'Cerrar') + '</button>' +
+      '</div>' +
+      '<div class="calendar-day-detail-list">' + dayEvents.map(function(event){
+        return '<article class="calendar-day-detail-item">' +
+          '<h4>' + labelForEvent(event) + reviewMark(event) + '</h4>' +
+          '<div class="deadline-meta"><span>' + event.agency + '</span><span>' + appliesLabel(event) + '</span><span>' + frequencyLabel(event.frequency) + '</span></div>' +
+          '<p>' + event.dueRuleText + '</p>' +
+        '</article>';
+      }).join('') + '</div>';
+      const close = document.getElementById('calendarCloseDayDetail');
+      if (close) {
+        close.addEventListener('click', function(){
+          state.selectedDayKey = '';
+          renderCalendar();
+        });
+      }
+    }
+
+    function renderAgenda(events) {
+      const selected = filterByAgendaRange(events).filter(function(event){ return !event.requiresReview || event.isApproximate; });
+      if (!selected.length) {
+        els.deadlineList.innerHTML = '<div class="deadline-empty">' + (getCurrentLang() === 'en' ? 'No upcoming deadlines for this range.' : 'No hay próximos vencimientos para este rango.') + '</div>';
+        return;
+      }
+      els.deadlineList.innerHTML = selected.map(function(event){
+        return '<article class="deadline-card">' +
+          '<div class="deadline-card-head">' +
+            '<div><div class="deadline-date">' + formatDate(event.dueDate) + (event.isApproximate ? ' · ' + (getCurrentLang() === 'en' ? 'Approx.' : 'Aprox.') : '') + '</div><h3>' + labelForEvent(event) + reviewMark(event) + '</h3></div>' +
+            '<span class="urgency-badge ' + event.urgency + '">' + daysLabel(event.daysRemaining) + '</span>' +
+          '</div>' +
+          '<div class="deadline-meta">' +
+            '<span>' + event.agency + '</span>' +
+            '<span>' + appliesLabel(event) + '</span>' +
+            '<span>' + frequencyLabel(event.frequency) + '</span>' +
+            '<span class="urgency-badge ' + event.urgency + '">' + urgencyLabel(event.urgency) + '</span>' +
+            (event.sourceStatus !== 'confirmed' || event.requiresReview ? '<span class="source-badge auto">* ' + (getCurrentLang() === 'en' ? 'Internal review' : 'Revisión interna') + '</span>' : '') +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+
+    function renderReviewList(rules) {
+      const reviewRules = rules.filter(function(rule){ return rule.requiresReview; });
+      if (!reviewRules.length) {
+        els.reviewList.innerHTML = '<div class="deadline-empty">' + (getCurrentLang() === 'en' ? 'No obligations require review for this filter.' : 'No hay obligaciones que requieran revisión para este filtro.') + '</div>';
+        return;
+      }
+      els.reviewList.innerHTML = reviewRules.map(function(rule){
+        return '<article class="review-card">' +
+          '<span class="source-badge review">' + automationLabel(rule) + '</span>' +
+          '<h3>' + rule.title + '</h3>' +
+          '<div class="deadline-meta"><span>' + rule.agency + '</span><span>' + appliesLabel(rule) + '</span><span>' + frequencyLabel(rule.frequency) + '</span><span class="source-badge ' + (rule.sourceStatus === 'confirmed' ? 'confirmed' : 'review') + '">' + sourceStatusLabel(rule) + '</span></div>' +
+          '<p>' + rule.dueRuleText + '</p>' +
+        '</article>';
+      }).join('');
+    }
+
+    function renderTechnicalRows(rules) {
+      const query = state.tableSearch.trim().toLowerCase();
+      const visible = rules.filter(function(item){
+        if (!query) return true;
+        return [item.title, item.agency, item.dueRuleText, item.notes, item.ruleType].join(' ').toLowerCase().includes(query);
+      });
+      els.technicalRows.innerHTML = visible.map(function(item){
+        return '<tr>' +
+          '<td><strong>' + item.title + '</strong></td>' +
+          '<td>' + item.appliesTo.join(' · ') + '</td>' +
+          '<td>' + item.agency + '</td>' +
+          '<td>' + frequencyLabel(item.frequency) + '</td>' +
+          '<td>' + item.dueRuleText + '</td>' +
+          '<td><span class="source-badge auto">' + item.ruleType + '</span></td>' +
+          '<td><span class="source-badge ' + (item.sourceStatus === 'confirmed' ? 'confirmed' : 'review') + '">' + sourceStatusLabel(item) + '</span></td>' +
+          '<td><span class="source-badge ' + (item.requiresReview ? 'review' : 'auto') + '">' + automationLabel(item) + '</span></td>' +
+          '<td>' + item.notes + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    function renderValidationStatus() {
+      const items = [
+        ['Total fuente', validation.sourceCount],
+        ['Total cargadas', validation.loadedCount],
+        ['Faltantes', validation.missingCount],
+        ['Duplicadas', validation.duplicateCount],
+        ['Requiere revisión', validation.requiresReviewCount],
+        ['Fuente confirmada', validation.confirmedSourceCount],
+        ['Fuente pendiente', validation.pendingSourceCount],
+        ['Sin campos críticos', validation.withoutRuleType.length + validation.withoutAgency.length + validation.withoutFrequency.length + validation.withoutDueRuleText.length],
+      ];
+      els.validationStatus.innerHTML = items.map(function(item){
+        return '<div class="validation-item"><span>' + item[0] + '</span><strong>' + item[1] + '</strong></div>';
+      }).join('');
+    }
+
+    function renderCalendar() {
+      const rules = getFilteredRules();
+      const events = getFilteredEvents();
+      if (els.expandToggle) {
+        els.expandToggle.textContent = state.isExpanded
+          ? (getCurrentLang() === 'en' ? 'Restore view' : 'Restaurar vista')
+          : (getCurrentLang() === 'en' ? 'Expand calendar' : 'Expandir calendario');
+      }
+      renderDashboard(events, rules);
+      renderMonth(events);
+      renderAgenda(events);
+      renderReviewList(rules);
+      renderTechnicalRows(rules);
+      renderValidationStatus();
+    }
+
+    els.filters.forEach(function(button){
+      button.addEventListener('click', function(){
+        state.activeFilter = button.getAttribute('data-calendar-filter');
+        els.filters.forEach(function(btn){ btn.classList.toggle('active', btn === button); });
+        renderCalendar();
+      });
+    });
+
+    els.rangeButtons.forEach(function(button){
+      button.addEventListener('click', function(){
+        state.agendaRange = button.getAttribute('data-agenda-range');
+        els.rangeButtons.forEach(function(btn){ btn.classList.toggle('active', btn === button); });
+        renderCalendar();
+      });
+    });
+
+    if (els.tableSearch) {
+      els.tableSearch.addEventListener('input', function(){
+        state.tableSearch = els.tableSearch.value || '';
+        renderCalendar();
+      });
+    }
+
+    if (els.monthGrid) {
+      els.monthGrid.addEventListener('click', function(e){
+        const target = e.target.closest('[data-calendar-day]');
+        if (!target) return;
+        state.selectedDayKey = target.getAttribute('data-calendar-day');
+        renderCalendar();
+      });
+    }
+
+    if (els.expandToggle) {
+      els.expandToggle.addEventListener('click', function(){
+        state.isExpanded = !state.isExpanded;
+        root.classList.toggle('calendar-expanded', state.isExpanded);
+        els.expandToggle.setAttribute('aria-expanded', state.isExpanded ? 'true' : 'false');
+        els.expandToggle.textContent = state.isExpanded
+          ? (getCurrentLang() === 'en' ? 'Restore view' : 'Restaurar vista')
+          : (getCurrentLang() === 'en' ? 'Expand calendar' : 'Expandir calendario');
+      });
+    }
+
+    els.prevMonth.addEventListener('click', function(){
+      state.viewDate = startOfDay(new Date(state.viewDate.getFullYear(), state.viewDate.getMonth() - 1, 1));
+      renderCalendar();
+    });
+    els.nextMonth.addEventListener('click', function(){
+      state.viewDate = startOfDay(new Date(state.viewDate.getFullYear(), state.viewDate.getMonth() + 1, 1));
+      renderCalendar();
+    });
+
+    document.addEventListener('sl:langchange', renderCalendar);
+    renderCalendar();
   })();
 
   // -------- HEADER SCROLL STATE --------

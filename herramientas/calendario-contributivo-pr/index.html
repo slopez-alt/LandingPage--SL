@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Calendario Contributivo PR | SL Accounting Services PR</title>
+<meta name="description" content="Herramienta dinámica para visualizar fechas límite y próximos vencimientos contributivos de Puerto Rico.">
+<link rel="canonical" href="https://accountingsl.com/herramientas/calendario-contributivo-pr/">
+<meta property="og:title" content="Calendario Contributivo PR — SL Accounting Services PR">
+<meta property="og:description" content="Visualiza fechas límite, obligaciones recurrentes y próximos vencimientos contributivos de Puerto Rico.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PR">
+<link rel="icon" type="image/png" href="/assets/favicon-v2.png?v=2">
+<link rel="shortcut icon" href="/assets/favicon-v2.ico?v=2">
+<link rel="apple-touch-icon" href="/assets/favicon-v2.png?v=2">
+<meta property="og:url" content="https://accountingsl.com/herramientas/calendario-contributivo-pr/">
+<meta property="og:image" content="https://accountingsl.com/assets/og-image.png">
+<meta property="og:image:secure_url" content="https://accountingsl.com/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SL Accounting Services PR logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://accountingsl.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script async src="https://tally.so/widgets/embed.js"></script>
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="SL Accounting Services PR">
+      <div class="brand-mark"><img src="/assets/logo.png" alt="SL monogram" /></div>
+      <div class="brand-name">
+        <span class="nm">SL Accounting</span>
+        <span class="sub" data-en="PUERTO RICO">PUERTO RICO</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="/" data-en="Home" data-track-event="nav_click" data-track-section="header" data-track-label="nav_inicio">Inicio</a>
+      <a href="/servicios/" data-en="Services" data-track-event="nav_click" data-track-section="header" data-track-label="nav_servicios">Servicios</a>
+      <a href="/clientes-atrasados/" data-en="Late filings" data-track-event="nav_click" data-track-section="header" data-track-label="nav_atrasados">Clientes atrasados</a>
+      <a href="/nosotros/" data-en="About Us" data-track-event="nav_click" data-track-section="header" data-track-label="nav_nosotros">Nosotros</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-toggle active" type="button" aria-expanded="false" data-en="Tools">Herramientas</button>
+        <div class="nav-dropdown-menu">
+          <a href="/herramientas/calculadora-alivio-contributivo-2025/" data-en="2025 Tax Relief Calculator">Calculadora de Alivio Contributivo 2025</a>
+          <a href="/herramientas/calendario-contributivo-pr/" data-en="PR Tax Calendar">Calendario Contributivo PR</a>
+        </div>
+      </div>
+      <a href="/contacto/" data-en="Contact" data-track-event="nav_click" data-track-section="header" data-track-label="nav_contacto">Contacto</a>
+      <button class="lang lang-mob-only" type="button" aria-label="Toggle language" onclick="document.getElementById('langToggle').click()"><span data-l="es" class="on">ES</span><span class="sep">/</span><span data-l="en">EN</span></button>
+    </nav>
+    <div class="nav-cta">
+      <button class="lang" id="langToggle" type="button" aria-label="Toggle language" data-track-event="lang_toggle" data-track-section="header" data-track-label="idioma_es_en"><span data-l="es" class="on">ES</span><span class="sep">/</span><span data-l="en">EN</span></button>
+      <a href="/contacto/" class="btn btn-primary" data-track-event="cta_click" data-track-section="header" data-track-label="revisar_cumplimiento" data-en-html="Review my compliance <span class=&quot;arr&quot;></span>">Revisar mi cumplimiento <span class="arr"></span></a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- ============ HERO INTERNO ============ -->
+<section class="tool-hero tax-calendar-hero">
+  <div class="container">
+    <div data-anim>
+      <span class="tool-kicker" data-en="Tax compliance tool">Herramienta de cumplimiento contributivo</span>
+      <h1 data-en="PR Tax Calendar">Calendario Contributivo PR</h1>
+      <p data-en="View deadlines, recurring obligations, and Puerto Rico tax due dates in a clear, dynamic experience that can be updated year after year.">Visualiza fechas límite, obligaciones recurrentes y vencimientos contributivos de Puerto Rico en una experiencia clara, dinámica y actualizable año tras año.</p>
+      <div class="tool-hero-actions">
+        <a href="#proximos-vencimientos" class="btn btn-primary" data-en-html="View upcoming deadlines <span class=&quot;arr&quot;></span>">Ver próximos vencimientos <span class="arr"></span></a>
+        <a href="#calendario-mensual" class="btn btn-secondary" data-en-html="Explore calendar <span class=&quot;arr&quot;></span>">Explorar calendario <span class="arr"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALENDARIO CONTRIBUTIVO ============ -->
+<section class="tax-calendar" data-tax-calendar>
+  <div class="container">
+    <div class="calendar-dashboard" data-anim>
+      <article class="calendar-metric calendar-metric-featured">
+        <span data-en="Next deadline">Próximo vencimiento</span>
+        <strong id="calendarNextTitle">—</strong>
+        <small id="calendarNextDate">—</small>
+      </article>
+      <article class="calendar-metric">
+        <span data-en="Next 7 days">Próximos 7 días</span>
+        <strong id="calendarNext7">0</strong>
+        <small data-en="active deadlines">vencimientos activos</small>
+      </article>
+      <article class="calendar-metric">
+        <span data-en="Next 30 days">Próximos 30 días</span>
+        <strong id="calendarNext30">0</strong>
+        <small data-en="to monitor">por monitorear</small>
+      </article>
+      <article class="calendar-metric">
+        <span data-en="This month">Este mes</span>
+        <strong id="calendarThisMonth">0</strong>
+        <small id="calendarAgencySummary">—</small>
+      </article>
+      <article class="calendar-metric">
+        <span data-en="Requires review">Requiere revisión</span>
+        <strong id="calendarRequiresReview">0</strong>
+        <small data-en="rules need validation">reglas por validar</small>
+      </article>
+      <article class="calendar-metric">
+        <span data-en="Pending sources">Fuentes pendientes</span>
+        <strong id="calendarPendingSources">0</strong>
+        <small data-en="source status">estado de fuente</small>
+      </article>
+    </div>
+
+    <div class="calendar-filters" data-anim aria-label="Filtros de calendario contributivo">
+      <button type="button" class="active" data-calendar-filter="all" data-en="All">Todas</button>
+      <button type="button" data-calendar-filter="Individuo" data-en="Individuals">Individuos</button>
+      <button type="button" data-calendar-filter="Negocio" data-en="Businesses">Negocios</button>
+      <button type="button" data-calendar-filter="Patronal" data-en="Payroll">Patronal</button>
+      <button type="button" data-calendar-filter="Hacienda PR">Hacienda PR</button>
+      <button type="button" data-calendar-filter="CRIM">CRIM</button>
+      <button type="button" data-calendar-filter="IRS/Federal">IRS/Federal</button>
+      <button type="button" data-calendar-filter="Municipios" data-en="Municipalities">Municipios</button>
+      <button type="button" data-calendar-filter="DTRH">DTRH</button>
+      <button type="button" data-calendar-filter="CFSE">CFSE</button>
+      <button type="button" data-calendar-filter="FinCEN">FinCEN</button>
+      <button type="button" data-calendar-filter="source_confirmed" data-en="Source confirmed">Fuente confirmada</button>
+      <button type="button" data-calendar-filter="pending_review" data-en="Pending review">Pendiente de revisión</button>
+      <button type="button" data-calendar-filter="requires_review" data-en="Requires review">Requiere revisión</button>
+    </div>
+
+    <div class="calendar-layout">
+      <div class="calendar-main" id="calendario-mensual" data-anim>
+        <div class="calendar-panel-head">
+          <div>
+            <span class="section-tag" data-en="Monthly view">Vista mensual</span>
+            <h2 id="calendarMonthLabel">—</h2>
+          </div>
+          <div class="calendar-nav-controls">
+            <button type="button" id="calendarExpandToggle" class="calendar-expand-toggle" aria-expanded="false" data-en="Expand calendar">Expandir calendario</button>
+            <button type="button" id="calendarPrevMonth" aria-label="Mes anterior">←</button>
+            <button type="button" id="calendarNextMonth" aria-label="Mes siguiente">→</button>
+          </div>
+        </div>
+        <div class="calendar-weekdays" aria-hidden="true">
+          <span data-en="Sun">Dom</span><span data-en="Mon">Lun</span><span data-en="Tue">Mar</span><span data-en="Wed">Mié</span><span data-en="Thu">Jue</span><span data-en="Fri">Vie</span><span data-en="Sat">Sáb</span>
+        </div>
+        <div class="calendar-month-grid" id="calendarMonthGrid"></div>
+        <div class="calendar-day-detail" id="calendarDayDetail" hidden></div>
+      </div>
+
+      <aside class="calendar-agenda" id="proximos-vencimientos" data-anim>
+        <div class="calendar-panel-head compact">
+          <div>
+            <span class="section-tag" data-en="Agenda">Agenda</span>
+            <h2 data-en="Upcoming deadlines">Próximos vencimientos</h2>
+          </div>
+        </div>
+        <div class="agenda-range" aria-label="Rango de próximos vencimientos">
+          <button type="button" class="active" data-agenda-range="7" data-en="Next 7 days">Próximos 7 días</button>
+          <button type="button" data-agenda-range="30" data-en="Next 30 days">Próximos 30 días</button>
+          <button type="button" data-agenda-range="month" data-en="This month">Este mes</button>
+          <button type="button" data-agenda-range="year" data-en="All year">Todo el año</button>
+        </div>
+        <div class="deadline-list" id="deadlineList"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVISION MANUAL ============ -->
+<section class="calendar-review">
+  <div class="container">
+    <details class="calendar-review-panel" data-anim>
+      <summary>
+        <div>
+          <span class="section-tag" data-en="Internal review">Revisión interna</span>
+          <h2 data-en="Obligations that require review">Obligaciones que requieren revisión</h2>
+        </div>
+        <small data-en="Open technical review queue">Abrir cola técnica</small>
+      </summary>
+      <p class="calendar-disclaimer" data-en="These obligations are included in the system but should not be treated as guaranteed exact due dates until the notice, invoice, municipality, agency rule, or specific condition is validated.">
+        Estas obligaciones están incluidas en el sistema, pero no deben tratarse como fechas exactas garantizadas hasta validar notificación, factura, municipio, regla de agencia o condición específica.
+      </p>
+      <div class="review-list" id="calendarReviewList"></div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ DATA TECNICA ============ -->
+<section class="calendar-technical">
+  <div class="container">
+    <details class="calendar-tech-details" data-anim>
+      <summary>
+        <span data-en="Complete technical rules table">Tabla técnica completa</span>
+        <small data-en="All loaded source obligations">Todas las obligaciones fuente cargadas</small>
+      </summary>
+      <div class="calendar-table-tools">
+        <label for="calendarTableSearch" data-en="Search obligation">Buscar obligación</label>
+        <input id="calendarTableSearch" type="search" placeholder="Buscar por obligación, agencia o nota" data-es-placeholder="Buscar por obligación, agencia o nota" data-en-placeholder="Search by obligation, agency, or note">
+      </div>
+      <div class="calendar-table-wrap">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th data-en="Obligation">Obligación</th>
+              <th data-en="Applies to">Aplica a</th>
+              <th data-en="Agency">Agencia</th>
+              <th data-en="Frequency">Frecuencia</th>
+              <th data-en="Due rule">Regla de vencimiento</th>
+              <th data-en="Rule type">Tipo de regla</th>
+              <th data-en="Source status">Estado de fuente</th>
+              <th data-en="Automation status">Estado automático/revisión</th>
+              <th data-en="Notes">Notas</th>
+            </tr>
+          </thead>
+          <tbody id="calendarTechnicalRows"></tbody>
+        </table>
+      </div>
+      <p class="calendar-internal-note" data-en="* Requires internal review. Public calendar dates should be validated before relying on variable, invoice-based, municipal, or notice-based obligations.">
+        * Requiere revisión interna. Las fechas públicas deben validarse antes de depender de obligaciones variables, por factura, municipio o notificación.
+      </p>
+    </details>
+
+    <details class="calendar-tech-details calendar-validation-details" data-anim>
+      <summary>
+        <span data-en="Calendar validation status">Estado de validación del calendario</span>
+        <small data-en="Completeness check for source obligations">Validación de completitud de obligaciones fuente</small>
+      </summary>
+      <div class="validation-grid" id="calendarValidationStatus"></div>
+    </details>
+
+    <p class="calendar-disclaimer" data-anim data-en="This tool is a general informational reference and does not replace individualized tax advice. Dates may vary due to holidays, law changes, administrative extensions, or specific circumstances.">
+      Esta herramienta es una referencia informativa general y no sustituye asesoría contributiva individualizada. Las fechas pueden variar por feriados, cambios de ley, prórrogas administrativas o circunstancias particulares.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="tool-cta calendar-final-cta">
+  <div class="container">
+    <div class="tool-cta-inner" data-anim>
+      <div>
+        <span class="section-tag" data-en="Compliance support">Apoyo de cumplimiento</span>
+        <h2 data-en="Need help managing your tax deadlines?">¿Necesitas ayuda manejando tus fechas contributivas?</h2>
+        <p data-en="SL Accounting Services can help you organize, monitor, and meet your tax obligations before they become penalties.">SL Accounting Services puede ayudarte a organizar, monitorear y cumplir con tus obligaciones contributivas antes de que se conviertan en penalidades.</p>
+      </div>
+      <div class="calendar-cta-actions">
+        <a href="/contacto/" class="btn btn-light" data-en-html="Request guidance <span class=&quot;arr&quot;></span>">Solicitar orientación <span class="arr"></span></a>
+        <a href="/servicios/" class="btn btn-on-dark" data-en="View services">Ver servicios</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="top">
+          <div class="mark"><img src="/assets/logo.png" alt="SL monogram" /></div>
+          <div class="nm">SL Accounting Services PR</div>
+        </div>
+        <p data-en="Accounting, tax and compliance services for Puerto Rico — monthly bookkeeping, returns, sales tax, payroll, advisory and agency representation.">
+          Servicios contables, contributivos y de cumplimiento para Puerto Rico — bookkeeping mensual, planillas, IVU, nómina, consultoría y respuestas a agencias.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h5 data-en="Services">Servicios</h5>
+        <ul>
+          <li><a href="/servicios/" data-en="Monthly bookkeeping">Bookkeeping mensual</a></li>
+          <li><a href="/servicios/" data-en="Individual & business returns">Planillas individuos y negocios</a></li>
+          <li><a href="/servicios/" data-en="Sales tax & compliance">IVU y cumplimiento</a></li>
+          <li><a href="/servicios/" data-en="Payroll & quarterly">Nómina y trimestrales</a></li>
+          <li><a href="/servicios/">Act 60 / Act 14</a></li>
+          <li><a href="/servicios/" data-en="Agency notices">Cartas y agencias</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5 data-en="Firm">Firma</h5>
+        <ul>
+          <li><a href="/nosotros/" data-en="About Us">Nosotros</a></li>
+          <li><a href="/servicios/" data-en="Compliance">Cumplimiento</a></li>
+          <li><a href="/clientes-atrasados/" data-en="Late filings">Clientes atrasados</a></li>
+          <li><a href="/contacto/" data-en="Contact">Contacto</a></li>
+          <li><a href="/privacy/" data-en="Privacy Policy">Política de Privacidad</a></li>
+          <li><a href="/terms/" data-en="Terms">Términos</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5 data-en="Contact">Contacto</h5>
+        <ul>
+          <li class="mono"><a href="mailto:info@accountingsl.com" style="color:inherit;text-decoration:none">EMAIL · info@accountingsl.com</a></li>
+          <li class="mono"><a href="https://wa.me/17879617041" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">WHATSAPP · +1 (787) 961-7041</a></li>
+          <li class="mono" data-en="LOCATION · Puerto Rico">UBICACIÓN · Puerto Rico</li>
+          <li class="mono" data-en="HOURS · MON–FRI · 9AM–5PM AST">HORARIO · L–V · 9AM–5PM AST</li>
+          <li class="mono" data-en="SERVICE · REMOTE">SERVICIO · REMOTO</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-disclaimer">
+      <p data-en="The information presented on this site is general in nature and does not constitute specific tax, legal, or financial advice. Each case must be evaluated based on its particular facts and documents.">
+        La información presentada en esta página es de carácter general y no constituye asesoría contributiva, legal o financiera específica. Cada caso debe evaluarse según sus hechos y documentos particulares.
+      </p>
+      <p data-en="SL Accounting Services PR does not present itself as a CPA firm unless expressly stated.">
+        SL Accounting Services PR no se presenta como firma de CPA a menos que se indique expresamente.
+      </p>
+    </div>
+
+    <div class="foot-bot">
+      <div data-en="© 2026 SL Accounting Services PR · All rights reserved">© 2026 SL Accounting Services PR · Todos los derechos reservados</div>
+      <div>San Juan · Puerto Rico</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOATING ============ -->
+<a href="https://wa.me/17879617041" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <span class="ico">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.15-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.46-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.58-.49-.5-.66-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.44 0 1.44 1.06 2.83 1.21 3.03.15.2 2.09 3.18 5.06 4.46.71.3 1.26.48 1.69.62.71.22 1.35.19 1.86.12.57-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.57-.35z" fill="#fff"/><path d="M20.5 3.5C18.3 1.3 15.3.1 12.1.1 5.5.1.2 5.5.2 12.1c0 2.1.55 4.16 1.6 5.97L0 24l6.1-1.6c1.75.95 3.72 1.45 5.73 1.45h.01c6.59 0 11.97-5.36 11.97-11.95 0-3.2-1.24-6.2-3.31-8.4zm-8.4 18.4h-.01c-1.8 0-3.56-.48-5.1-1.4l-.36-.22-3.79.99 1.01-3.7-.24-.38c-1-1.6-1.54-3.45-1.54-5.34 0-5.55 4.52-10.06 10.07-10.06 2.7 0 5.22 1.05 7.13 2.96 1.9 1.9 2.95 4.43 2.94 7.12 0 5.55-4.52 10.04-10.1 10.04z" fill="#fff"/></svg>
+  </span>
+  <span class="lbl-long" data-en="Chat on WhatsApp">Escríbenos por WhatsApp</span>
+  <span class="lbl-short">WhatsApp</span>
+</a>
+
+
+<script src="/assets/js/tax-calendar-pr-rules.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
