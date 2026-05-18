@@ -27,30 +27,48 @@
 <link rel="alternate" hreflang="en"    href="https://accountingsl.com/clientes-atrasados/" />
 <link rel="alternate" hreflang="x-default" href="https://accountingsl.com/clientes-atrasados/" />
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<script defer src="https://tally.so/widgets/embed.js"></script>
+<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<style>
+  /* CSS crítico inline para renderizado inmediato sin FOUC */
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  .site-header{position:sticky;top:0;z-index:200;background:#fff}
+  .site-header nav{display:flex;align-items:center;gap:1rem}
+  .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+  img{max-width:100%;height:auto}
+  .brand-mark img{display:block}
+</style>
 <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQFQZD4KT0"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY0BZS4S4J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-NQFQZD4KT0', {
+  gtag('config', 'G-HY0BZS4S4J', {
     page_title: document.title,
     page_location: window.location.href
   });
 </script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script defer src="https://tally.so/widgets/embed.js"></script>
-<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
 <!-- ============ HEADER ============ -->
 <header class="site">
   <div class="container nav">
     <a href="/" class="brand" aria-label="SL Accounting Services PR">
-      <div class="brand-mark"><img src="/assets/logo.png" alt="SL monogram" /></div>
+      <div class="brand-mark">
+  <picture>
+    <source srcset="/assets/logo.webp" type="image/webp">
+    <img src="/assets/logo.png" alt="SL monogram" width="80" height="132" loading="eager" fetchpriority="high">
+  </picture>
+</div>
       <div class="brand-name">
         <span class="nm">SL Accounting</span>
         <span class="sub" data-en="PUERTO RICO">PUERTO RICO</span>
@@ -80,6 +98,8 @@
     </div>
   </div>
 </header>
+
+<main id="main-content">
 
 
 <!-- ============ HERO INTERNO ============ -->
@@ -237,6 +257,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site">
@@ -244,7 +265,12 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="top">
-          <div class="mark"><img src="/assets/logo.png" alt="SL monogram" /></div>
+          <div class="mark">
+  <picture>
+    <source srcset="/assets/logo.webp" type="image/webp">
+    <img src="/assets/logo.png" alt="SL monogram" width="80" height="132" loading="lazy">
+  </picture>
+</div>
           <div class="nm">SL Accounting Services PR</div>
         </div>
         <p data-en="Accounting, tax and compliance services for Puerto Rico — monthly bookkeeping, returns, sales tax, payroll, advisory and agency representation.">

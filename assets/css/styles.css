@@ -1,3 +1,12 @@
+/* ============ PERFORMANCE — font-display ============ */
+* { box-sizing: border-box; }
+
+/* Instrucción de font-display para fuentes custom si se agregan en el futuro */
+@supports (font-display: swap) {
+  @font-face {
+    font-display: swap;
+  }
+}
 
   :root{
     --navy:#0E1F38;
