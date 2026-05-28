@@ -928,3 +928,103 @@
 
     headings.forEach(function(h){ observer.observe(h); });
   })();
+
+  // -------- NEW VISITOR POPUP: TAX RELIEF CALCULATOR --------
+  (function(){
+    var calculatorPath = '/herramientas/calculadora-alivio-contributivo-2025/';
+    if (window.location.pathname.indexOf(calculatorPath) === 0) return;
+
+    var storageKey = 'sl_tax_relief_popup_seen_v1';
+    try {
+      if (localStorage.getItem(storageKey) === '1') return;
+    } catch(e) {}
+
+    var lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'es';
+    var copy = {
+      es: {
+        eyebrow: 'Herramienta gratuita',
+        title: 'Calcula tu posible cheque de alivio contributivo 2025',
+        body: 'Estima si podrías cualificar y cuánto podrías recibir según tu ingreso y dependientes.',
+        cta: 'Usar calculadora',
+        secondary: 'Ahora no',
+        note: 'Toma menos de 1 minuto.'
+      },
+      en: {
+        eyebrow: 'Free tool',
+        title: 'Estimate your possible 2025 tax relief check',
+        body: 'Check if you may qualify and estimate the amount based on income and dependents.',
+        cta: 'Use calculator',
+        secondary: 'Not now',
+        note: 'Takes less than 1 minute.'
+      }
+    };
+    var t = copy[lang];
+
+    function markSeen(){
+      try { localStorage.setItem(storageKey, '1'); } catch(e) {}
+    }
+
+    var activePopup = null;
+
+    function handlePopupEscape(e){
+      if (e.key === 'Escape' && activePopup && activePopup.parentNode) {
+        closePopup(activePopup);
+      }
+    }
+
+    function closePopup(popup){
+      popup.classList.remove('show');
+      popup.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', handlePopupEscape);
+      if (activePopup === popup) activePopup = null;
+      markSeen();
+      window.setTimeout(function(){
+        if (popup.parentNode) popup.parentNode.removeChild(popup);
+      }, 220);
+    }
+
+    function createPopup(){
+      if (document.querySelector('.relief-popup')) return;
+
+      var popup = document.createElement('div');
+      popup.className = 'relief-popup';
+      popup.setAttribute('role', 'dialog');
+      popup.setAttribute('aria-modal', 'false');
+      popup.setAttribute('aria-hidden', 'true');
+      popup.setAttribute('aria-labelledby', 'reliefPopupTitle');
+      popup.innerHTML =
+        '<div class="relief-popup-card">' +
+          '<button class="relief-popup-close" type="button" aria-label="Cerrar">×</button>' +
+          '<span class="relief-popup-eyebrow">' + t.eyebrow + '</span>' +
+          '<h2 id="reliefPopupTitle">' + t.title + '</h2>' +
+          '<p>' + t.body + '</p>' +
+          '<div class="relief-popup-actions">' +
+            '<a href="' + calculatorPath + '" class="btn btn-gold" data-track-event="cta_click" data-track-section="popup_alivio" data-track-label="abrir_calculadora">' + t.cta + ' <span class="arr"></span></a>' +
+            '<button class="relief-popup-secondary" type="button">' + t.secondary + '</button>' +
+          '</div>' +
+          '<span class="relief-popup-note">' + t.note + '</span>' +
+        '</div>';
+
+      document.body.appendChild(popup);
+      activePopup = popup;
+
+      var closeBtn = popup.querySelector('.relief-popup-close');
+      var secondaryBtn = popup.querySelector('.relief-popup-secondary');
+      var cta = popup.querySelector('a');
+
+      closeBtn.addEventListener('click', function(){ closePopup(popup); });
+      secondaryBtn.addEventListener('click', function(){ closePopup(popup); });
+      cta.addEventListener('click', markSeen);
+      popup.addEventListener('click', function(e){
+        if (e.target === popup) closePopup(popup);
+      });
+      document.addEventListener('keydown', handlePopupEscape);
+
+      window.setTimeout(function(){
+        popup.setAttribute('aria-hidden', 'false');
+        popup.classList.add('show');
+      }, 80);
+    }
+
+    window.setTimeout(createPopup, 1400);
+  })();
