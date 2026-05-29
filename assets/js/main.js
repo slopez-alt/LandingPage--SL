@@ -53,6 +53,12 @@
       return null;
     }
 
+    function updateBlogNavLinks(lang) {
+      document.querySelectorAll('.nav-links a[href="/blog/"], .nav-links a[href="/blog/en/"]').forEach(function(a) {
+        a.setAttribute('href', lang === 'en' ? '/blog/en/' : '/blog/');
+      });
+    }
+
     function setLang(lang){
       document.documentElement.setAttribute('lang', lang);
       targets.forEach(el => {
@@ -68,6 +74,7 @@
       document.querySelectorAll('.lang span[data-l]').forEach(s => {
         s.classList.toggle('on', s.getAttribute('data-l') === lang);
       });
+      updateBlogNavLinks(lang);
       try { localStorage.setItem('sl_lang', lang); } catch(e) {}
       document.dispatchEvent(new CustomEvent('sl:langchange', { detail: { lang: lang } }));
     }
