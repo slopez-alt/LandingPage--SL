@@ -1028,3 +1028,82 @@
 
     window.setTimeout(createPopup, 1400);
   })();
+
+  // -------- BLOG: Checklist accionable --------
+  (function(){
+    document.querySelectorAll('[data-action-checklist]').forEach(function(root){
+      var id = root.getAttribute('data-action-checklist');
+      if (!id) return;
+
+      var storageKey = 'sl_checklist_' + id;
+      var inputs = root.querySelectorAll('input[type="checkbox"][data-check-id]');
+      var progressLabel = root.querySelector('.blog-action-checklist-progress-label');
+      var progressTrack = root.querySelector('.blog-action-checklist-progress-track');
+      var progressFill = root.querySelector('.blog-action-checklist-progress-fill');
+      var doneMessage = root.querySelector('.blog-action-checklist-done');
+      var resetBtn = root.querySelector('.blog-action-checklist-reset');
+
+      function getStored(){
+        try {
+          return JSON.parse(localStorage.getItem(storageKey) || '{}');
+        } catch(e) {
+          return {};
+        }
+      }
+
+      function saveStored(data){
+        try { localStorage.setItem(storageKey, JSON.stringify(data)); } catch(e) {}
+      }
+
+      function updateProgress(){
+        var total = inputs.length;
+        var done = 0;
+        inputs.forEach(function(input){
+          if (input.checked) done++;
+        });
+        var pct = total ? Math.round((done / total) * 100) : 0;
+
+        if (progressLabel) {
+          progressLabel.textContent = done + ' de ' + total + ' completados';
+        }
+        if (progressFill) {
+          progressFill.style.width = pct + '%';
+        }
+        if (progressTrack) {
+          progressTrack.setAttribute('aria-valuenow', String(pct));
+        }
+        root.classList.toggle('is-complete', done === total && total > 0);
+        if (doneMessage) {
+          doneMessage.hidden = !(done === total && total > 0);
+        }
+      }
+
+      function loadState(){
+        var stored = getStored();
+        inputs.forEach(function(input){
+          var checkId = input.getAttribute('data-check-id');
+          input.checked = !!stored[checkId];
+        });
+        updateProgress();
+      }
+
+      inputs.forEach(function(input){
+        input.addEventListener('change', function(){
+          var stored = getStored();
+          stored[input.getAttribute('data-check-id')] = input.checked;
+          saveStored(stored);
+          updateProgress();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function(){
+          inputs.forEach(function(input){ input.checked = false; });
+          saveStored({});
+          updateProgress();
+        });
+      }
+
+      loadState();
+    });
+  })();
