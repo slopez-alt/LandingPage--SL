@@ -35,6 +35,24 @@
     // Placeholders on inputs
     const phTargets = document.querySelectorAll('[data-en-placeholder]');
 
+    function getBlogAltLangPath(targetLang) {
+      var path = window.location.pathname;
+      if (path.endsWith('/index.html')) path = path.slice(0, -'index.html'.length);
+      if (!path.endsWith('/')) path += '/';
+      if (targetLang === 'en') {
+        if (path === '/blog/') return '/blog/en/';
+        if (path.indexOf('/blog/') === 0 && path.indexOf('/blog/en/') !== 0) {
+          return '/blog/en/' + path.slice('/blog/'.length);
+        }
+      } else {
+        if (path === '/blog/en/') return '/blog/';
+        if (path.indexOf('/blog/en/') === 0) {
+          return '/blog/' + path.slice('/blog/en/'.length);
+        }
+      }
+      return null;
+    }
+
     function setLang(lang){
       document.documentElement.setAttribute('lang', lang);
       targets.forEach(el => {
@@ -55,14 +73,23 @@
     }
 
     let current = 'es';
+    if (window.location.pathname.indexOf('/blog/en') === 0) current = 'en';
     try {
       const stored = localStorage.getItem('sl_lang');
       if (stored === 'en' || stored === 'es') current = stored;
     } catch(e) {}
+    if (window.location.pathname.indexOf('/blog/en') === 0) current = 'en';
     if (current === 'en') setLang('en');
 
     TOGGLE.addEventListener('click', () => {
-      current = (current === 'es') ? 'en' : 'es';
+      const next = (current === 'es') ? 'en' : 'es';
+      const blogAlt = getBlogAltLangPath(next);
+      if (blogAlt) {
+        try { localStorage.setItem('sl_lang', next); } catch(e) {}
+        window.location.href = blogAlt;
+        return;
+      }
+      current = next;
       setLang(current);
     });
   })();
