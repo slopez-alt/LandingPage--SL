@@ -1,8 +1,0 @@
-# Normalizar rutas canónicas con trailing slash
-/servicios /servicios/ 301
-/nosotros /nosotros/ 301
-/contacto /contacto/ 301
-/clientes-atrasados /clientes-atrasados/ 301
-/privacy /privacy/ 301
-/terms /terms/ 301
-/contabilidad-mensual-corporaciones /contabilidad-mensual-corporaciones/ 301
