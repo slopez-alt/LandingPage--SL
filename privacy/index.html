@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Política de Privacidad | SL Accounting Services PR</title>
 <meta name="description" content="Política de privacidad de SL Accounting Services PR. Uso responsable de la información recopilada a través del sitio web, formularios de contacto y comunicaciones.">
@@ -26,18 +27,15 @@
 <link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/privacy/" />
 <link rel="alternate" hreflang="x-default" href="https://accountingsl.com/privacy/" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<script defer src="https://tally.so/widgets/embed.js"></script>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -104,7 +102,7 @@
 <!-- ============ HERO INTERNO ============ -->
 <section style="padding:72px 0 56px;background:var(--paper);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div data-anim>
+    <div>
       <span style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:14px" data-en="SL Accounting Services PR · Legal">SL Accounting Services PR · Legal</span>
       <h1 style="font-family:var(--serif);font-size:clamp(28px,3.6vw,48px);color:var(--ink);line-height:1.1;letter-spacing:-.012em;margin:0 0 16px;max-width:720px;font-weight:400" data-en="Privacy Policy">Política de Privacidad</h1>
       <p style="font-size:15px;color:var(--muted);margin:0;font-family:var(--mono);letter-spacing:.04em" data-en="Last updated: 2026">Última actualización: 2026</p>
@@ -261,6 +259,6 @@
   <span class="lbl-short">WhatsApp</span>
 </a>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

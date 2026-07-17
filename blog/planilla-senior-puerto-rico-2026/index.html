@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Planilla Senior Puerto Rico 2026 | Requisitos, fechas y créditos</title>
 <meta name="description" content="Conoce quién cualifica para la Planilla Senior en Puerto Rico 2026, cómo reclamar el crédito de $400 o $300, fechas límite, documentos necesarios y cómo radicar en SURI.">
@@ -44,7 +45,7 @@
     "@type": "Person",
     "name": "Steven López Díaz",
     "url": "https://accountingsl.com/nosotros/",
-    "image": "https://accountingsl.com/assets/images/steven-lopez-diaz.jpg"
+    "image": "https://accountingsl.com/assets/images/steven-lopez-diaz-440.jpg"
   },
   "publisher": {
     "@type": "Organization",
@@ -170,16 +171,14 @@
 </script>
 
 <!-- Fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
@@ -244,7 +243,7 @@
 <!-- HERO DEL ARTÍCULO -->
 <section style="padding:60px 0 48px;background:var(--ivory);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div data-anim>
+    <div>
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
         <a href="/">Inicio</a>
         <span>›</span>
@@ -266,7 +265,7 @@
 
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div style="display:flex;align-items:center;gap:12px">
-          <img src="/assets/images/steven-lopez-diaz.jpg"
+          <img src="/assets/images/steven-lopez-diaz-440.jpg"
                alt="Steven López Díaz"
                width="40" height="40"
                loading="lazy"
@@ -659,6 +658,6 @@
   <span class="lbl-short">WhatsApp</span>
 </a>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

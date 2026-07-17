@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cheque de alivio contributivo 2025 en Puerto Rico: quién cualifica, cuánto recibes y cómo cobrarlo | SL Accounting Services PR</title>
 <meta name="description" content="El alivio contributivo 2025 ya es ley en Puerto Rico. La Resolución Conjunta 6-2026 asigna $554 millones para pagos directos a contribuyentes con ingreso neto de $150,000 o menos. Aquí te explicamos quién cualifica, cómo se calcula tu pago y qué debes hacer si no tienes cuenta bancaria registrada en Hacienda.">
@@ -84,17 +85,15 @@
 </script>
 
 <!-- Fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -162,7 +161,7 @@
 <!-- HERO DEL ARTÍCULO -->
 <section style="padding:60px 0 48px;background:var(--ivory);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div data-anim>
+    <div>
 
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
         <a href="/">Inicio</a>
@@ -186,7 +185,7 @@
 
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div style="display:flex;align-items:center;gap:12px">
-          <img src="/assets/images/steven-lopez-diaz.jpg"
+          <img src="/assets/images/steven-lopez-diaz-440.jpg"
                alt="Steven López Díaz"
                width="40" height="40"
                loading="lazy"
@@ -449,6 +448,6 @@
   <span class="lbl-short">WhatsApp</span>
 </a>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blog — Recursos contributivos para Puerto Rico | SL Accounting Services PR</title>
 <meta name="description" content="Artículos sobre contabilidad, IVU, planillas, Act 60, freelancers y cumplimiento contributivo en Puerto Rico. Información verificada y actualizada para dueños de negocio.">
@@ -28,17 +29,15 @@
 <link rel="apple-touch-icon" href="/assets/favicon-v2.png?v=2">
 
 <!-- Fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -106,7 +105,7 @@
 <!-- HERO INTERNO -->
 <section style="padding:80px 0 64px;background:var(--navy);border-bottom:1px solid var(--line-dark)">
   <div class="container">
-    <div data-anim>
+    <div>
       <span style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:18px" data-en="SL Accounting Services PR · Puerto Rico">SL Accounting Services PR · Puerto Rico</span>
       <h1 style="font-family:var(--serif);font-size:clamp(32px,4vw,54px);color:#fff;line-height:1.1;margin:0 0 20px;max-width:760px;font-weight:400" data-en="Resources and guides on taxes and accounting for Puerto Rico.">Recursos y guías sobre contribuciones y contabilidad para Puerto Rico.</h1>
       <p style="font-size:17px;color:rgba(255,255,255,.6);max-width:560px;line-height:1.65;margin:0;font-weight:300" data-en="Verified information from official sources — for business owners, freelancers, and anyone who needs to understand their tax obligations in Puerto Rico.">Información verificada con fuentes oficiales — para dueños de negocio, freelancers y cualquier persona que necesite entender sus obligaciones contributivas en Puerto Rico.</p>
@@ -447,6 +446,6 @@
   <span class="lbl-short">WhatsApp</span>
 </a>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

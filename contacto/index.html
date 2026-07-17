@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contacto y evaluación inicial | SL Accounting Services PR</title>
 <meta name="description" content="Solicita una evaluación inicial de tu situación contable o contributiva en Puerto Rico. Planillas, IVU, nómina, atrasos, cartas de Hacienda o IRS. Sin compromiso.">
@@ -26,18 +27,16 @@
 <link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/contacto/" />
 <link rel="alternate" hreflang="x-default" href="https://accountingsl.com/contacto/" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <script defer src="https://tally.so/widgets/embed.js"></script>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -104,7 +103,7 @@
 <!-- ============ HERO INTERNO ============ -->
 <section style="padding:80px 0 64px;background:var(--ivory);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div data-anim>
+    <div>
       <span style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.12em;display:block;margin-bottom:16px" data-en="SL · Contact · Puerto Rico">SL · Contacto · Puerto Rico</span>
       <h1 style="font-family:var(--serif);font-size:clamp(30px,4vw,52px);color:var(--navy);line-height:1.1;margin:0 0 16px;max-width:760px;font-weight:400" data-en-html="Request an initial evaluation.">Solicita una evaluación inicial.</h1>
       <p style="font-size:17px;color:var(--muted);max-width:560px;line-height:1.65;margin:0;font-weight:300" data-en="No commitment. The first conversation is to understand your situation and define next steps.">Sin compromiso. La primera conversación es para entender tu situación y definir los próximos pasos.</p>
@@ -317,6 +316,6 @@
 </a>
 
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

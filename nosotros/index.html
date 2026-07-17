@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nosotros | SL Accounting Services PR · Puerto Rico</title>
 <meta name="description" content="Conoce a SL Accounting Services PR — práctica contable y contributiva en Puerto Rico atendida directamente por Steven López Díaz con más de 8 años de experiencia.">
@@ -26,18 +27,15 @@
 <link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/nosotros/" />
 <link rel="alternate" hreflang="x-default" href="https://accountingsl.com/nosotros/" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<script defer src="https://tally.so/widgets/embed.js"></script>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -103,7 +101,7 @@
 <!-- ============ HERO INTERNO ============ -->
 <section style="padding:80px 0 64px;background:var(--paper);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div data-anim>
+    <div>
       <span style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:14px" data-en="SL Accounting Services PR · Puerto Rico">SL Accounting Services PR · Puerto Rico</span>
       <h1 style="font-family:var(--serif);font-size:clamp(30px,3.8vw,52px);color:var(--ink);line-height:1.1;letter-spacing:-.012em;margin:0 0 18px;max-width:820px;font-weight:400" data-en-html="An accounting practice focused on<br>clarity, compliance, and organization.">Una práctica contable enfocada en<br>claridad, cumplimiento y organización.</h1>
       <p style="font-size:17px;color:var(--muted);max-width:560px;line-height:1.65;margin:0;font-weight:300" data-en="Accounting, tax compliance, and financial organization for individuals and businesses in Puerto Rico.">Contabilidad, cumplimiento contributivo y organización financiera para individuos y negocios en Puerto Rico.</p>
@@ -119,7 +117,7 @@
         <div class="steven-photo-block">
           <div class="steven-photo">
             <img
-              src="/assets/images/steven-lopez-diaz.jpg"
+              src="/assets/images/steven-lopez-diaz-440.jpg"
               alt="Steven López Díaz — SL Accounting Services PR"
               loading="lazy"
               width="220"
@@ -311,6 +309,6 @@
   <span class="lbl-short">WhatsApp</span>
 </a>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>

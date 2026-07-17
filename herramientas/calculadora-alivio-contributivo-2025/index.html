@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Calculadora de Alivio Contributivo 2025 | SL Accounting Services PR</title>
 <meta name="description" content="Calculadora informativa para estimar posible alivio contributivo bajo tasas propuestas para Puerto Rico en 2025.">
@@ -26,18 +27,15 @@
 <link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/herramientas/calculadora-alivio-contributivo-2025/" />
 <link rel="alternate" hreflang="x-default" href="https://accountingsl.com/herramientas/calculadora-alivio-contributivo-2025/" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<script defer src="https://tally.so/widgets/embed.js"></script>
-<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
 <style>
   /* CSS crítico inline para renderizado inmediato sin FOUC */
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:sans-serif;background:#F5F1E8;color:#1a2540}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
   .site-header{position:sticky;top:0;z-index:200;background:#fff}
   .site-header nav{display:flex;align-items:center;gap:1rem}
   .hero{min-height:100svh;background:#1a2540;display:flex;align-items:center}
@@ -105,7 +103,7 @@
 <!-- ============ HERO INTERNO ============ -->
 <section class="tool-hero">
   <div class="container">
-    <div data-anim>
+    <div>
       <span class="tool-kicker" data-en="Tools · Puerto Rico">Herramientas · Puerto Rico</span>
       <h1 data-en="2025 Tax Relief Calculator">Calculadora de Alivio Contributivo 2025</h1>
       <p data-en="Estimate the potential tax relief under Puerto Rico proposed rates and validate whether your case requires professional review.">Estima el posible alivio contributivo bajo las tasas propuestas para Puerto Rico y valida si tu caso requiere revisión profesional.</p>
@@ -284,6 +282,6 @@
 </a>
 
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.min.js"></script>
 </body>
 </html>
