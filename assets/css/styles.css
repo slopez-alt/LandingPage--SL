@@ -1253,7 +1253,7 @@
     text-transform:uppercase;color:var(--gold-deep);opacity:.65;white-space:nowrap;flex-shrink:0;
   }
   .sl-mark.dark::before,.sl-mark.dark::after{background:rgba(255,255,255,.07)}
-  .sl-mark.dark .mono{color:rgba(184,149,89,.62)}
+  .sl-mark.dark .mono{color:rgba(184,149,89,.8)}
 
   /* ---------- FIELD NOTE ---------- */
   .field-note{
@@ -2922,7 +2922,8 @@
     background:rgba(255,255,255,.07);
   }
   .sl-mark-wrap .sl-mark .mono{
-    color:rgba(184,149,89,.5);
+    color:rgba(184,149,89,.85);
+    opacity:1;
   }
 
   /* ─── GENERAL RHYTHM CLEANUP ─── */
