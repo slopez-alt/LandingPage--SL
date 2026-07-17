@@ -598,7 +598,7 @@
     padding:86px 0 68px;background:var(--ivory);border-bottom:1px solid var(--line);
   }
   .tool-kicker{
-    font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.16em;
+    font-family:var(--mono);font-size:11px;color:var(--gold-text);letter-spacing:.16em;
     text-transform:uppercase;display:block;margin-bottom:18px;
   }
   .tool-hero h1{

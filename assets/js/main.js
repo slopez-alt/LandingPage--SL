@@ -1060,7 +1060,20 @@
       }, 80);
     }
 
-    window.setTimeout(createPopup, 1400);
+    // Mostrar cuando el visitante interactúa (scroll) o tras 15s como respaldo.
+    // Antes salía a los 1.4s: interrumpía antes de leer y penalizaba Speed Index.
+    var popupTriggered = false;
+    function triggerPopup(){
+      if (popupTriggered) return;
+      popupTriggered = true;
+      window.removeEventListener('scroll', onPopupScroll);
+      createPopup();
+    }
+    function onPopupScroll(){
+      if (window.scrollY > 320) triggerPopup();
+    }
+    window.addEventListener('scroll', onPopupScroll, { passive: true });
+    window.setTimeout(triggerPopup, 15000);
   })();
 
   // -------- BLOG: Checklist accionable --------
