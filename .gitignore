@@ -83,3 +83,5 @@ assets/logo.b64.txt
 uploads/
 # ZIPs de entrega generados localmente
 *.zip
+# Sitio legacy v4 (no publicar)
+sl-accounting-website-github-v4/
