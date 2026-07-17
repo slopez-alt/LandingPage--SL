@@ -4,20 +4,20 @@
 
   <url>
     <loc>https://accountingsl.com/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/"/>
-    <xhtml:link rel="alternate" hreflang="en"    href="https://accountingsl.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/servicios/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/servicios/"/>
-    <xhtml:link rel="alternate" hreflang="en"    href="https://accountingsl.com/servicios/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/servicios/"/>
   </url>
 
   <url>
@@ -31,16 +31,16 @@
 
   <url>
     <loc>https://accountingsl.com/clientes-atrasados/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/clientes-atrasados/"/>
-    <xhtml:link rel="alternate" hreflang="en"    href="https://accountingsl.com/clientes-atrasados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/clientes-atrasados/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/contable-en-puerto-rico/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/contable-en-puerto-rico/"/>
@@ -49,48 +49,303 @@
 
   <url>
     <loc>https://accountingsl.com/nosotros/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/nosotros/"/>
-    <xhtml:link rel="alternate" hreflang="en"    href="https://accountingsl.com/nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/nosotros/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/contacto/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/contacto/"/>
-    <xhtml:link rel="alternate" hreflang="en"    href="https://accountingsl.com/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/contacto/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/herramientas/calculadora-alivio-contributivo-2025/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/herramientas/calculadora-alivio-contributivo-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/herramientas/calculadora-alivio-contributivo-2025/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/herramientas/calendario-contributivo-pr/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/herramientas/calendario-contributivo-pr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/herramientas/calendario-contributivo-pr/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/blog/</loc>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/"/>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/act-60-cambios-2026-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/act-60-cambios-2026-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/act-60-cambios-2026-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/alivio-contributivo-2025-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/alivio-contributivo-2025-tercera-ronda-suri-balance/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/capital-semilla-ddec-pymes-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/capital-semilla-ddec-pymes-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/capital-semilla-ddec-pymes-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/consecuencias-ivu-atrasado-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/consecuencias-ivu-atrasado-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/consecuencias-ivu-atrasado-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/contribucion-estimada-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/contribucion-estimada-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/contribucion-estimada-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/contribucion-estimada-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/contribucion-estimada-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/contribucion-estimada-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/contribucion-estimada-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/contribucion-estimada-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/entidad-conducto-puerto-rico-que-es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/entidad-conducto-puerto-rico-que-es/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/entidad-conducto-puerto-rico-que-es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/freelancer-obligaciones-contributivas-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/freelancer-obligaciones-contributivas-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/freelancer-obligaciones-contributivas-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/ivu-4-por-ciento-vs-11-5-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/ivu-municipal-suri-comerciantes-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/llc-vs-corporacion-dba-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/nomina-obligaciones-patrono-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/nomina-obligaciones-patrono-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/nomina-obligaciones-patrono-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/"/>
   </url>
 
   <url>
     <loc>https://accountingsl.com/blog/planilla-senior-puerto-rico-2026/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/planilla-senior-puerto-rico-2026/"/>
@@ -98,319 +353,123 @@
   </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
     <loc>https://accountingsl.com/blog/planillas-atrasadas-puerto-rico-como-regularizarse/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/contribucion-estimada-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/act-60-cambios-2026-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/act-60-cambios-2026-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/act-60-cambios-2026-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/alivio-contributivo-2025-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/alivio-contributivo-2025-tercera-ronda-suri-balance/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/alivio-contributivo-2025-tercera-ronda-suri-balance/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/capital-semilla-ddec-pymes-2026/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/capital-semilla-ddec-pymes-2026/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/capital-semilla-ddec-pymes-2026/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/consecuencias-ivu-atrasado-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/consecuencias-ivu-atrasado-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/consecuencias-ivu-atrasado-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/contribucion-estimada-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/contribucion-estimada-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/contribucion-estimada-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/entidad-conducto-puerto-rico-que-es/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/entidad-conducto-puerto-rico-que-es/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/entidad-conducto-puerto-rico-que-es/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/freelancer-obligaciones-contributivas-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/freelancer-obligaciones-contributivas-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/freelancer-obligaciones-contributivas-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/ivu-4-por-ciento-vs-11-5-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-4-por-ciento-vs-11-5-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/ivu-municipal-suri-comerciantes-puerto-rico-2026/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/ivu-municipal-suri-comerciantes-puerto-rico-2026/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/llc-vs-corporacion-dba-puerto-rico-2026/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/llc-vs-corporacion-dba-puerto-rico-2026/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/llc-vs-corporacion-dba-puerto-rico-2026/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/nomina-obligaciones-patrono-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/nomina-obligaciones-patrono-puerto-rico/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/nomina-obligaciones-patrono-puerto-rico/"/>
-  </url>
-
-
-  <url>
-    <loc>https://accountingsl.com/blog/en/planillas-atrasadas-puerto-rico-como-regularizarse/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
   </url>
 
+  <url>
+    <loc>https://accountingsl.com/blog/en/planillas-atrasadas-puerto-rico-como-regularizarse/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/planillas-atrasadas-puerto-rico-como-regularizarse/"/>
+  </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/en/recibi-carta-hacienda-irs-que-hacer-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
   </url>
 
+  <url>
+    <loc>https://accountingsl.com/blog/en/recibi-carta-hacienda-irs-que-hacer-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/recibi-carta-hacienda-irs-que-hacer-puerto-rico/"/>
+  </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/en/registro-negocio-puerto-rico-2026/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/registro-negocio-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/"/>
   </url>
 
+  <url>
+    <loc>https://accountingsl.com/blog/en/registro-negocio-puerto-rico-2026/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/registro-negocio-puerto-rico-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/registro-negocio-puerto-rico-2026/"/>
+  </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/en/retencion-en-el-origen-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/retencion-en-el-origen-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/"/>
   </url>
 
+  <url>
+    <loc>https://accountingsl.com/blog/en/retencion-en-el-origen-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/retencion-en-el-origen-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/retencion-en-el-origen-puerto-rico/"/>
+  </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/en/suri-guia-practica-duenos-negocio-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/suri-guia-practica-duenos-negocio-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/"/>
   </url>
 
+  <url>
+    <loc>https://accountingsl.com/blog/en/suri-guia-practica-duenos-negocio-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/suri-guia-practica-duenos-negocio-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/suri-guia-practica-duenos-negocio-puerto-rico/"/>
+  </url>
 
   <url>
-    <loc>https://accountingsl.com/blog/en/temporada-huracanes-2026-checklist-negocios-puerto-rico/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
+  </url>
+
+  <url>
+    <loc>https://accountingsl.com/blog/en/temporada-huracanes-2026-checklist-negocios-puerto-rico/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accountingsl.com/blog/en/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://accountingsl.com/blog/temporada-huracanes-2026-checklist-negocios-puerto-rico/"/>
   </url>
 
 </urlset>
