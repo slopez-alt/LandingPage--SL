@@ -257,8 +257,19 @@
   .intake .meta-grid{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
   .intake .meta-grid .field{min-width:160px}
 
-  /* ---------- Cabecera de documento (solo impresión) ---------- */
-  .intake-print-head{display:none}
+  /* ---------- Documento de impresión (construido por JS, solo impresión) ---------- */
+  .print-doc{display:none}
+
+  /* ---------- Nota de privacidad (pantalla) ---------- */
+  .intake-instructions .intake-privacy{
+    background:#fff;border:1px solid var(--gold);border-left:3px solid var(--gold);
+    border-radius:var(--radius-sm);padding:14px 16px;font-size:14px;color:var(--navy);line-height:1.6;margin:0 0 22px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .intake-instructions .intake-privacy .lock{flex:0 0 auto;font-size:16px;line-height:1.4}
+  .intake-instructions .intake-privacy strong{color:var(--gold-text)}
+  .intake .pdf-hint{font-size:12.5px;color:var(--muted);line-height:1.55;margin:10px 0 0;max-width:660px}
+  .intake .pdf-hint strong{color:var(--navy)}
 
   /* ---------- Instrucciones ---------- */
   .intake-instructions .steps{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
@@ -287,50 +298,101 @@
   @media(prefers-reduced-motion:reduce){.intake *{animation:none!important}}
 
   /* ==========================================================================
-     IMPRESIÓN — documento limpio y fluido
+     IMPRESIÓN — documento profesional generado desde el estado del formulario.
+     En pantalla se ve el formulario interactivo (.intake). Al imprimir, éste se
+     oculta y se muestra únicamente #print-doc, construido por JS a partir de los
+     mismos valores (una sola fuente de estado). Tipografía de marca:
+     Instrument Serif (títulos) + Geist (texto/tablas). Legible en blanco y negro.
      ========================================================================== */
   @media print{
-    /* Ocultar todo el chrome y controles del sitio */
-    header.site,footer.site,.wa-float,.tool-hero,.intake-instructions,
-    .intake .actions,.intake .addbtn,.intake .rm,.intake .sign-clear,.intake .sign-hint,
-    .no-print{display:none!important}
+    @page{ size: Letter portrait; margin: 0.5in; }
 
-    html,body{background:#fff!important}
-    .intake-section{padding:0;background:#fff}
-    .container{max-width:none;padding:0}
-    .intake{max-width:none;font-size:11px}
+    /* Ocultar chrome del sitio y el formulario interactivo */
+    header.site, footer.site, .wa-float, .tool-hero, .intake-instructions,
+    .intake, .no-print{ display:none !important; }
 
-    /* Cabecera de documento visible solo al imprimir */
-    .intake-print-head{display:block;border-bottom:2px solid var(--navy);padding-bottom:10px;margin-bottom:14px}
-    .intake-print-head .ph-brand{font-family:var(--serif);font-size:18px;color:var(--navy)}
-    .intake-print-head .ph-sub{font-size:11px;color:var(--muted);margin-top:2px}
-    .intake-print-head .ph-title{font-family:var(--serif);font-size:15px;color:var(--ink);margin-top:6px}
+    html, body{ background:#fff !important; }
+    body{ color:#14181f; }
+    .intake-section{ padding:0; background:#fff; }
+    .container{ max-width:none; padding:0; }
 
-    /* Secciones no aplicables no dejan hueco */
-    .intake .reveal:not(.on){display:none!important}
-
-    /* Fluidez: las tarjetas pueden cortar entre páginas; solo se protegen
-       las unidades pequeñas para evitar cortes feos y grandes vacíos. */
-    .intake .card{
-      break-inside:auto;box-shadow:none;border:1px solid #ccc;border-radius:0;
-      margin:0 0 10px;padding:12px 14px;
+    /* Documento de impresión */
+    .print-doc{
+      display:block;
+      font-family:var(--sans);
+      color:#14181f; font-size:10pt; line-height:1.34;
+      orphans:3; widows:3;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
     }
-    .intake .sec-head h2{font-size:15px}
-    .intake .sec-head,.intake h2,.intake h3{break-after:avoid}
-    .intake .lrow,.intake .checkrow,.intake .dyn-row,.intake .lg,
-    .intake .sign-block,.intake .sign-grid2,.intake .totline,.intake .paytable tr,
-    .intake .deliver-note,.intake .consent{break-inside:avoid}
+    .print-doc *{ box-sizing:border-box; }
 
-    /* Totales en claro para impresión nítida */
-    .intake .totline{position:static;background:#fff;color:var(--ink);border:1.5px solid var(--navy);box-shadow:none;margin-top:10px}
-    .intake .totline .lab{color:var(--muted)}
-    .intake .totline .val,.intake .totline .net .val{color:var(--ink)}
+    /* Encabezado del documento (no se repite completo en cada página) */
+    .pd-head{ display:flex; align-items:center; gap:12px; border-bottom:1.5pt solid #1a2540; padding-bottom:8px; margin-bottom:6px; break-after:avoid; }
+    .pd-mono{ width:34px; height:34px; flex:0 0 34px; border:1.2pt solid #1a2540; border-radius:5px; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:15pt; color:#1a2540; }
+    .pd-brandwrap{ flex:1 1 auto; }
+    .pd-brand{ font-family:var(--serif); font-size:15pt; line-height:1.05; color:#1a2540; }
+    .pd-tag{ font-size:8pt; color:#555; margin-top:1px; }
+    .pd-doc{ text-align:right; }
+    .pd-title{ font-family:var(--serif); font-size:13pt; color:#14181f; line-height:1.1; }
+    .pd-sub{ font-size:8.5pt; color:#555; }
+    .pd-meta{ display:flex; flex-wrap:wrap; gap:3px 18px; font-size:8.5pt; color:#333; border-bottom:0.75pt solid #ccc; padding-bottom:7px; margin-bottom:9px; break-after:avoid; }
+    .pd-meta b{ color:#14181f; font-weight:600; }
+    .pd-privacy{ font-size:8pt; color:#555; background:#f5f2ea; border:0.5pt solid #ddd; border-radius:3px; padding:5px 8px; margin-bottom:12px; }
 
-    .intake input,.intake select,.intake textarea{border-color:#bbb;background:#fff}
-    .intake .deliver-note{background:#fff;border-color:#999}
-    .intake .sign-pad-wrap{border-color:#999}
-    .intake .sign-pad{height:150px}
-    @page{margin:14mm}
+    /* Secciones */
+    .pd-sec{ break-inside:auto; margin:0 0 11px; }
+    .pd-sec-h{ font-family:var(--serif); font-size:12pt; color:#1a2540; border-bottom:0.75pt solid #1a2540; padding-bottom:2px; margin:0 0 7px; break-after:avoid; }
+    .pd-sub-h{ font-size:8pt; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#7D6337; margin:9px 0 3px; break-after:avoid; }
+
+    /* Campos etiqueta / valor */
+    .pd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:5px 22px; }
+    .pd-grid.c3{ grid-template-columns:1fr 1fr 1fr; }
+    .pd-f{ break-inside:avoid; border-bottom:0.5pt solid #dcdcdc; padding-bottom:2px; min-width:0; }
+    .pd-f.wide{ grid-column:1/-1; }
+    .pd-l{ display:block; font-size:7.8pt; letter-spacing:.02em; color:#6a6a6a; text-transform:uppercase; }
+    .pd-v{ display:block; font-size:10pt; color:#14181f; word-break:break-word; }
+
+    /* Selecciones como texto (claras en B/N) */
+    .pd-lines{ display:flex; flex-wrap:wrap; gap:3px 24px; margin-top:6px; }
+    .pd-line{ break-inside:avoid; font-size:9.5pt; }
+    .pd-line .k{ color:#555; }
+    .pd-line b{ color:#14181f; }
+
+    /* Checklist B/N (documentos, deducciones) */
+    .pd-checks{ display:grid; grid-template-columns:1fr 1fr; gap:2px 22px; }
+    .pd-chk{ break-inside:avoid; font-size:9.5pt; padding:1.5px 0; display:flex; gap:6px; align-items:flex-start; }
+    .pd-box{ flex:0 0 auto; width:9pt; height:9pt; border:0.9pt solid #14181f; display:inline-flex; align-items:center; justify-content:center; margin-top:1.5px; font-size:7.5pt; line-height:1; }
+    .pd-box.on{ background:#1a2540; color:#fff; }
+    .pd-amt{ margin-left:auto; font-variant-numeric:tabular-nums; color:#14181f; }
+
+    /* Tablas (gastos / pagos / alquiler) */
+    .pd-table{ width:100%; border-collapse:collapse; font-size:9pt; break-inside:auto; }
+    .pd-table thead{ display:table-header-group; }
+    .pd-table th{ text-align:right; font-size:7.8pt; text-transform:uppercase; letter-spacing:.02em; color:#555; border-bottom:0.9pt solid #999; padding:3px 6px; font-weight:600; }
+    .pd-table th:first-child{ text-align:left; }
+    .pd-table td{ padding:2.6px 6px; border-bottom:0.4pt solid #e2e2e2; text-align:right; font-variant-numeric:tabular-nums; color:#14181f; }
+    .pd-table td:first-child{ text-align:left; }
+    .pd-table tr{ break-inside:avoid; }
+    .pd-table .grp td{ font-weight:700; color:#7D6337; background:#f6f2e9; font-size:7.8pt; text-transform:uppercase; letter-spacing:.02em; }
+    .pd-empty{ font-size:9pt; color:#666; font-style:italic; padding:3px 0; }
+
+    /* Totales — pegados a la tabla de gastos */
+    .pd-tot{ break-inside:avoid; display:flex; justify-content:flex-end; flex-wrap:wrap; gap:6px 26px; border:1pt solid #1a2540; padding:7px 12px; margin-top:8px; }
+    .pd-tot .item{ display:flex; gap:8px; align-items:baseline; }
+    .pd-tot .t{ font-size:8pt; text-transform:uppercase; letter-spacing:.03em; color:#555; }
+    .pd-tot .n{ font-family:var(--serif); font-size:12.5pt; color:#14181f; font-variant-numeric:tabular-nums; }
+    .pd-tot .neg .n{ color:#8a2a2a; }
+
+    /* Cierre: notas + autorización + firma (se mantienen juntos) */
+    .pd-close{ break-inside:avoid; }
+    .pd-legal{ font-size:8.5pt; color:#333; line-height:1.42; border:0.5pt solid #ccc; background:#fafafa; padding:7px 10px; border-radius:2px; margin:6px 0 10px; }
+    .pd-sign-row{ display:flex; gap:26px; align-items:flex-end; margin-top:8px; }
+    .pd-sign-box{ flex:1 1 58%; }
+    .pd-sign-img{ display:block; max-height:52px; max-width:100%; }
+    .pd-sign-line{ border-bottom:0.9pt solid #14181f; height:44px; }
+    .pd-sign-cap{ font-size:8pt; color:#555; border-top:0.5pt solid #999; padding-top:2px; margin-top:2px; }
+    .pd-sign-meta{ flex:1 1 40%; }
+    .pd-sign-meta .pd-f{ border-bottom:0.9pt solid #14181f; }
   }
 </style>
 </head>
@@ -398,11 +460,15 @@
 <section class="intake-instructions" style="padding:48px 0;background:var(--ivory);border-bottom:1px solid var(--line)">
   <div class="container">
     <div style="max-width:900px;margin:0 auto">
+      <p class="intake-privacy">
+        <span class="lock" aria-hidden="true">🔒</span>
+        <span data-en-html="<strong>Your information is private.</strong> Everything you type stays in your browser, on your device — it is not sent to any server or third party. Fill it out with confidence; nothing is shared until you download the PDF and send it to us. To erase everything, use “Clear form”."><strong>Tu información es privada.</strong> Todo lo que escribes permanece en tu navegador, en tu dispositivo — no se envía a ningún servidor ni a terceros. Complétalo con confianza; nada se comparte hasta que tú descargues el PDF y nos lo envíes. Para borrar todo, usa «Limpiar formulario».</span>
+      </p>
       <span class="section-tag" data-en="How it works">Cómo funciona</span>
       <ol class="steps">
         <li><b data-en="Step 1">Paso 1</b><span data-en="Complete only the sections that apply. Sections appear automatically based on your income sources and marital status.">Complete solo las secciones que apliquen. Las secciones aparecen automáticamente según sus fuentes de ingreso y estado civil.</span></li>
         <li><b data-en="Step 2">Paso 2</b><span data-en="Your progress saves automatically in this browser. You can close and return later on the same device.">Su progreso se guarda automáticamente en este navegador. Puede cerrar y volver luego desde el mismo dispositivo.</span></li>
-        <li><b data-en="Step 3">Paso 3</b><span data-en="Sign on screen at the end, then press “Print or save PDF”.">Firme en pantalla al final y luego presione «Imprimir o guardar PDF».</span></li>
+        <li><b data-en="Step 3">Paso 3</b><span data-en="Sign on screen at the end, then press “Download clean PDF”.">Firme en pantalla al final y luego presione «Descargar PDF limpio».</span></li>
         <li><b data-en="Step 4">Paso 4</b><span data-en="Send the PDF to us so we can prepare your return.">Envíenos el PDF para que preparemos su planilla.</span></li>
       </ol>
       <p class="deliver">
@@ -420,12 +486,8 @@
 <section class="intake-section" id="hoja">
   <div class="container">
 
-    <!-- Cabecera de documento (solo impresión) -->
-    <div class="intake-print-head">
-      <div class="ph-brand">SL Accounting Services PR</div>
-      <div class="ph-sub">Contabilidad · Contribuciones · Cumplimiento · accountingsl.com</div>
-      <div class="ph-title">Hoja de Información del Cliente — Preparación de Planilla (Individuos)</div>
-    </div>
+    <!-- Documento de impresión: construido por JS desde el estado del formulario (solo visible al imprimir) -->
+    <div class="print-doc" id="print-doc" aria-hidden="true"></div>
 
     <div class="intake">
 
@@ -727,17 +789,19 @@
       </section>
 
       <div class="deliver-note no-print">
-        <strong>Al terminar:</strong> presione <em>«Imprimir o guardar PDF»</em>, guarde el documento y envíelo por email a
+        <strong>Al terminar:</strong> presione <em>«Descargar PDF limpio»</em>, guarde el documento y envíelo por email a
         <a href="mailto:s.lopez@accountingsl.com?subject=Hoja%20de%20Informaci%C3%B3n%20del%20Cliente">s.lopez@accountingsl.com</a>
         o por <a href="https://wa.me/17879617041" target="_blank" rel="noopener">WhatsApp</a>.
       </div>
 
       <div class="actions no-print">
-        <button type="button" class="btn btn-primary" id="btn-print" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="imprimir_pdf">Imprimir o guardar PDF</button>
+        <button type="button" class="btn btn-primary" id="btn-pdf" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="descargar_pdf">Descargar PDF limpio</button>
+        <button type="button" class="btn btn-ghost" id="btn-print" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="imprimir">Imprimir</button>
         <button type="button" class="btn btn-ghost" id="btn-save">Guardar borrador</button>
         <button type="button" class="btn btn-quiet" id="btn-clear">Limpiar formulario</button>
         <span class="saved-flag" id="saveflag"></span>
       </div>
+      <p class="pdf-hint no-print" data-en-html="For a PDF without the browser’s date and link: in the print dialog choose <strong>“Save as PDF”</strong> and turn off <strong>“Headers and footers”</strong> (in Chrome, under “More settings”; in Safari, uncheck the print header option).">Para un PDF sin la fecha ni el enlace del navegador: en el diálogo de impresión elige <strong>«Guardar como PDF»</strong> y desactiva <strong>«Encabezados y pies de página»</strong> (en Chrome, dentro de «Más ajustes»; en Safari, desmarca la opción de encabezados).</p>
 
     </div><!-- /.intake -->
   </div>
@@ -1094,10 +1158,249 @@
     try{localStorage.removeItem(KEY);}catch(e){}
     location.reload();
   });
-  $("#btn-print").addEventListener("click",function(){
-    $$(".money").forEach(function(i){var n=num(i.value);i.value=n?fmt(n):"";});
+  /* ==================================================================
+     DOCUMENTO DE IMPRESIÓN — se construye desde el mismo estado del
+     formulario (una sola fuente de datos). No recalcula nada nuevo:
+     reutiliza num()/fmt() y los mismos valores de los campos.
+     ================================================================== */
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function gv(id){var el=document.getElementById(id);return el?el.value.trim():"";}
+  function isChk(id){var el=document.getElementById(id);return !!(el&&el.checked);}
+  function chosenText(name){var r=document.querySelector('input[name="'+name+'"]:checked');if(!r)return "";var s=r.nextElementSibling;return s&&s.textContent?s.textContent.trim():r.value;}
+  function chosenVal(name){var r=document.querySelector('input[name="'+name+'"]:checked');return r?r.value:"";}
+  function mnum(id){var el=document.getElementById(id);if(!el)return null;if(el.value.trim()==="")return null;return num(el.value);}
+  function mfmt(n){return "$"+fmt(n);}
+  function fmtDate(iso){if(!iso)return "";var p=iso.split("-");if(p.length!==3)return iso;return p[1]+"/"+p[2]+"/"+p[0];}
+  function joinName(a,b,c,d){return [a,b,c,d].filter(function(x){return x&&x.trim();}).join(" ").trim();}
+  function pf(label,val,cls){if(val==null||String(val).trim()==="")return "";return '<div class="pd-f'+(cls?" "+cls:"")+'"><span class="pd-l">'+esc(label)+'</span><span class="pd-v">'+esc(val)+'</span></div>';}
+  function rowVal(row,sel){var el=row.querySelector(sel);return el?el.value.trim():"";}
+
+  var DEDS=[["d_hip","Intereses hipotecarios — vivienda principal"],["d_ira","Aportación a cuenta de retiro individual (IRA)"],["d_edu","Aportación a cuenta de aportación educativa"],["d_don","Donativos a entidades sin fines de lucro"],["d_med","Gastos médicos"],["d_cuido","Cuido de niños o dependientes"],["d_est","Intereses de préstamos estudiantiles"],["d_gob","Aportación al sistema de retiro gubernamental"]];
+  var DOCS=[["doc1","Comprobantes de retención (499R-2/W-2PR, W-2)"],["doc2","Informativas 480.x recibidas"],["doc3","Formularios 1099 federales"],["doc4","Comprobante de intereses hipotecarios"],["doc5","Comprobantes de donativos"],["doc6","Registros / estados de cuenta del negocio"],["doc7","Planilla del año anterior (cliente nuevo)"],["doc8","Identificación con foto"]];
+  var SRCS=[["src_empleo","Empleo (W-2)"],["src_negocio","Negocio / profesión"],["src_alquiler","Alquiler de propiedad"],["src_intereses","Intereses y dividendos"],["src_capital","Ganancias de capital"],["src_retiro","Retiro / IRA"],["src_ssf","Seguro Social federal"],["src_otros","Otros ingresos"]];
+
+  function buildPrintDoc(){
+    var host=document.getElementById("print-doc");if(!host)return;
+    var H=[], n=0;
+    function secOpen(title){n++;return '<div class="pd-sec"><div class="pd-sec-h">'+(n<10?"0"+n:n)+' · '+esc(title)+'</div>';}
+
+    /* Encabezado + meta + privacidad */
+    H.push('<div class="pd-head">'+
+      '<div class="pd-mono">SL</div>'+
+      '<div class="pd-brandwrap"><div class="pd-brand">SL Accounting Services PR</div><div class="pd-tag">Contabilidad · Contribuciones · Cumplimiento</div></div>'+
+      '<div class="pd-doc"><div class="pd-title">Hoja de Información del Cliente</div><div class="pd-sub">Preparación de Planilla de Individuos</div></div>'+
+    '</div>');
+    H.push('<div class="pd-meta">'+
+      '<span><b>Año contributivo:</b> '+esc(gv("taxyear"))+'</span>'+
+      '<span><b>Tipo de cliente:</b> '+esc(chosenText("clienttype"))+'</span>'+
+      '<span><b>Fecha de preparación:</b> '+esc(fmtDate(gv("fecha")))+'</span>'+
+    '</div>');
+    H.push('<div class="pd-privacy">Documento confidencial. La información se procesa en el navegador del cliente y no se transmite a ningún servidor; se comparte con SL Accounting Services PR solo cuando el cliente entrega este documento.</div>');
+
+    /* 1. Contribuyente */
+    (function(){
+      var s=secOpen("Información del contribuyente");
+      var g=[];
+      g.push(pf("Nombre completo",joinName(gv("c_nombre"),gv("c_inicial"),gv("c_ape1"),gv("c_ape2")),"wide"));
+      g.push(pf("Seguro Social",gv("c_ssn")));
+      g.push(pf("Fecha de nacimiento",fmtDate(gv("c_nac"))));
+      g.push(pf("Ocupación",gv("c_ocup")));
+      g.push(pf("Email",gv("c_email")));
+      g.push(pf("Teléfono celular",gv("c_cel")));
+      g.push(pf("Teléfono residencia / trabajo",gv("c_tel2")));
+      g.push(pf("Dirección física",gv("c_dirf"),"wide"));
+      var dirp=isChk("c_postaligual")?"Igual a la dirección física":gv("c_dirp");
+      g.push(pf("Dirección postal",dirp,"wide"));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      var L=[];
+      L.push('<div class="pd-line"><span class="k">Ciudadano de EE. UU.:</span> <b>'+esc(chosenText("c_ciud"))+'</b>'+(chosenVal("c_ciud")==="no"&&gv("c_ciud_x")?" ("+esc(gv("c_ciud_x"))+")":"")+'</div>');
+      L.push('<div class="pd-line"><span class="k">Residente bona fide de PR:</span> <b>'+esc(chosenText("c_bona"))+'</b>'+(chosenVal("c_bona")==="no"&&gv("c_bona_x")?" ("+esc(gv("c_bona_x"))+")":"")+'</div>');
+      if(gv("c_dias"))L.push('<div class="pd-line"><span class="k">Días físicamente en PR:</span> <b>'+esc(gv("c_dias"))+'</b></div>');
+      L.push('<div class="pd-line"><span class="k">Cuentas financieras en el extranjero:</span> <b>'+esc(chosenText("c_ext"))+'</b>'+(chosenVal("c_ext")==="si"&&gv("c_ext_x")?" ("+esc(gv("c_ext_x"))+")":"")+'</div>');
+      s+='<div class="pd-lines">'+L.join("")+'</div></div>';
+      H.push(s);
+    })();
+
+    /* 2. Estado civil (+ cónyuge si aplica) */
+    (function(){
+      var civ=chosenVal("civil");
+      var s=secOpen("Estado civil"+((civ==="casado_vive"||civ==="casado_separado"||civ==="casado_no_vive")?" y cónyuge":""));
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Estado civil al terminar el año:</span> <b>'+esc(chosenText("civil"))+'</b></div></div>';
+      if(civ==="casado_vive"||civ==="casado_separado"||civ==="casado_no_vive"){
+        var g=[];
+        g.push(pf("Nombre completo",joinName(gv("s_nombre"),gv("s_inicial"),gv("s_ape1"),gv("s_ape2")),"wide"));
+        g.push(pf("Seguro Social",gv("s_ssn")));
+        g.push(pf("Fecha de nacimiento",fmtDate(gv("s_nac"))));
+        g.push(pf("Ocupación",gv("s_ocup")));
+        g.push(pf("Email",gv("s_email")));
+        g.push(pf("Teléfono",gv("s_cel")));
+        var grid='<div class="pd-grid">'+g.join("")+'</div>';
+        if(g.join("")){s+='<div class="pd-sub-h">Cónyuge</div>'+grid+
+          '<div class="pd-lines"><div class="pd-line"><span class="k">Ciudadano de EE. UU.:</span> <b>'+esc(chosenText("s_ciud"))+'</b></div>'+
+          '<div class="pd-line"><span class="k">Residente bona fide de PR:</span> <b>'+esc(chosenText("s_bona"))+'</b></div></div>';}
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* 3. Dependientes */
+    (function(){
+      var deps=$$("#dep-list .dep-row").map(function(r){return {nombre:rowVal(r,".dep-nombre"),nac:rowVal(r,".dep-nac"),ssn:rowVal(r,".dep-ssn"),par:rowVal(r,".dep-par"),cla:rowVal(r,".dep-cla")};}).filter(function(d){return d.nombre||d.ssn||d.nac||d.par||d.cla;});
+      var s=secOpen("Dependientes");
+      if(!deps.length){s+='<div class="pd-empty">No se reclamaron dependientes.</div>';}
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Nombre completo</th><th style="text-align:left">Nacimiento</th><th style="text-align:left">Seguro Social</th><th style="text-align:left">Parentesco</th><th style="text-align:left">Clasif.</th></tr></thead><tbody>';
+        deps.forEach(function(d){s+='<tr><td>'+esc(d.nombre)+'</td><td style="text-align:left">'+esc(fmtDate(d.nac))+'</td><td style="text-align:left">'+esc(d.ssn)+'</td><td style="text-align:left">'+esc(d.par)+'</td><td style="text-align:left">'+esc(d.cla)+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Fuentes de ingreso (línea de contexto) */
+    (function(){
+      var chosen=SRCS.filter(function(x){return isChk(x[0]);}).map(function(x){return x[1];});
+      if(!chosen.length)return;
+      var s=secOpen("Fuentes de ingreso");
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Reportadas:</span> <b>'+esc(chosen.join(" · "))+'</b></div></div></div>';
+      H.push(s);
+    })();
+
+    /* Empleo */
+    if(isChk("src_empleo")){
+      var s=secOpen("Ingreso de empleo");
+      var g=[];
+      g.push(pf("Número de patronos",gv("emp_patronos")));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Comprobantes de retención:</span> <b>'+esc(chosenText("emp_comp"))+'</b></div></div></div>';
+      H.push(s);
+    }
+
+    /* Negocio / ledger */
+    if(isChk("src_negocio")){
+      var s=secOpen("Ingreso por negocio, profesión o comisiones");
+      var g=[];
+      g.push(pf("Naturaleza del servicio / industria",gv("biz_nat"),"wide"));
+      g.push(pf("Núm. Registro de Comerciante",gv("biz_rc")));
+      g.push(pf("Método de contabilidad",chosenText("biz_metodo")));
+      var bruto=mnum("biz_bruto");g.push(pf("Ingreso bruto del negocio",bruto!=null?mfmt(bruto):""));
+      var fuera=mnum("biz_fuera");g.push(pf("Ingreso por servicios fuera de PR",fuera!=null?mfmt(fuera):""));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      /* Gastos: tabla compacta, solo categorías con monto > 0, agrupadas */
+      var rows="",anyExp=false;
+      GROUPS.forEach(function(grp){
+        var items=[];
+        grp[1].forEach(function(r){var el=document.getElementById(r[0]);if(el&&el.value.trim()!==""){var nn=num(el.value);if(nn>0)items.push([r[1],nn]);}});
+        if(items.length){anyExp=true;rows+='<tr class="grp"><td colspan="2">'+esc(grp[0])+'</td></tr>';items.forEach(function(it){rows+='<tr><td>'+esc(it[0])+'</td><td>'+mfmt(it[1])+'</td></tr>';});}
+      });
+      s+='<div class="pd-sub-h">Gastos del negocio</div>';
+      if(anyExp)s+='<table class="pd-table"><thead><tr><th>Categoría / gasto</th><th>Cantidad</th></tr></thead><tbody>'+rows+'</tbody></table>';
+      else s+='<div class="pd-empty">No se reportaron gastos de negocio.</div>';
+      var totExp=0;$$(".exp").forEach(function(i){totExp+=num(i.value);});
+      var net=num(gv("biz_bruto"))-totExp;
+      s+='<div class="pd-tot"><div class="item"><span class="t">Total de gastos</span><span class="n">'+mfmt(totExp)+'</span></div>'+
+         '<div class="item'+(net<0?" neg":"")+'"><span class="t">Ganancia (o pérdida) neta</span><span class="n">'+(net<0?"-$":"$")+fmt(Math.abs(net))+'</span></div></div>';
+      s+='</div>';H.push(s);
+    }
+
+    /* Alquiler */
+    if(isChk("src_alquiler")){
+      var props=$$("#rent-list .rent-row").map(function(r){return {dir:rowVal(r,".rent-dir"),inn:rowVal(r,".rent-in"),exx:rowVal(r,".rent-ex")};}).filter(function(p){return p.dir||p.inn||p.exx;});
+      var s=secOpen("Alquiler de propiedad");
+      if(!props.length)s+='<div class="pd-empty">No se reportaron propiedades en alquiler.</div>';
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Propiedad / dirección</th><th>Renta recibida</th><th>Gastos del año</th></tr></thead><tbody>';
+        props.forEach(function(p){s+='<tr><td>'+esc(p.dir)+'</td><td>'+(p.inn!==""?mfmt(num(p.inn)):"—")+'</td><td>'+(p.exx!==""?mfmt(num(p.exx)):"—")+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    }
+
+    /* Otros ingresos */
+    if(isChk("src_intereses")||isChk("src_capital")||isChk("src_retiro")||isChk("src_ssf")||isChk("src_otros")){
+      var g=[];
+      if(isChk("src_intereses")){var a=mnum("oi_int");g.push(pf("Intereses y dividendos",a!=null?mfmt(a):""));}
+      if(isChk("src_capital")){var b=mnum("oi_cap");g.push(pf("Ganancias de capital / ventas",b!=null?mfmt(b):""));}
+      if(isChk("src_retiro")){var c=mnum("oi_ret");g.push(pf("Distribuciones de retiro / IRA",c!=null?mfmt(c):""));}
+      if(isChk("src_ssf")){var d=mnum("oi_ssf");g.push(pf("Seguro Social federal",d!=null?mfmt(d):""));}
+      if(isChk("src_otros"))g.push(pf("Otros ingresos",gv("oi_otros"),"wide"));
+      var joined=g.join("");
+      if(joined){var s=secOpen("Otros ingresos");s+='<div class="pd-grid">'+joined+'</div></div>';H.push(s);}
+    }
+
+    /* Pagos estimados */
+    (function(){
+      var trs=$$("#paybody tr").map(function(tr){var ins=$$("input",tr);return {c:(tr.children[0]?tr.children[0].textContent.trim():""),pr:ins[0]?ins[0].value.trim():"",ss:ins[1]?ins[1].value.trim():"",fe:ins[2]?ins[2].value.trim():""};}).filter(function(r){return num(r.pr)>0||num(r.ss)>0||num(r.fe)>0;});
+      var s=secOpen("Contribución estimada y otros pagos");
+      if(!trs.length)s+='<div class="pd-empty">No se reportaron pagos estimados durante el año.</div>';
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Fecha / concepto</th><th>Puerto Rico</th><th>Seguro Social</th><th>Federal</th></tr></thead><tbody>';
+        trs.forEach(function(r){s+='<tr><td>'+esc(r.c)+'</td><td>'+(num(r.pr)?mfmt(num(r.pr)):"—")+'</td><td>'+(num(r.ss)?mfmt(num(r.ss)):"—")+'</td><td>'+(num(r.fe)?mfmt(num(r.fe)):"—")+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Deducciones */
+    (function(){
+      var items=DEDS.map(function(d){var amtEl=document.querySelector('[data-ded="'+d[0]+'"]');var raw=amtEl?amtEl.value.trim():"";var amt=raw!==""?num(raw):null;var on=isChk(d[0])||(amt!=null&&amt>0);return {label:d[1],on:on,amt:amt};}).filter(function(x){return x.on;});
+      var s=secOpen("Deducciones y créditos");
+      if(!items.length)s+='<div class="pd-empty">No se reclamaron deducciones.</div>';
+      else{
+        s+='<div class="pd-checks">';
+        items.forEach(function(x){s+='<div class="pd-chk"><span class="pd-box on">✓</span><span>'+esc(x.label)+'</span>'+(x.amt!=null?'<span class="pd-amt">'+mfmt(x.amt)+'</span>':"")+'</div>';});
+        s+='</div>';
+        if(isChk("d_cuido")&&gv("d_cuido_prov"))s+='<div class="pd-lines"><div class="pd-line"><span class="k">Proveedor de cuido:</span> <b>'+esc(gv("d_cuido_prov"))+'</b></div></div>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Documentos */
+    (function(){
+      var items=DOCS.filter(function(d){return isChk(d[0]);});
+      if(!items.length&&!gv("doc_otros"))return;
+      var s=secOpen("Documentos a incluir");
+      if(items.length){s+='<div class="pd-checks">';items.forEach(function(d){s+='<div class="pd-chk"><span class="pd-box on">✓</span><span>'+esc(d[1])+'</span></div>';});s+='</div>';}
+      else s+='<div class="pd-empty">No se marcaron documentos.</div>';
+      if(gv("doc_otros"))s+='<div class="pd-lines"><div class="pd-line"><span class="k">Otros documentos:</span> <b>'+esc(gv("doc_otros"))+'</b></div></div>';
+      s+='</div>';H.push(s);
+    })();
+
+    /* Notas + autorización + firma (juntos) */
+    (function(){
+      var s=secOpen("Notas y autorización");
+      s+='<div class="pd-close">';
+      if(gv("notas"))s+='<div class="pd-sub-h">Notas adicionales</div><div class="pd-v" style="font-size:9.5pt">'+esc(gv("notas")).replace(/\n/g,"<br>")+'</div>';
+      s+='<div class="pd-legal">Certifico que la información provista es correcta y completa a mi mejor conocimiento. Autorizo a SL Accounting Services PR a preparar mi planilla con esta información. SL Accounting Services PR no divulga información personal de sus clientes obtenida para sus servicios profesionales, excepto según lo requiera o permita la ley.</div>';
+      var sigImg=sigData?'<img class="pd-sign-img" src="'+sigData+'" alt="Firma">':'<div class="pd-sign-line"></div>';
+      s+='<div class="pd-sign-row">'+
+         '<div class="pd-sign-box">'+sigImg+'<div class="pd-sign-cap">Firma del contribuyente'+(gv("sig_nombre")?' — '+esc(gv("sig_nombre")):"")+'</div></div>'+
+         '<div class="pd-sign-meta"><div class="pd-f"><span class="pd-l">Fecha</span><span class="pd-v">'+esc(fmtDate(gv("sig_fecha")))+'</span></div></div>'+
+      '</div>';
+      s+='</div></div>';H.push(s);
+    })();
+
+    host.innerHTML=H.join("");
+  }
+
+  /* Nombre de archivo seguro (sin SSN) */
+  function sanitize(s){var str=String(s||"");var map={"á":"a","é":"e","í":"i","ó":"o","ú":"u","ü":"u","ñ":"n","Á":"A","É":"E","Í":"I","Ó":"O","Ú":"U","Ü":"U","Ñ":"N"};str=str.replace(/[áéíóúüñÁÉÍÓÚÜÑ]/g,function(c){return map[c]||c;});return str.replace(/[^A-Za-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+  function cleanFilename(){
+    var year=gv("taxyear")||String(new Date().getFullYear());
+    var who=sanitize((gv("c_ape1")||gv("sig_nombre")||"Cliente")+(gv("c_nombre")?"-"+gv("c_nombre"):""))||"Cliente";
+    return "SL-Accounting_Hoja-Cliente_"+year+"_"+who;
+  }
+
+  function doPrint(){
+    $$(".money").forEach(function(i){var nn=num(i.value);i.value=nn?fmt(nn):"";});
+    buildPrintDoc();
+    var prev=document.title;
+    document.title=cleanFilename();
+    var restore=function(){document.title=prev;window.removeEventListener("afterprint",restore);};
+    window.addEventListener("afterprint",restore);
     window.print();
-  });
+  }
+  $("#btn-pdf").addEventListener("click",doPrint);
+  $("#btn-print").addEventListener("click",doPrint);
+  window.addEventListener("beforeprint",buildPrintDoc);
 
   // auto-load draft
   (function(){
