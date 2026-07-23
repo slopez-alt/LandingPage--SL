@@ -85,3 +85,6 @@ uploads/
 *.zip
 # Sitio legacy v4 (no publicar)
 sl-accounting-website-github-v4/
+
+# Borradores locales (no publicar)
+_borradores/

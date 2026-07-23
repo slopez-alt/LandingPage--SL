@@ -258,16 +258,6 @@
         <strong id="calendarThisMonth">0</strong>
         <small id="calendarAgencySummary">—</small>
       </article>
-      <article class="calendar-metric">
-        <span data-en="Requires review">Requiere revisión</span>
-        <strong id="calendarRequiresReview">0</strong>
-        <small data-en="rules need validation">reglas por validar</small>
-      </article>
-      <article class="calendar-metric">
-        <span data-en="Pending sources">Fuentes pendientes</span>
-        <strong id="calendarPendingSources">0</strong>
-        <small data-en="source status">estado de fuente</small>
-      </article>
     </div>
 
     <div class="calendar-filters" data-anim aria-label="Filtros de calendario contributivo">
@@ -282,9 +272,6 @@
       <button type="button" data-calendar-filter="DTRH">DTRH</button>
       <button type="button" data-calendar-filter="CFSE">CFSE</button>
       <button type="button" data-calendar-filter="FinCEN">FinCEN</button>
-      <button type="button" data-calendar-filter="source_confirmed" data-en="Source confirmed">Fuente confirmada</button>
-      <button type="button" data-calendar-filter="pending_review" data-en="Pending review">Pendiente de revisión</button>
-      <button type="button" data-calendar-filter="requires_review" data-en="Requires review">Requiere revisión</button>
     </div>
 
     <div class="calendar-layout">
@@ -326,68 +313,9 @@
   </div>
 </section>
 
-<!-- ============ REVISION MANUAL ============ -->
-<section class="calendar-review">
-  <div class="container">
-    <details class="calendar-review-panel" data-anim>
-      <summary>
-        <div>
-          <span class="section-tag" data-en="Internal review">Revisión interna</span>
-          <h2 data-en="Obligations that require review">Obligaciones que requieren revisión</h2>
-        </div>
-        <small data-en="Open technical review queue">Abrir cola técnica</small>
-      </summary>
-      <p class="calendar-disclaimer" data-en="These obligations are included in the system but should not be treated as guaranteed exact due dates until the notice, invoice, municipality, agency rule, or specific condition is validated.">
-        Estas obligaciones están incluidas en el sistema, pero no deben tratarse como fechas exactas garantizadas hasta validar notificación, factura, municipio, regla de agencia o condición específica.
-      </p>
-      <div class="review-list" id="calendarReviewList"></div>
-    </details>
-  </div>
-</section>
-
-<!-- ============ DATA TECNICA ============ -->
+<!-- ============ NOTA GENERAL ============ -->
 <section class="calendar-technical">
   <div class="container">
-    <details class="calendar-tech-details" data-anim>
-      <summary>
-        <span data-en="Complete technical rules table">Tabla técnica completa</span>
-        <small data-en="All loaded source obligations">Todas las obligaciones fuente cargadas</small>
-      </summary>
-      <div class="calendar-table-tools">
-        <label for="calendarTableSearch" data-en="Search obligation">Buscar obligación</label>
-        <input id="calendarTableSearch" type="search" placeholder="Buscar por obligación, agencia o nota" data-es-placeholder="Buscar por obligación, agencia o nota" data-en-placeholder="Search by obligation, agency, or note">
-      </div>
-      <div class="calendar-table-wrap">
-        <table class="calendar-table">
-          <thead>
-            <tr>
-              <th data-en="Obligation">Obligación</th>
-              <th data-en="Applies to">Aplica a</th>
-              <th data-en="Agency">Agencia</th>
-              <th data-en="Frequency">Frecuencia</th>
-              <th data-en="Due rule">Regla de vencimiento</th>
-              <th data-en="Rule type">Tipo de regla</th>
-              <th data-en="Source status">Estado de fuente</th>
-              <th data-en="Automation status">Estado automático/revisión</th>
-              <th data-en="Notes">Notas</th>
-            </tr>
-          </thead>
-          <tbody id="calendarTechnicalRows"></tbody>
-        </table>
-      </div>
-      <p class="calendar-internal-note" data-en="* Requires internal review. Public calendar dates should be validated before relying on variable, invoice-based, municipal, or notice-based obligations.">
-        * Requiere revisión interna. Las fechas públicas deben validarse antes de depender de obligaciones variables, por factura, municipio o notificación.
-      </p>
-    </details>
-
-    <details class="calendar-tech-details calendar-validation-details" data-anim>
-      <summary>
-        <span data-en="Calendar validation status">Estado de validación del calendario</span>
-        <small data-en="Completeness check for source obligations">Validación de completitud de obligaciones fuente</small>
-      </summary>
-      <div class="validation-grid" id="calendarValidationStatus"></div>
-    </details>
-
     <p class="calendar-disclaimer" data-anim data-en="This tool is a general informational reference and does not replace individualized tax advice. Dates may vary due to holidays, law changes, administrative extensions, or specific circumstances.">
       Esta herramienta es una referencia informativa general y no sustituye asesoría contributiva individualizada. Las fechas pueden variar por feriados, cambios de ley, prórrogas administrativas o circunstancias particulares.
     </p>

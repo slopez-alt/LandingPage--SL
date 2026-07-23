@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s *)",
+      "Bash(curl -sI *)",
+      "Bash(dig *)",
+      "Bash(npx -y lighthouse *)",
+      "Bash(python3 scripts/build-sitemap.py)",
+      "Bash(zsh scripts/minify-assets.sh)",
+      "Bash(sips -g *)",
+      "mcp__Claude_Browser__preview_logs",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__read_page",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__read_network_requests",
+      "mcp__Claude_Browser__tabs_context"
+    ]
+  }
+}

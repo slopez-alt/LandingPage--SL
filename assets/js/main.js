@@ -354,7 +354,6 @@
       return { sourceCount: 0, loadedCount: 0, missingCount: 0, duplicateCount: 0, requiresReviewCount: 0, confirmedSourceCount: 0, pendingSourceCount: 0, missing: [], duplicates: [] };
     };
     const validation = validateCalendarRulesCompleteness(sourceObligationChecklist, taxCalendarRules);
-    console.info('Calendar Rules Validation:', validation);
 
     const els = {
       nextTitle: document.getElementById('calendarNextTitle'),
@@ -539,7 +538,7 @@
     }
 
     function reviewMark(item) {
-      return item.sourceStatus !== 'confirmed' || item.requiresReview ? '<sup class="calendar-review-mark">*</sup>' : '';
+      return '';
     }
 
     function frequencyLabel(frequency) {
@@ -616,8 +615,8 @@
       els.next7.textContent = next7;
       els.next30.textContent = next30;
       els.thisMonth.textContent = thisMonth.length;
-      els.requiresReview.textContent = rules.filter(function(rule){ return rule.requiresReview; }).length;
-      els.pendingSources.textContent = rules.filter(function(rule){ return rule.sourceStatus !== 'confirmed'; }).length;
+      if (els.requiresReview) els.requiresReview.textContent = rules.filter(function(rule){ return rule.requiresReview; }).length;
+      if (els.pendingSources) els.pendingSources.textContent = rules.filter(function(rule){ return rule.sourceStatus !== 'confirmed'; }).length;
       els.agencySummary.textContent = topAgency || (getCurrentLang() === 'en' ? 'No obligations this month' : 'Sin obligaciones este mes');
     }
 
@@ -705,13 +704,13 @@
             '<span>' + appliesLabel(event) + '</span>' +
             '<span>' + frequencyLabel(event.frequency) + '</span>' +
             '<span class="urgency-badge ' + event.urgency + '">' + urgencyLabel(event.urgency) + '</span>' +
-            (event.sourceStatus !== 'confirmed' || event.requiresReview ? '<span class="source-badge auto">* ' + (getCurrentLang() === 'en' ? 'Internal review' : 'Revisión interna') + '</span>' : '') +
           '</div>' +
         '</article>';
       }).join('');
     }
 
     function renderReviewList(rules) {
+      if (!els.reviewList) return;
       const reviewRules = rules.filter(function(rule){ return rule.requiresReview; });
       if (!reviewRules.length) {
         els.reviewList.innerHTML = '<div class="deadline-empty">' + (getCurrentLang() === 'en' ? 'No obligations require review for this filter.' : 'No hay obligaciones que requieran revisión para este filtro.') + '</div>';
@@ -728,6 +727,7 @@
     }
 
     function renderTechnicalRows(rules) {
+      if (!els.technicalRows) return;
       const query = state.tableSearch.trim().toLowerCase();
       const visible = rules.filter(function(item){
         if (!query) return true;
@@ -749,6 +749,7 @@
     }
 
     function renderValidationStatus() {
+      if (!els.validationStatus) return;
       const items = [
         ['Total fuente', validation.sourceCount],
         ['Total cargadas', validation.loadedCount],
