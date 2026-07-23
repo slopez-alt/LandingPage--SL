@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hoja de Información del Cliente — Planilla de Individuos | SL Accounting Services PR</title>
+<meta name="description" content="Formulario interactivo para preparar tu planilla de individuos en Puerto Rico: complétalo, fírmalo en pantalla, guárdalo en PDF y envíalo a SL Accounting. Confidencial; se guarda en tu navegador.">
+<link rel="canonical" href="https://accountingsl.com/herramientas/hoja-informacion-cliente/">
+<meta property="og:title" content="Hoja de Información del Cliente — Planilla de Individuos | SL Accounting Services PR">
+<meta property="og:description" content="Formulario interactivo para preparar tu planilla de individuos en Puerto Rico: complétalo, fírmalo en pantalla, guárdalo en PDF y envíalo a SL Accounting.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PR">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon-sl.svg">
+<link rel="icon" type="image/png" href="/assets/favicon-v3-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/assets/favicon-v3-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-v3.png">
+<meta property="og:url" content="https://accountingsl.com/herramientas/hoja-informacion-cliente/">
+<meta property="og:image" content="https://accountingsl.com/assets/og-image.png">
+<meta property="og:image:secure_url" content="https://accountingsl.com/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SL Accounting Services PR logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://accountingsl.com/assets/og-image.png">
+<meta name="robots" content="index,follow">
+<!-- hreflang: esta página existe solo en ES (toggle EN es client-side sin URL propia) -->
+<link rel="alternate" hreflang="es-PR" href="https://accountingsl.com/herramientas/hoja-informacion-cliente/" />
+<link rel="alternate" hreflang="x-default" href="https://accountingsl.com/herramientas/hoja-informacion-cliente/" />
+
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.min.css"></noscript>
+<style>
+  /* CSS crítico inline para renderizado inmediato sin FOUC */
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Geist','Geist Fallback','Helvetica Neue',Helvetica,Arial,sans-serif;background:#F5F1E8;color:#1a2540}
+  .site-header{position:sticky;top:0;z-index:200;background:#fff}
+  .site-header nav{display:flex;align-items:center;gap:1rem}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+  img{max-width:100%;height:auto}
+  .brand-mark{width:32px}
+  .brand-mark img{width:100%;height:auto;display:block}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hoja de Información del Cliente — Planilla de Individuos",
+  "description": "Formulario interactivo para preparar tu planilla de individuos en Puerto Rico: complétalo, fírmalo en pantalla, guárdalo en PDF y envíalo a SL Accounting Services PR.",
+  "url": "https://accountingsl.com/herramientas/hoja-informacion-cliente/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": {
+    "@type": "Organization",
+    "name": "SL Accounting Services PR",
+    "url": "https://accountingsl.com"
+  }
+}
+</script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQFQZD4KT0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NQFQZD4KT0', {
+    page_title: document.title,
+    page_location: window.location.href
+  });
+</script>
+
+<style>
+  /* ==========================================================================
+     HOJA DE INFORMACIÓN DEL CLIENTE — estilos aislados bajo .intake
+     Re-vestido al sistema de diseño del sitio (navy + gold, Instrument Serif /
+     Geist / JetBrains Mono). Todas las reglas van prefijadas con .intake para
+     no colisionar con styles.min.css (que también define .field, .btn, .grid…).
+     Las variables --ink, --paper, --line, --gold, --navy, --muted, --radius,
+     --shadow, --serif, --mono, --sans provienen del :root global del sitio.
+     ========================================================================== */
+  .intake{
+    --surface:#ffffff;
+    --ink-2:var(--navy);
+    --ink-soft:var(--muted);
+    --line-2:#EFE8D6;
+    --accent:var(--gold);
+    --accent-2:var(--gold-deep);
+    --accent-soft:#F4ECD9;
+    --gold-soft:#F4ECD9;
+    --danger:#a83b3b;
+    --danger-soft:#f6e7e6;
+    --radius-sm:8px;
+    max-width:900px;margin:0 auto;
+    color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .intake h2,.intake h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0;color:var(--navy)}
+  .intake .tabular{font-variant-numeric:tabular-nums}
+
+  /* ---------- Card ---------- */
+  .intake .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:26px 26px 24px;margin:18px 0;scroll-margin-top:92px;
+  }
+  .intake .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+  .intake .sec-num{
+    font-family:var(--mono);font-size:12px;color:var(--gold-text);font-weight:600;
+    border:1px solid var(--gold);border-radius:6px;padding:2px 8px;line-height:1.3;flex:0 0 auto;
+  }
+  .intake .sec-head h2{font-size:23px}
+  .intake .sec-desc{color:var(--muted);font-size:13px;margin:2px 0 18px;line-height:1.6}
+
+  /* ---------- Fields ---------- */
+  .intake .grid{display:grid;gap:14px 16px}
+  .intake .g2{grid-template-columns:1fr 1fr}
+  .intake .g3{grid-template-columns:1fr 1fr 1fr}
+  .intake .g4{grid-template-columns:repeat(4,1fr)}
+  .intake .span2{grid-column:span 2}
+  .intake .span-all{grid-column:1/-1}
+  .intake .field{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .intake label{font-size:12.5px;font-weight:600;color:var(--navy)}
+  .intake label .opt{font-weight:400;color:var(--muted)}
+  .intake input[type=text],.intake input[type=email],.intake input[type=date],
+  .intake input[type=tel],.intake input[type=number],.intake select,.intake textarea{
+    font-family:inherit;font-size:14px;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;width:100%;
+    transition:border-color .12s,box-shadow .12s;
+  }
+  .intake textarea{resize:vertical;min-height:70px}
+  .intake input:focus,.intake select:focus,.intake textarea:focus{
+    outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--accent-soft);
+  }
+  .intake input::placeholder{color:#b3a887}
+  .intake .money-wrap{position:relative}
+  .intake .money-wrap input{padding-left:24px;text-align:right;font-variant-numeric:tabular-nums}
+  .intake .money-wrap::before{content:"$";position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
+
+  /* radios / checks */
+  .intake .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .intake .chip{position:relative}
+  .intake .chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+  .intake .chip span{
+    display:block;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;
+    color:var(--navy);cursor:pointer;user-select:none;transition:.12s;background:#fff;
+  }
+  .intake .chip input:checked + span{border-color:var(--gold);background:var(--accent-soft);color:var(--gold-text);font-weight:600}
+  .intake .chip input:focus-visible + span{box-shadow:0 0 0 3px var(--accent-soft)}
+  .intake .checkrow{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--line-2)}
+  .intake .checkrow:last-child{border-bottom:none}
+  .intake .checkrow input[type=checkbox]{width:18px;height:18px;margin-top:1px;accent-color:var(--gold);flex:0 0 auto;cursor:pointer}
+  .intake .checkrow .lbl{font-size:14px;color:var(--ink);cursor:pointer;font-weight:500}
+  .intake .checkrow .lbl small{display:block;color:var(--muted);font-size:12px;margin-top:1px;font-weight:400}
+  .intake .checkrow .amt{margin-left:auto;flex:0 0 150px}
+
+  /* conditional reveal */
+  .intake .reveal{display:none}
+  .intake .reveal.on{display:block;animation:intake-fade .18s ease}
+  @keyframes intake-fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .intake .subcard{background:var(--paper);border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:16px;margin-top:14px}
+  .intake .subcard > h3{font-size:15px;margin-bottom:12px;color:var(--ink)}
+
+  /* dependents / dynamic tables */
+  .intake .dyn-row{display:grid;gap:10px;align-items:end;margin-bottom:10px}
+  .intake .dep-row{grid-template-columns:2fr 1.1fr 1.2fr 1fr 1fr auto}
+  .intake .rent-row{grid-template-columns:2.4fr 1fr 1fr auto}
+  .intake .rm{
+    border:1px solid var(--line);background:#fff;color:var(--danger);border-radius:8px;width:34px;height:38px;
+    cursor:pointer;font-size:18px;line-height:1;display:grid;place-items:center;transition:.12s;
+  }
+  .intake .rm:hover{background:var(--danger-soft);border-color:var(--danger)}
+  .intake .addbtn{
+    border:1px dashed var(--gold);background:var(--accent-soft);color:var(--gold-text);
+    border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.12s;
+  }
+  .intake .addbtn:hover{background:#eaddc0}
+  .intake .mini-label{font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+
+  /* estimated payments table */
+  .intake .paytable-wrap{overflow-x:auto}
+  .intake .paytable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+  .intake .paytable th{
+    font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    text-align:right;padding:8px;font-weight:500;border-bottom:1px solid var(--line);
+  }
+  .intake .paytable th:first-child{text-align:left}
+  .intake .paytable td{padding:6px 8px;border-bottom:1px solid var(--line-2)}
+  .intake .paytable td:first-child{color:var(--navy);font-weight:500;font-size:13px}
+  .intake .paytable input{padding:6px 9px 6px 20px;text-align:right;font-size:13px}
+  .intake .paytable .money-wrap::before{left:8px;font-size:13px}
+
+  /* ---------- Ledger ---------- */
+  .intake .ledger-groups{margin-top:6px}
+  .intake .lg{border-top:1px solid var(--line);padding:14px 0 4px}
+  .intake .lg-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:6px}
+  .intake .lrow{display:grid;grid-template-columns:1fr 170px;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--line-2)}
+  .intake .lrow:last-child{border-bottom:none}
+  .intake .lrow label{font-weight:500;color:var(--navy);font-size:13.5px}
+  .intake .lrow .money-wrap input{padding-top:7px;padding-bottom:7px}
+  .intake .totline{
+    position:sticky;bottom:0;margin-top:16px;background:var(--navy);color:#eef3f0;
+    border-radius:var(--radius);padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px 26px;
+    justify-content:flex-end;align-items:center;box-shadow:0 -4px 16px rgba(14,31,56,.18);
+  }
+  .intake .totline .lab{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-on-dark)}
+  .intake .totline .val{font-family:var(--serif);font-size:20px;font-weight:400;font-variant-numeric:tabular-nums;color:#fff}
+  .intake .totline .net .val{color:var(--gold)}
+  .intake .totline .net.neg .val{color:#f0b8b0}
+  .intake .totdivider{width:1px;height:30px;background:rgba(255,255,255,.18)}
+
+  /* ---------- Firma digital ---------- */
+  .intake .sign-block{margin-top:18px}
+  .intake .sign-pad-wrap{position:relative;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;overflow:hidden}
+  .intake .sign-pad{display:block;width:100%;height:180px;touch-action:none;cursor:crosshair}
+  .intake .sign-base{position:absolute;left:24px;right:24px;bottom:40px;border-bottom:1.5px solid var(--line);pointer-events:none}
+  .intake .sign-x{position:absolute;left:14px;bottom:32px;font-family:var(--serif);font-size:22px;color:var(--line);pointer-events:none;line-height:1}
+  .intake .sign-hint{position:absolute;left:44px;bottom:12px;font-size:11px;color:var(--muted);pointer-events:none}
+  .intake .sign-clear{
+    position:absolute;top:10px;right:10px;border:1px solid var(--line);background:#fff;color:var(--muted);
+    border-radius:6px;padding:5px 11px;font-size:12px;font-family:inherit;cursor:pointer;transition:.12s;
+  }
+  .intake .sign-clear:hover{border-color:var(--danger);color:var(--danger);background:var(--danger-soft)}
+  .intake .sign-grid2{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:14px}
+  .intake .sign-cap{font-size:11.5px;color:var(--muted);margin-top:5px}
+
+  /* ---------- Delivery note + actions ---------- */
+  .intake .deliver-note{
+    margin-top:18px;background:var(--accent-soft);border:1px solid var(--gold);border-radius:var(--radius-sm);
+    padding:16px 18px;font-size:14px;color:var(--navy);line-height:1.6;
+  }
+  .intake .deliver-note strong{color:var(--gold-text)}
+  .intake .deliver-note a{color:var(--gold-text);font-weight:600;text-decoration:underline}
+  .intake .consent{
+    font-size:12px;color:var(--muted);background:var(--paper);border:1px solid var(--line-2);
+    border-radius:var(--radius-sm);padding:14px 16px;margin-top:6px;line-height:1.6;
+  }
+  .intake .actions{
+    margin:26px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+  }
+  .intake .btn{
+    font-family:inherit;font-size:14px;font-weight:600;border-radius:10px;padding:11px 20px;
+    cursor:pointer;border:1px solid transparent;transition:.14s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  }
+  .intake .btn-primary{background:var(--navy);color:#fff}
+  .intake .btn-primary:hover{background:var(--ink)}
+  .intake .btn-ghost{background:#fff;border-color:var(--line);color:var(--navy)}
+  .intake .btn-ghost:hover{border-color:var(--gold);color:var(--gold-text)}
+  .intake .btn-quiet{background:transparent;color:var(--muted);border-color:transparent}
+  .intake .btn-quiet:hover{color:var(--danger)}
+  .intake .saved-flag{font-size:12.5px;color:var(--gold-text);margin-left:auto;font-weight:500}
+
+  /* ---------- Meta card (año / fecha / tipo) ---------- */
+  .intake .meta-grid{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
+  .intake .meta-grid .field{min-width:160px}
+
+  /* ---------- Documento de impresión (construido por JS, solo impresión) ---------- */
+  .print-doc{display:none}
+
+  /* ---------- Nota de privacidad (pantalla) ---------- */
+  .intake-instructions .intake-privacy{
+    background:#fff;border:1px solid var(--gold);border-left:3px solid var(--gold);
+    border-radius:var(--radius-sm);padding:14px 16px;font-size:14px;color:var(--navy);line-height:1.6;margin:0 0 22px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .intake-instructions .intake-privacy .lock{flex:0 0 auto;font-size:16px;line-height:1.4}
+  .intake-instructions .intake-privacy strong{color:var(--gold-text)}
+  .intake .pdf-hint{font-size:12.5px;color:var(--muted);line-height:1.55;margin:10px 0 0;max-width:660px}
+  .intake .pdf-hint strong{color:var(--navy)}
+
+  /* ---------- Instrucciones ---------- */
+  .intake-instructions .steps{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .intake-instructions .steps li{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;
+    font-size:14px;color:var(--ink);line-height:1.55;
+  }
+  .intake-instructions .steps b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);margin-bottom:8px}
+  .intake-instructions .deliver{
+    margin-top:22px;background:#fff;border:1px solid var(--gold);border-radius:var(--radius-sm);
+    padding:18px 20px;font-size:15px;color:var(--navy);line-height:1.65;
+  }
+  .intake-instructions .deliver a{color:var(--gold-text);font-weight:600;text-decoration:underline}
+
+  .intake-section{background:var(--paper);padding:36px 0 72px}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:720px){
+    .intake .g2,.intake .g3,.intake .g4{grid-template-columns:1fr}
+    .intake .span2{grid-column:auto}
+    .intake .dep-row,.intake .rent-row{grid-template-columns:1fr 1fr}
+    .intake .checkrow .amt{flex-basis:120px}
+    .intake .lrow{grid-template-columns:1fr 130px}
+    .intake .sign-grid2{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){.intake *{animation:none!important}}
+
+  /* ==========================================================================
+     IMPRESIÓN — documento profesional generado desde el estado del formulario.
+     En pantalla se ve el formulario interactivo (.intake). Al imprimir, éste se
+     oculta y se muestra únicamente #print-doc, construido por JS a partir de los
+     mismos valores (una sola fuente de estado). Tipografía de marca:
+     Instrument Serif (títulos) + Geist (texto/tablas). Legible en blanco y negro.
+     ========================================================================== */
+  @media print{
+    @page{ size: Letter portrait; margin: 0.5in; }
+
+    /* Ocultar chrome del sitio y el formulario interactivo */
+    header.site, footer.site, .wa-float, .tool-hero, .intake-instructions,
+    .intake, .no-print{ display:none !important; }
+
+    html, body{ background:#fff !important; }
+    body{ color:#14181f; }
+    .intake-section{ padding:0; background:#fff; }
+    .container{ max-width:none; padding:0; }
+
+    /* Documento de impresión */
+    .print-doc{
+      display:block;
+      font-family:var(--sans);
+      color:#14181f; font-size:10pt; line-height:1.34;
+      orphans:3; widows:3;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .print-doc *{ box-sizing:border-box; }
+
+    /* Encabezado del documento (no se repite completo en cada página) */
+    .pd-head{ display:flex; align-items:center; gap:12px; border-bottom:1.5pt solid #1a2540; padding-bottom:8px; margin-bottom:6px; break-after:avoid; }
+    .pd-logo{ height:42px; width:auto; flex:0 0 auto; display:block; }
+    .pd-brandwrap{ flex:1 1 auto; }
+    .pd-brand{ font-family:var(--serif); font-size:15pt; line-height:1.05; color:#1a2540; }
+    .pd-tag{ font-size:8pt; color:#555; margin-top:1px; }
+    .pd-doc{ text-align:right; }
+    .pd-title{ font-family:var(--serif); font-size:13pt; color:#14181f; line-height:1.1; }
+    .pd-sub{ font-size:8.5pt; color:#555; }
+    .pd-meta{ display:flex; flex-wrap:wrap; gap:3px 18px; font-size:8.5pt; color:#333; border-bottom:0.75pt solid #ccc; padding-bottom:7px; margin-bottom:9px; break-after:avoid; }
+    .pd-meta b{ color:#14181f; font-weight:600; }
+    .pd-privacy{ font-size:8pt; color:#555; background:#f5f2ea; border:0.5pt solid #ddd; border-radius:3px; padding:5px 8px; margin-bottom:12px; }
+
+    /* Secciones */
+    .pd-sec{ break-inside:auto; margin:0 0 11px; }
+    .pd-sec-h{ font-family:var(--serif); font-size:12pt; color:#1a2540; border-bottom:0.75pt solid #1a2540; padding-bottom:2px; margin:0 0 7px; break-after:avoid; }
+    .pd-sub-h{ font-size:8pt; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#7D6337; margin:9px 0 3px; break-after:avoid; }
+
+    /* Campos etiqueta / valor */
+    .pd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:5px 22px; }
+    .pd-grid.c3{ grid-template-columns:1fr 1fr 1fr; }
+    .pd-f{ break-inside:avoid; border-bottom:0.5pt solid #dcdcdc; padding-bottom:2px; min-width:0; }
+    .pd-f.wide{ grid-column:1/-1; }
+    .pd-l{ display:block; font-size:7.8pt; letter-spacing:.02em; color:#6a6a6a; text-transform:uppercase; }
+    .pd-v{ display:block; font-size:10pt; color:#14181f; word-break:break-word; }
+
+    /* Selecciones como texto (claras en B/N) */
+    .pd-lines{ display:flex; flex-wrap:wrap; gap:3px 24px; margin-top:6px; }
+    .pd-line{ break-inside:avoid; font-size:9.5pt; }
+    .pd-line .k{ color:#555; }
+    .pd-line b{ color:#14181f; }
+
+    /* Checklist B/N (documentos, deducciones) */
+    .pd-checks{ display:grid; grid-template-columns:1fr 1fr; gap:2px 22px; }
+    .pd-chk{ break-inside:avoid; font-size:9.5pt; padding:1.5px 0; display:flex; gap:6px; align-items:flex-start; }
+    .pd-box{ flex:0 0 auto; width:9pt; height:9pt; border:0.9pt solid #14181f; display:inline-flex; align-items:center; justify-content:center; margin-top:1.5px; font-size:7.5pt; line-height:1; }
+    .pd-box.on{ background:#1a2540; color:#fff; }
+    .pd-amt{ margin-left:auto; font-variant-numeric:tabular-nums; color:#14181f; }
+
+    /* Tablas (gastos / pagos / alquiler) */
+    .pd-table{ width:100%; border-collapse:collapse; font-size:9pt; break-inside:auto; }
+    .pd-table thead{ display:table-header-group; }
+    .pd-table th{ text-align:right; font-size:7.8pt; text-transform:uppercase; letter-spacing:.02em; color:#555; border-bottom:0.9pt solid #999; padding:3px 6px; font-weight:600; }
+    .pd-table th:first-child{ text-align:left; }
+    .pd-table td{ padding:2.6px 6px; border-bottom:0.4pt solid #e2e2e2; text-align:right; font-variant-numeric:tabular-nums; color:#14181f; }
+    .pd-table td:first-child{ text-align:left; }
+    .pd-table tr{ break-inside:avoid; }
+    .pd-table .grp td{ font-weight:700; color:#7D6337; background:#f6f2e9; font-size:7.8pt; text-transform:uppercase; letter-spacing:.02em; }
+    .pd-empty{ font-size:9pt; color:#666; font-style:italic; padding:3px 0; }
+
+    /* Totales — pegados a la tabla de gastos */
+    .pd-tot{ break-inside:avoid; display:flex; justify-content:flex-end; flex-wrap:wrap; gap:6px 26px; border:1pt solid #1a2540; padding:7px 12px; margin-top:8px; }
+    .pd-tot .item{ display:flex; gap:8px; align-items:baseline; }
+    .pd-tot .t{ font-size:8pt; text-transform:uppercase; letter-spacing:.03em; color:#555; }
+    .pd-tot .n{ font-family:var(--serif); font-size:12.5pt; color:#14181f; font-variant-numeric:tabular-nums; }
+    .pd-tot .neg .n{ color:#8a2a2a; }
+
+    /* Cierre: notas + autorización + firma (se mantienen juntos) */
+    .pd-close{ break-inside:avoid; }
+    .pd-legal{ font-size:8.5pt; color:#333; line-height:1.42; border:0.5pt solid #ccc; background:#fafafa; padding:7px 10px; border-radius:2px; margin:6px 0 10px; }
+    .pd-sign-row{ display:flex; gap:26px; align-items:flex-end; margin-top:8px; }
+    .pd-sign-box{ flex:1 1 58%; }
+    .pd-sign-img{ display:block; max-height:52px; max-width:100%; }
+    .pd-sign-line{ border-bottom:0.9pt solid #14181f; height:44px; }
+    .pd-sign-cap{ font-size:8pt; color:#555; border-top:0.5pt solid #999; padding-top:2px; margin-top:2px; }
+    .pd-sign-meta{ flex:1 1 40%; }
+    .pd-sign-meta .pd-f{ border-bottom:0.9pt solid #14181f; }
+  }
+</style>
+</head>
+<body>
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="SL Accounting Puerto Rico">
+      <div class="brand-mark">
+  <picture>
+    <source srcset="/assets/logo.webp" type="image/webp">
+    <img src="/assets/logo.png" alt="SL monogram" width="80" height="132" loading="eager" fetchpriority="high">
+  </picture>
+</div>
+      <div class="brand-name">
+        <span class="nm">SL Accounting</span>
+        <span class="sub" data-en="PUERTO RICO">PUERTO RICO</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="/" data-en="Home" data-track-event="nav_click" data-track-section="header" data-track-label="nav_inicio">Inicio</a>
+      <a href="/servicios/" data-en="Services" data-track-event="nav_click" data-track-section="header" data-track-label="nav_servicios">Servicios</a>
+      <a href="/clientes-atrasados/" data-en="Late filings" data-track-event="nav_click" data-track-section="header" data-track-label="nav_atrasados">Clientes atrasados</a>
+      <a href="/nosotros/" data-en="About Us" data-track-event="nav_click" data-track-section="header" data-track-label="nav_nosotros">Nosotros</a>
+      <div class="nav-dropdown">
+        <button class="nav-drop-toggle active" type="button" aria-expanded="false" data-en="Tools">Herramientas</button>
+        <div class="nav-dropdown-menu">
+          <a href="/herramientas/calculadora-alivio-contributivo-2025/" data-en="2025 Tax Relief Calculator">Calculadora de Alivio Contributivo 2025</a>
+          <a href="/herramientas/calendario-contributivo-pr/" data-en="PR Tax Calendar">Calendario Contributivo PR</a>
+          <a href="/herramientas/hoja-informacion-cliente/" data-en="Client Information Sheet">Hoja de Información del Cliente</a>
+        </div>
+      </div>
+      <a href="/blog/" data-en="Blog" data-track-event="nav_click" data-track-section="header" data-track-label="nav_blog">Blog</a>
+      <a href="/contacto/" data-en="Contact" data-track-event="nav_click" data-track-section="header" data-track-label="nav_contacto">Contacto</a>
+      <button class="lang lang-mob-only" type="button" aria-label="ES/EN · Cambiar idioma" onclick="document.getElementById('langToggle').click()"><span data-l="es" class="on">ES</span><span class="sep">/</span><span data-l="en">EN</span></button>
+    </nav>
+    <div class="nav-cta">
+      <button class="lang" id="langToggle" type="button" aria-label="ES/EN · Cambiar idioma" data-track-event="lang_toggle" data-track-section="header" data-track-label="idioma_es_en"><span data-l="es" class="on">ES</span><span class="sep">/</span><span data-l="en">EN</span></button>
+      <a href="/contacto/" class="btn btn-primary" data-track-event="cta_click" data-track-section="header" data-track-label="revisar_cumplimiento" data-en-html="Review my compliance <span class=&quot;arr&quot;></span>">Revisar mi cumplimiento <span class="arr"></span></a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ============ HERO INTERNO ============ -->
+<section class="tool-hero">
+  <div class="container">
+    <div>
+      <span class="tool-kicker" data-en="Tax preparation tool · Individuals">Herramienta de preparación de planilla · Individuos</span>
+      <h1 data-en="Client Information Sheet">Hoja de Información del Cliente</h1>
+      <p data-en="Complete only the sections that apply to your situation, sign on screen, and save the result as a PDF. Your data is saved in your browser as you work and is treated as confidential.">Complete solo las secciones que apliquen a su situación, firme en pantalla y guarde el resultado en PDF. Los campos se guardan en su navegador mientras trabaja y toda la información es confidencial.</p>
+      <div class="tool-hero-actions">
+        <a href="#hoja" class="btn btn-primary" data-en-html="Start the sheet <span class=&quot;arr&quot;></span>">Comenzar la hoja <span class="arr"></span></a>
+        <a href="/contacto/" class="btn btn-secondary" data-en-html="Talk to us <span class=&quot;arr&quot;></span>">Habla con nosotros <span class="arr"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTRUCCIONES ============ -->
+<section class="intake-instructions" style="padding:48px 0;background:var(--ivory);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div style="max-width:900px;margin:0 auto">
+      <p class="intake-privacy">
+        <span class="lock" aria-hidden="true">🔒</span>
+        <span data-en-html="<strong>Your information is private.</strong> Everything you type stays in your browser, on your device — it is not sent to any server or third party. Fill it out with confidence; nothing is shared until you download the PDF and send it to us. To erase everything, use “Clear form”."><strong>Tu información es privada.</strong> Todo lo que escribes permanece en tu navegador, en tu dispositivo — no se envía a ningún servidor ni a terceros. Complétalo con confianza; nada se comparte hasta que tú descargues el PDF y nos lo envíes. Para borrar todo, usa «Limpiar formulario».</span>
+      </p>
+      <span class="section-tag" data-en="How it works">Cómo funciona</span>
+      <ol class="steps">
+        <li><b data-en="Step 1">Paso 1</b><span data-en="Complete only the sections that apply. Sections appear automatically based on your income sources and marital status.">Complete solo las secciones que apliquen. Las secciones aparecen automáticamente según sus fuentes de ingreso y estado civil.</span></li>
+        <li><b data-en="Step 2">Paso 2</b><span data-en="Your progress saves automatically in this browser. You can close and return later on the same device.">Su progreso se guarda automáticamente en este navegador. Puede cerrar y volver luego desde el mismo dispositivo.</span></li>
+        <li><b data-en="Step 3">Paso 3</b><span data-en="Sign on screen at the end, then press “Download clean PDF”.">Firme en pantalla al final y luego presione «Descargar PDF limpio».</span></li>
+        <li><b data-en="Step 4">Paso 4</b><span data-en="Send the PDF to us so we can prepare your return.">Envíenos el PDF para que preparemos su planilla.</span></li>
+      </ol>
+      <p class="deliver">
+        <strong data-en="Delivery:">Entrega:</strong>
+        <span data-en="When you finish, print and/or save the sheet as a PDF and send it by email to">Al terminar, imprima y/o guarde la hoja como PDF y envíela por email a</span>
+        <a href="mailto:s.lopez@accountingsl.com?subject=Hoja%20de%20Informaci%C3%B3n%20del%20Cliente" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="email_entrega">s.lopez@accountingsl.com</a>.
+        <span data-en="You may also send it via">También puede enviarla por</span>
+        <a href="https://wa.me/17879617041" target="_blank" rel="noopener" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="whatsapp_entrega">WhatsApp</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULARIO ============ -->
+<section class="intake-section" id="hoja">
+  <div class="container">
+
+    <!-- Documento de impresión: construido por JS desde el estado del formulario (solo visible al imprimir) -->
+    <div class="print-doc" id="print-doc" aria-hidden="true"></div>
+
+    <div class="intake">
+
+      <!-- 00. Datos de la hoja -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">00</span><h2>Datos de la hoja</h2></div>
+        <p class="sec-desc">Año contributivo, fecha y tipo de cliente.</p>
+        <div class="meta-grid">
+          <div class="field" style="max-width:180px">
+            <label for="taxyear">Año contributivo</label>
+            <select id="taxyear">
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          <div class="field" style="max-width:200px">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha">
+          </div>
+          <div class="field" style="max-width:220px">
+            <label>Tipo de cliente</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="clienttype" value="nuevo"><span>Nuevo</span></label>
+              <label class="chip"><input type="radio" name="clienttype" value="recurrente" checked><span>Recurrente</span></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. Contribuyente -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Información del contribuyente</h2></div>
+        <p class="sec-desc">Datos de la persona principal que rinde la planilla.</p>
+        <div class="grid g4">
+          <div class="field span2"><label for="c_nombre">Nombre</label><input type="text" id="c_nombre"></div>
+          <div class="field"><label for="c_inicial">Inicial <span class="opt">(opc.)</span></label><input type="text" id="c_inicial" maxlength="3"></div>
+          <div class="field"><label for="c_ssn">Seguro Social</label><input type="text" id="c_ssn" class="ssn" inputmode="numeric" placeholder="000-00-0000"></div>
+          <div class="field span2"><label for="c_ape1">Apellido paterno</label><input type="text" id="c_ape1"></div>
+          <div class="field span2"><label for="c_ape2">Apellido materno <span class="opt">(opc.)</span></label><input type="text" id="c_ape2"></div>
+          <div class="field"><label for="c_nac">Fecha de nacimiento</label><input type="date" id="c_nac"></div>
+          <div class="field"><label for="c_ocup">Ocupación</label><input type="text" id="c_ocup"></div>
+          <div class="field span2"><label for="c_email">Email</label><input type="email" id="c_email" placeholder="nombre@correo.com"></div>
+          <div class="field span2"><label for="c_cel">Teléfono celular</label><input type="tel" id="c_cel" placeholder="(787) 000-0000"></div>
+          <div class="field span2"><label for="c_tel2">Teléfono residencia / trabajo <span class="opt">(opc.)</span></label><input type="tel" id="c_tel2"></div>
+          <div class="field span2 span-all"><label for="c_dirf">Dirección física</label><input type="text" id="c_dirf" placeholder="Calle, urb./barrio, pueblo, PR, ZIP"></div>
+          <div class="field span-all">
+            <label style="display:flex;align-items:center;gap:8px;font-weight:600">Dirección postal
+              <span style="font-weight:400;color:var(--muted);font-size:12px;display:inline-flex;align-items:center;gap:5px">
+                <input type="checkbox" id="c_postaligual" style="width:15px;height:15px;accent-color:var(--gold)"> igual a la física</span>
+            </label>
+            <input type="text" id="c_dirp" placeholder="Solo si es distinta a la física">
+          </div>
+        </div>
+
+        <div class="grid g2" style="margin-top:16px">
+          <div class="field">
+            <label>¿Ciudadano de EE. UU.?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="c_ciud" value="si" checked><span>Sí</span></label>
+              <label class="chip"><input type="radio" name="c_ciud" value="no"><span>No</span></label>
+            </div>
+          </div>
+          <div class="field reveal" data-when="c_ciud=no"><label for="c_ciud_x">Si no, explique</label><input type="text" id="c_ciud_x"></div>
+          <div class="field">
+            <label>¿Residente bona fide de Puerto Rico?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="c_bona" value="si" checked><span>Sí</span></label>
+              <label class="chip"><input type="radio" name="c_bona" value="no"><span>No</span></label>
+            </div>
+          </div>
+          <div class="field reveal" data-when="c_bona=no"><label for="c_bona_x">Si no, ¿dónde reside?</label><input type="text" id="c_bona_x"></div>
+          <div class="field">
+            <label>¿Días físicamente en PR durante el año? <span class="opt">(si aplica)</span></label>
+            <input type="number" id="c_dias" min="0" max="366" placeholder="0–366">
+          </div>
+          <div class="field">
+            <label>¿Cuentas bancarias/financieras en el extranjero?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="c_ext" value="no" checked><span>No</span></label>
+              <label class="chip"><input type="radio" name="c_ext" value="si"><span>Sí</span></label>
+            </div>
+          </div>
+          <div class="field reveal" data-when="c_ext=si"><label for="c_ext_x">Si sí, explique (país / institución)</label><input type="text" id="c_ext_x"></div>
+        </div>
+      </section>
+
+      <!-- 2. Estado civil -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Estado civil al terminar el año</h2></div>
+        <p class="sec-desc">Su estado civil al 31 de diciembre del año contributivo.</p>
+        <div class="opts">
+          <label class="chip"><input type="radio" name="civil" value="casado_vive" checked><span>Casado que vive con su cónyuge</span></label>
+          <label class="chip"><input type="radio" name="civil" value="casado_separado"><span>Casado que rinde por separado</span></label>
+          <label class="chip"><input type="radio" name="civil" value="casado_no_vive"><span>Casado que no vive con su cónyuge (no jefe de familia)</span></label>
+          <label class="chip"><input type="radio" name="civil" value="jefe"><span>Jefe de familia</span></label>
+          <label class="chip"><input type="radio" name="civil" value="soltero"><span>Soltero(a)</span></label>
+        </div>
+      </section>
+
+      <!-- 3. Cónyuge -->
+      <section class="card reveal" id="card-conyuge" data-when="civil=casado_vive|civil=casado_separado|civil=casado_no_vive">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Información del cónyuge</h2></div>
+        <p class="sec-desc">Aparece porque indicó estado civil casado.</p>
+        <div class="grid g4">
+          <div class="field span2"><label for="s_nombre">Nombre</label><input type="text" id="s_nombre"></div>
+          <div class="field"><label for="s_inicial">Inicial <span class="opt">(opc.)</span></label><input type="text" id="s_inicial" maxlength="3"></div>
+          <div class="field"><label for="s_ssn">Seguro Social</label><input type="text" id="s_ssn" class="ssn" inputmode="numeric" placeholder="000-00-0000"></div>
+          <div class="field span2"><label for="s_ape1">Apellido paterno</label><input type="text" id="s_ape1"></div>
+          <div class="field span2"><label for="s_ape2">Apellido materno <span class="opt">(opc.)</span></label><input type="text" id="s_ape2"></div>
+          <div class="field"><label for="s_nac">Fecha de nacimiento</label><input type="date" id="s_nac"></div>
+          <div class="field"><label for="s_ocup">Ocupación</label><input type="text" id="s_ocup"></div>
+          <div class="field span2"><label for="s_email">Email <span class="opt">(opc.)</span></label><input type="email" id="s_email"></div>
+          <div class="field span2"><label for="s_cel">Teléfono <span class="opt">(opc.)</span></label><input type="tel" id="s_cel"></div>
+        </div>
+        <div class="grid g2" style="margin-top:16px">
+          <div class="field"><label>¿Ciudadano de EE. UU.?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="s_ciud" value="si" checked><span>Sí</span></label>
+              <label class="chip"><input type="radio" name="s_ciud" value="no"><span>No</span></label>
+            </div></div>
+          <div class="field"><label>¿Residente bona fide de PR?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="s_bona" value="si" checked><span>Sí</span></label>
+              <label class="chip"><input type="radio" name="s_bona" value="no"><span>No</span></label>
+            </div></div>
+        </div>
+      </section>
+
+      <!-- 4. Dependientes -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Dependientes</h2></div>
+        <p class="sec-desc">Añada solo los dependientes que reclamará. Clasificación: U = universitario · NU = no universitario · I = incapacitado · 65+ = 65 años o más.</p>
+        <div id="dep-list"></div>
+        <button type="button" class="addbtn" id="add-dep">+ Añadir dependiente</button>
+      </section>
+
+      <!-- 5. Fuentes de ingreso -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Fuentes de ingreso</h2></div>
+        <p class="sec-desc">Marque todo lo que aplique. Según lo que marque, aparecerán abajo solo las secciones que necesita completar.</p>
+        <div>
+          <div class="checkrow"><input type="checkbox" id="src_empleo" class="src"><label class="lbl" for="src_empleo">Empleo (W-2 / 499R-2/W-2PR)<small>Salario o jornal con comprobante de retención</small></label></div>
+          <div class="checkrow"><input type="checkbox" id="src_negocio" class="src"><label class="lbl" for="src_negocio">Negocio propio, profesión o comisiones<small>Trabajo por cuenta propia / servicios prestados</small></label></div>
+          <div class="checkrow"><input type="checkbox" id="src_alquiler" class="src"><label class="lbl" for="src_alquiler">Alquiler de propiedad<small>Renta residencial o comercial</small></label></div>
+          <div class="checkrow"><input type="checkbox" id="src_intereses" class="src"><label class="lbl" for="src_intereses">Intereses y dividendos<small>Bancos, cooperativas, inversiones</small></label></div>
+          <div class="checkrow"><input type="checkbox" id="src_capital" class="src"><label class="lbl" for="src_capital">Ganancias de capital / venta de propiedad<small>Acciones, cripto, bienes raíces</small></label></div>
+          <div class="checkrow"><input type="checkbox" id="src_retiro" class="src"><label class="lbl" for="src_retiro">Distribuciones de retiro, IRA o anualidades</label></div>
+          <div class="checkrow"><input type="checkbox" id="src_ssf" class="src"><label class="lbl" for="src_ssf">Ingreso del Seguro Social federal</label></div>
+          <div class="checkrow"><input type="checkbox" id="src_otros" class="src"><label class="lbl" for="src_otros">Otros ingresos</label></div>
+        </div>
+      </section>
+
+      <!-- 6. Empleo -->
+      <section class="card reveal" data-when="src_empleo=on">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Ingreso de empleo</h2></div>
+        <p class="sec-desc">Prepararemos su planilla con los comprobantes de retención. Solo confírmenos lo básico.</p>
+        <div class="grid g3">
+          <div class="field"><label for="emp_patronos">Número de patronos</label><input type="number" id="emp_patronos" min="0" placeholder="1"></div>
+          <div class="field span2"><label>¿Adjuntará los comprobantes (499R-2/W-2PR o W-2)?</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="emp_comp" value="si" checked><span>Sí, los adjunto</span></label>
+              <label class="chip"><input type="radio" name="emp_comp" value="luego"><span>Los envío luego</span></label>
+            </div></div>
+        </div>
+      </section>
+
+      <!-- 7. Negocio / profesión — LEDGER -->
+      <section class="card reveal" data-when="src_negocio=on">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Ingreso por negocio, profesión o comisiones</h2></div>
+        <p class="sec-desc">Reporte los totales del año. Los gastos suman automáticamente y calculan su ganancia o pérdida neta.</p>
+        <div class="grid g2">
+          <div class="field span2"><label for="biz_nat">Naturaleza del servicio / industria</label><input type="text" id="biz_nat" placeholder="Ej.: barbería, consultoría, transporte"></div>
+          <div class="field"><label for="biz_rc">Núm. Registro de Comerciante <span class="opt">(si aplica)</span></label><input type="text" id="biz_rc"></div>
+          <div class="field"><label>Método de contabilidad</label>
+            <div class="opts">
+              <label class="chip"><input type="radio" name="biz_metodo" value="recibido" checked><span>Recibido y pagado</span></label>
+              <label class="chip"><input type="radio" name="biz_metodo" value="acumulacion"><span>Acumulación</span></label>
+            </div></div>
+          <div class="field"><label for="biz_bruto">Ingreso bruto del negocio</label>
+            <div class="money-wrap"><input type="text" id="biz_bruto" class="money biz-income" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="field"><label for="biz_fuera">Ingreso por servicios prestados fuera de PR <span class="opt">(si aplica)</span></label>
+            <div class="money-wrap"><input type="text" id="biz_fuera" class="money" inputmode="decimal" placeholder="0.00"></div></div>
+        </div>
+
+        <div class="ledger-groups" id="ledger">
+          <!-- groups injected by JS -->
+        </div>
+
+        <div class="totline">
+          <div><span class="lab">Total de gastos</span> <span class="val tabular" id="tot-gastos">$0.00</span></div>
+          <div class="totdivider"></div>
+          <div class="net" id="net-box"><span class="lab">Ganancia (o pérdida) neta</span> <span class="val tabular" id="tot-neto">$0.00</span></div>
+        </div>
+      </section>
+
+      <!-- 8. Alquiler -->
+      <section class="card reveal" data-when="src_alquiler=on">
+        <div class="sec-head"><span class="sec-num">08</span><h2>Alquiler de propiedad</h2></div>
+        <p class="sec-desc">Una fila por propiedad. Si tiene el detalle de gastos aparte, indique el total y adjúntelo.</p>
+        <div class="dyn-row rent-row" style="margin-bottom:6px">
+          <span class="mini-label">Propiedad / dirección</span>
+          <span class="mini-label">Renta recibida</span>
+          <span class="mini-label">Gastos del año</span>
+          <span></span>
+        </div>
+        <div id="rent-list"></div>
+        <button type="button" class="addbtn" id="add-rent">+ Añadir propiedad</button>
+      </section>
+
+      <!-- 9. Otros ingresos -->
+      <section class="card reveal" data-when="src_intereses=on|src_capital=on|src_retiro=on|src_ssf=on|src_otros=on">
+        <div class="sec-head"><span class="sec-num">09</span><h2>Otros ingresos</h2></div>
+        <p class="sec-desc">Indique la cantidad aproximada. Trabajaremos con sus informativas (480.x) y formularios 1099; márquelos en la lista de documentos.</p>
+        <div class="grid g2">
+          <div class="field reveal" data-when="src_intereses=on"><label for="oi_int">Intereses y dividendos</label>
+            <div class="money-wrap"><input type="text" id="oi_int" class="money" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="field reveal" data-when="src_capital=on"><label for="oi_cap">Ganancias de capital / ventas</label>
+            <div class="money-wrap"><input type="text" id="oi_cap" class="money" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="field reveal" data-when="src_retiro=on"><label for="oi_ret">Distribuciones de retiro / IRA</label>
+            <div class="money-wrap"><input type="text" id="oi_ret" class="money" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="field reveal" data-when="src_ssf=on"><label for="oi_ssf">Seguro Social federal</label>
+            <div class="money-wrap"><input type="text" id="oi_ssf" class="money" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="field span-all reveal" data-when="src_otros=on"><label for="oi_otros">Otros ingresos — describa</label><input type="text" id="oi_otros" placeholder="Tipo y cantidad"></div>
+        </div>
+      </section>
+
+      <!-- 10. Pagos estimados -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">10</span><h2>Contribución estimada y otros pagos</h2></div>
+        <p class="sec-desc">Pagos realizados durante el año contributivo. Deje en blanco lo que no aplique.</p>
+        <div class="paytable-wrap">
+          <table class="paytable">
+            <thead><tr><th>Fecha / concepto</th><th>Puerto Rico</th><th>Seguro Social</th><th>Federal</th></tr></thead>
+            <tbody id="paybody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 11. Deducciones y créditos -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">11</span><h2>Deducciones y créditos</h2></div>
+        <p class="sec-desc">Marque lo que aplique e indique la cantidad. Guarde los comprobantes; se los podríamos solicitar.</p>
+        <div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_hip"><label class="lbl" for="d_hip">Intereses hipotecarios — vivienda principal</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_hip" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_ira"><label class="lbl" for="d_ira">Aportación a cuenta de retiro individual (IRA)</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_ira" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_edu"><label class="lbl" for="d_edu">Aportación a cuenta de aportación educativa</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_edu" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_don"><label class="lbl" for="d_don">Donativos a entidades sin fines de lucro</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_don" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_med"><label class="lbl" for="d_med">Gastos médicos<small>Sujeto a límites; consulte con nosotros</small></label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_med" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_cuido"><label class="lbl" for="d_cuido">Cuido de niños o dependientes</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_cuido" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_est"><label class="lbl" for="d_est">Intereses de préstamos estudiantiles</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_est" inputmode="decimal" placeholder="0.00"></div></div>
+          <div class="checkrow"><input type="checkbox" class="ded" id="d_gob"><label class="lbl" for="d_gob">Aportación al sistema de retiro gubernamental</label><div class="amt money-wrap"><input type="text" class="money" data-ded="d_gob" inputmode="decimal" placeholder="0.00"></div></div>
+        </div>
+        <div class="field reveal" data-when="d_cuido=on" style="margin-top:12px;max-width:420px"><label for="d_cuido_prov">Proveedor de cuido — nombre y núm. de identificación</label><input type="text" id="d_cuido_prov"></div>
+      </section>
+
+      <!-- 12. Documentos -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">12</span><h2>Documentos a incluir</h2></div>
+        <p class="sec-desc">Marque lo que adjunta. Adjuntar los documentos correctos acelera la preparación.</p>
+        <div class="grid g2">
+          <div><div class="checkrow"><input type="checkbox" id="doc1"><label class="lbl" for="doc1">Comprobantes de retención (499R-2/W-2PR, W-2)</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc2"><label class="lbl" for="doc2">Informativas 480.x recibidas</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc3"><label class="lbl" for="doc3">Formularios 1099 federales</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc4"><label class="lbl" for="doc4">Comprobante de intereses hipotecarios</label></div></div>
+          <div><div class="checkrow"><input type="checkbox" id="doc5"><label class="lbl" for="doc5">Comprobantes de donativos</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc6"><label class="lbl" for="doc6">Registros / estados de cuenta del negocio</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc7"><label class="lbl" for="doc7">Planilla del año anterior (cliente nuevo)</label></div>
+            <div class="checkrow"><input type="checkbox" id="doc8"><label class="lbl" for="doc8">Identificación con foto</label></div></div>
+        </div>
+        <div class="field span-all" style="margin-top:12px"><label for="doc_otros">Otros documentos</label><input type="text" id="doc_otros"></div>
+      </section>
+
+      <!-- 13. Notas y autorización -->
+      <section class="card">
+        <div class="sec-head"><span class="sec-num">13</span><h2>Notas y autorización</h2></div>
+        <div class="field span-all"><label for="notas">Notas adicionales <span class="opt">(cambios de situación, preguntas, etc.)</span></label><textarea id="notas" placeholder="Escriba aquí cualquier detalle relevante para su planilla."></textarea></div>
+        <div class="consent">
+          Certifico que la información provista es correcta y completa a mi mejor conocimiento. Autorizo a
+          SL Accounting Services PR a preparar mi planilla con esta información. SL Accounting Services PR no
+          divulga información personal de sus clientes obtenida para sus servicios profesionales, excepto según
+          lo requiera o permita la ley.
+        </div>
+
+        <div class="sign-block">
+          <label style="display:block;margin-bottom:8px">Firma del contribuyente</label>
+          <div class="sign-pad-wrap">
+            <canvas id="sigpad" class="sign-pad" aria-label="Área para firmar"></canvas>
+            <span class="sign-base"></span>
+            <span class="sign-x">✕</span>
+            <span class="sign-hint">Firme con el dedo (móvil) o con el mouse</span>
+            <button type="button" class="sign-clear" id="sig-clear">Limpiar firma</button>
+          </div>
+          <div class="sign-grid2">
+            <div class="field"><label for="sig_nombre">Nombre en letra de molde</label><input type="text" id="sig_nombre"><span class="sign-cap">Nombre del contribuyente</span></div>
+            <div class="field"><label for="sig_fecha">Fecha de la firma</label><input type="date" id="sig_fecha"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="deliver-note no-print">
+        <strong>Al terminar:</strong> presione <em>«Descargar PDF limpio»</em>, guarde el documento y envíelo por email a
+        <a href="mailto:s.lopez@accountingsl.com?subject=Hoja%20de%20Informaci%C3%B3n%20del%20Cliente">s.lopez@accountingsl.com</a>
+        o por <a href="https://wa.me/17879617041" target="_blank" rel="noopener">WhatsApp</a>.
+      </div>
+
+      <div class="actions no-print">
+        <button type="button" class="btn btn-primary" id="btn-pdf" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="descargar_pdf">Descargar PDF limpio</button>
+        <button type="button" class="btn btn-ghost" id="btn-print" data-track-event="cta_click" data-track-section="hoja_cliente" data-track-label="imprimir">Imprimir</button>
+        <button type="button" class="btn btn-ghost" id="btn-save">Guardar borrador</button>
+        <button type="button" class="btn btn-quiet" id="btn-clear">Limpiar formulario</button>
+        <span class="saved-flag" id="saveflag"></span>
+      </div>
+      <p class="pdf-hint no-print" data-en-html="For a PDF without the browser’s date and link: in the print dialog choose <strong>“Save as PDF”</strong> and turn off <strong>“Headers and footers”</strong> (in Chrome, under “More settings”; in Safari, uncheck the print header option).">Para un PDF sin la fecha ni el enlace del navegador: en el diálogo de impresión elige <strong>«Guardar como PDF»</strong> y desactiva <strong>«Encabezados y pies de página»</strong> (en Chrome, dentro de «Más ajustes»; en Safari, desmarca la opción de encabezados).</p>
+
+    </div><!-- /.intake -->
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="top">
+          <div class="mark">
+  <picture>
+    <source srcset="/assets/logo.webp" type="image/webp">
+    <img src="/assets/logo.png" alt="SL monogram" width="80" height="132" loading="lazy">
+  </picture>
+</div>
+          <div class="nm">SL Accounting Services PR</div>
+        </div>
+        <p data-en="Accounting, tax and compliance services for Puerto Rico — monthly bookkeeping, returns, sales tax, payroll, advisory and agency representation.">
+          Servicios contables, contributivos y de cumplimiento para Puerto Rico — bookkeeping mensual, planillas, IVU, nómina, consultoría y respuestas a agencias.
+        </p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h" data-en="Services">Servicios</p>
+        <ul>
+          <li><a href="/contabilidad-mensual-corporaciones/" data-en="Monthly accounting for corporations">Contabilidad mensual para corporaciones</a></li>
+          <li><a href="/contable-en-puerto-rico/">Contable en Puerto Rico</a></li>
+          <li><a href="/servicios/" data-en="Monthly bookkeeping">Bookkeeping mensual</a></li>
+          <li><a href="/servicios/" data-en="Individual & business returns">Planillas individuos y negocios</a></li>
+          <li><a href="/servicios/" data-en="Sales tax & compliance">IVU y cumplimiento</a></li>
+          <li><a href="/servicios/" data-en="Payroll & quarterly">Nómina y trimestrales</a></li>
+          <li><a href="/servicios/">Act 60 / Act 14</a></li>
+          <li><a href="/servicios/" data-en="Agency notices">Cartas y agencias</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h" data-en="Firm">Firma</p>
+        <ul>
+          <li><a href="/nosotros/" data-en="About Us">Nosotros</a></li>
+          <li><a href="/servicios/" data-en="Compliance">Cumplimiento</a></li>
+          <li><a href="/clientes-atrasados/" data-en="Late filings">Clientes atrasados</a></li>
+          <li><a href="/contacto/" data-en="Contact">Contacto</a></li>
+          <li><a href="/privacy/" data-en="Privacy Policy">Política de Privacidad</a></li>
+          <li><a href="/terms/" data-en="Terms">Términos</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h" data-en="Contact">Contacto</p>
+        <ul>
+          <li class="mono"><a href="mailto:s.lopez@accountingsl.com" style="color:inherit;text-decoration:none" data-track-event="cta_click" data-track-section="footer" data-track-label="email_footer">EMAIL · s.lopez@accountingsl.com</a></li>
+          <li class="mono"><a href="https://wa.me/17879617041" target="_blank" rel="noopener" style="color:inherit;text-decoration:none" data-track-event="cta_click" data-track-section="footer" data-track-label="whatsapp_footer">WHATSAPP · +1 (787) 961-7041</a></li>
+          <li class="mono" data-en="LOCATION · Puerto Rico">UBICACIÓN · Puerto Rico</li>
+          <li class="mono" data-en="HOURS · MON–FRI · 9AM–5PM AST">HORARIO · L–V · 9AM–5PM AST</li>
+          <li class="mono" data-en="SERVICE · REMOTE">SERVICIO · REMOTO</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-disclaimer">
+      <p data-en="The information presented on this site is general in nature and does not constitute specific tax, legal, or financial advice. Each case must be evaluated based on its particular facts and documents.">
+        La información presentada en esta página es de carácter general y no constituye asesoría contributiva, legal o financiera específica. Cada caso debe evaluarse según sus hechos y documentos particulares.
+      </p>
+      <p data-en="SL Accounting Services PR does not present itself as a CPA firm unless expressly stated.">
+        SL Accounting Services PR no se presenta como firma de CPA a menos que se indique expresamente.
+      </p>
+    </div>
+
+    <div class="foot-bot">
+      <div data-en="© 2026 SL Accounting Services PR · All rights reserved">© 2026 SL Accounting Services PR · Todos los derechos reservados</div>
+      <div>Caguas · Puerto Rico</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOATING ============ -->
+<a href="https://wa.me/17879617041" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp" data-track-event="cta_click" data-track-section="float" data-track-label="whatsapp_flotante">
+  <span class="ico">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.15-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.46-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.66-1.58-.9-2.17-.24-.58-.49-.5-.66-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.44 0 1.44 1.06 2.83 1.21 3.03.15.2 2.09 3.18 5.06 4.46.71.3 1.26.48 1.69.62.71.22 1.35.19 1.86.12.57-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.57-.35z" fill="#fff"/><path d="M20.5 3.5C18.3 1.3 15.3.1 12.1.1 5.5.1.2 5.5.2 12.1c0 2.1.55 4.16 1.6 5.97L0 24l6.1-1.6c1.75.95 3.72 1.45 5.73 1.45h.01c6.59 0 11.97-5.36 11.97-11.95 0-3.2-1.24-6.2-3.31-8.4zm-8.4 18.4h-.01c-1.8 0-3.56-.48-5.1-1.4l-.36-.22-3.79.99 1.01-3.7-.24-.38c-1-1.6-1.54-3.45-1.54-5.34 0-5.55 4.52-10.06 10.07-10.06 2.7 0 5.22 1.05 7.13 2.96 1.9 1.9 2.95 4.43 2.94 7.12 0 5.55-4.52 10.04-10.1 10.04z" fill="#fff"/></svg>
+  </span>
+  <span class="lbl-long" data-en="Chat on WhatsApp">Escríbenos por WhatsApp</span>
+  <span class="lbl-short">WhatsApp</span>
+</a>
+
+<!-- ============ LÓGICA DE LA HOJA ============ -->
+<script>
+(function(){
+  "use strict";
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  var KEY="sl_intake_draft_v1";
+  var sigData="";
+
+  /* ---------- Ledger groups ---------- */
+  var GROUPS=[
+    ["Nómina y contratistas",[
+      ["ex_salarios","Salarios, comisiones y bonificaciones a empleados"],
+      ["ex_subcon","Servicios subcontratados / contratistas independientes"],
+      ["ex_nomina","Gastos de nómina (FICA, desempleo, FSE)"],
+      ["ex_pension","Aportaciones a planes de retiro / pensión"]
+    ]],
+    ["Ocupación y utilidades",[
+      ["ex_renta","Renta / alquiler (local, equipo)"],
+      ["ex_prop","Contribución sobre la propiedad"],
+      ["ex_luz","Energía eléctrica"],
+      ["ex_agua","Agua y alcantarillado"],
+      ["ex_tel","Teléfono y celular"],
+      ["ex_internet","Internet, cable y telecomunicaciones"]
+    ]],
+    ["Seguros y licencias",[
+      ["ex_seguro","Primas de seguro del negocio"],
+      ["ex_medico","Seguro médico / hospitalización (empleados)"],
+      ["ex_patente","Patentes municipales y licencias"],
+      ["ex_colegio","Cuotas de colegiación y membresías profesionales"]
+    ]],
+    ["Operación y administración",[
+      ["ex_compras","Compras / inventario"],
+      ["ex_materiales","Materiales y efectos"],
+      ["ex_software","Herramientas y suscripciones tecnológicas (software)"],
+      ["ex_anuncios","Anuncios y mercadeo"],
+      ["ex_prof","Servicios profesionales (legal, contabilidad)"],
+      ["ex_banco","Cargos bancarios"],
+      ["ex_sellos","Sellos, franqueo y aranceles"],
+      ["ex_repara","Reparaciones y mantenimiento"]
+    ]],
+    ["Vehículo y viajes",[
+      ["ex_auto","Gastos de auto / millaje"],
+      ["ex_peaje","Estacionamientos y peaje"],
+      ["ex_viaje","Gastos de viaje"],
+      ["ex_comida","Comida y entretenimiento"]
+    ]],
+    ["Otros",[
+      ["ex_deprec","Depreciación y amortización"],
+      ["ex_incobra","Deudas incobrables"],
+      ["ex_otros","Otros gastos"]
+    ]]
+  ];
+  (function buildLedger(){
+    var host=$("#ledger"),html="";
+    GROUPS.forEach(function(g){
+      html+='<div class="lg"><div class="lg-title">'+g[0]+'</div>';
+      g[1].forEach(function(r){
+        html+='<div class="lrow"><label for="'+r[0]+'">'+r[1]+'</label>'+
+              '<div class="money-wrap"><input type="text" id="'+r[0]+'" class="money exp" inputmode="decimal" placeholder="0.00"></div></div>';
+      });
+      html+='</div>';
+    });
+    host.innerHTML=html;
+  })();
+
+  /* ---------- Money helpers ---------- */
+  function num(v){var n=parseFloat(String(v).replace(/[^0-9.\-]/g,""));return isNaN(n)?0:n}
+  function fmt(n){return n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})}
+  function fmtMoney(n){return "$"+fmt(n)}
+
+  function recalc(){
+    var t=0;
+    $$(".exp").forEach(function(i){t+=num(i.value)});
+    var bruto=num($(".biz-income")?$(".biz-income").value:0);
+    var net=bruto-t;
+    $("#tot-gastos").textContent=fmtMoney(t);
+    $("#tot-neto").textContent=(net<0?"-$":"$")+fmt(Math.abs(net));
+    $("#net-box").classList.toggle("neg",net<0);
+  }
+
+  document.addEventListener("input",function(e){
+    if(e.target.classList.contains("exp")||e.target.classList.contains("biz-income")) recalc();
+  });
+  document.addEventListener("blur",function(e){
+    if(e.target.classList&&e.target.classList.contains("money")){
+      var n=num(e.target.value);
+      e.target.value=n?fmt(n):"";
+      recalc();
+    }
+  },true);
+  document.addEventListener("focus",function(e){
+    if(e.target.classList&&e.target.classList.contains("money")){
+      e.target.value=e.target.value.replace(/,/g,"");
+    }
+  },true);
+
+  /* ---------- SSN mask ---------- */
+  document.addEventListener("input",function(e){
+    if(!e.target.classList.contains("ssn"))return;
+    var d=e.target.value.replace(/\D/g,"").slice(0,9),o=d;
+    if(d.length>5)o=d.slice(0,3)+"-"+d.slice(3,5)+"-"+d.slice(5);
+    else if(d.length>3)o=d.slice(0,3)+"-"+d.slice(3);
+    e.target.value=o;
+  });
+
+  /* ---------- Conditional reveals ---------- */
+  function stateFor(cond){
+    var p=cond.split("=");var key=p[0],want=p[1];
+    var byId=document.getElementById(key);
+    if(byId&&byId.type==="checkbox"){return byId.checked===(want==="on")}
+    var radio=document.querySelector('input[name="'+key+'"]:checked');
+    if(radio){return radio.value===want}
+    return false;
+  }
+  function evalReveals(){
+    $$(".intake .reveal").forEach(function(el){
+      var expr=el.getAttribute("data-when");if(!expr)return;
+      var on=expr.split("|").some(function(c){return stateFor(c.trim())});
+      el.classList.toggle("on",on);
+    });
+    recalc();
+  }
+  document.addEventListener("change",evalReveals);
+
+  /* postal = fisica */
+  $("#c_postaligual").addEventListener("change",function(){
+    var f=$("#c_dirp");f.disabled=this.checked;f.style.opacity=this.checked?.5:1;
+    if(this.checked)f.value="";
+  });
+
+  /* ---------- Dependents ---------- */
+  function depRow(){
+    var d=document.createElement("div");
+    d.className="dyn-row dep-row";
+    d.innerHTML=
+      '<div class="field"><span class="mini-label">Nombre completo</span><input type="text" class="dep-nombre"></div>'+
+      '<div class="field"><span class="mini-label">Nacimiento</span><input type="date" class="dep-nac"></div>'+
+      '<div class="field"><span class="mini-label">Seguro Social</span><input type="text" class="dep-ssn ssn" inputmode="numeric" placeholder="000-00-0000"></div>'+
+      '<div class="field"><span class="mini-label">Parentesco</span><input type="text" class="dep-par" placeholder="Hijo(a)…"></div>'+
+      '<div class="field"><span class="mini-label">Clasif.</span><select class="dep-cla"><option value="">—</option><option>U</option><option>NU</option><option>I</option><option>65+</option></select></div>'+
+      '<button type="button" class="rm" title="Eliminar">×</button>';
+    d.querySelector(".rm").addEventListener("click",function(){d.remove()});
+    $("#dep-list").appendChild(d);
+  }
+  $("#add-dep").addEventListener("click",depRow);
+  depRow();
+
+  /* ---------- Rentals ---------- */
+  function rentRow(){
+    var d=document.createElement("div");
+    d.className="dyn-row rent-row";
+    d.innerHTML=
+      '<input type="text" class="rent-dir" placeholder="Dirección de la propiedad">'+
+      '<div class="money-wrap"><input type="text" class="money rent-in" inputmode="decimal" placeholder="0.00"></div>'+
+      '<div class="money-wrap"><input type="text" class="money rent-ex" inputmode="decimal" placeholder="0.00"></div>'+
+      '<button type="button" class="rm" title="Eliminar">×</button>';
+    d.querySelector(".rm").addEventListener("click",function(){d.remove()});
+    $("#rent-list").appendChild(d);
+  }
+  $("#add-rent").addEventListener("click",rentRow);
+  rentRow();
+
+  /* ---------- Estimated payments (year-driven) ---------- */
+  function buildPayRows(){
+    var y=parseInt($("#taxyear").value,10);
+    var rows=[
+      ["15 de abril de "+y],["15 de junio de "+y],["15 de septiembre de "+y],
+      ["15 de enero de "+(y+1)],["Pago en exceso de "+(y-1)],["Pago con prórroga"]
+    ];
+    var body=$("#paybody");
+    var prev=$$("#paybody tr").map(function(tr){return $$("input",tr).map(function(i){return i.value})});
+    body.innerHTML="";
+    rows.forEach(function(r,ri){
+      var tr=document.createElement("tr");
+      tr.innerHTML='<td>'+r[0]+'</td>'+
+        ['pr','ss','fed'].map(function(){return '<td><div class="money-wrap"><input type="text" class="money" inputmode="decimal" placeholder="0.00"></div></td>'}).join("");
+      body.appendChild(tr);
+      if(prev[ri])$$("input",tr).forEach(function(i,ci){i.value=prev[ri][ci]||""});
+    });
+  }
+  $("#taxyear").addEventListener("change",buildPayRows);
+  buildPayRows();
+
+  /* ---------- Deduction checkbox toggles amount focus ---------- */
+  $$(".ded").forEach(function(cb){
+    cb.addEventListener("change",function(){
+      var amt=document.querySelector('[data-ded="'+cb.id+'"]');
+      if(amt&&cb.checked)amt.focus();
+    });
+  });
+
+  /* ---------- Firma digital (canvas) ---------- */
+  var sigCanvas=$("#sigpad"), sigCtx=sigCanvas?sigCanvas.getContext("2d"):null;
+  var drawing=false, lastX=0, lastY=0;
+  function sigDraw(){
+    if(!sigCtx)return;
+    var rect=sigCanvas.getBoundingClientRect();
+    sigCtx.clearRect(0,0,rect.width,rect.height);
+    if(sigData){var img=new Image();img.onload=function(){sigCtx.clearRect(0,0,rect.width,rect.height);sigCtx.drawImage(img,0,0,rect.width,rect.height);};img.src=sigData;}
+  }
+  function sigResize(){
+    if(!sigCtx)return;
+    var rect=sigCanvas.getBoundingClientRect();
+    if(!rect.width)return;
+    var ratio=window.devicePixelRatio||1;
+    sigCanvas.width=Math.round(rect.width*ratio);
+    sigCanvas.height=Math.round(rect.height*ratio);
+    sigCtx.setTransform(ratio,0,0,ratio,0,0);
+    sigCtx.lineWidth=2;sigCtx.lineCap="round";sigCtx.lineJoin="round";sigCtx.strokeStyle="#0E1F38";
+    sigDraw();
+  }
+  function sigPos(e){var r=sigCanvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+  function sigStart(e){if(!sigCtx)return;drawing=true;var p=sigPos(e);lastX=p.x;lastY=p.y;if(e.pointerId!=null&&sigCanvas.setPointerCapture){try{sigCanvas.setPointerCapture(e.pointerId);}catch(x){}}e.preventDefault();}
+  function sigMove(e){if(!drawing||!sigCtx)return;var p=sigPos(e);sigCtx.beginPath();sigCtx.moveTo(lastX,lastY);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();lastX=p.x;lastY=p.y;e.preventDefault();}
+  function sigEnd(){if(!drawing)return;drawing=false;sigData=sigCanvas.toDataURL("image/png");saveNow();}
+  if(sigCanvas&&sigCtx){
+    sigCanvas.addEventListener("pointerdown",sigStart);
+    sigCanvas.addEventListener("pointermove",sigMove);
+    window.addEventListener("pointerup",sigEnd);
+    sigCanvas.addEventListener("pointercancel",sigEnd);
+    $("#sig-clear").addEventListener("click",function(){
+      var rect=sigCanvas.getBoundingClientRect();
+      sigCtx.clearRect(0,0,rect.width,rect.height);
+      sigData="";saveNow();
+    });
+    window.addEventListener("resize",function(){clearTimeout(sigResize._t);sigResize._t=setTimeout(sigResize,150);});
+  }
+
+  /* ---------- Draft save/load (localStorage, safe) ---------- */
+  function collect2(){
+    var s={year:$("#taxyear").value,vals:{},checks:{},radios:{},dep:[],rent:[],pay:[],sig:sigData};
+    $$("main input, main select, main textarea").forEach(function(el){
+      if(el.closest(".dep-row")||el.closest(".rent-row")||el.closest("#paybody"))return;
+      if(el.type==="checkbox"){if(el.id)s.checks[el.id]=el.checked;}
+      else if(el.type==="radio"){if(el.checked&&el.name)s.radios[el.name]=el.value;}
+      else if(el.id){s.vals[el.id]=el.value;}
+    });
+    $$("#dep-list .dep-row").forEach(function(r){s.dep.push($$("input,select",r).map(function(i){return i.value}))});
+    $$("#rent-list .rent-row").forEach(function(r){s.rent.push($$("input",r).map(function(i){return i.value}))});
+    $$("#paybody tr").forEach(function(r){s.pay.push($$("input",r).map(function(i){return i.value}))});
+    return s;
+  }
+  function saveNow(){try{localStorage.setItem(KEY,JSON.stringify(collect2()));}catch(e){}}
+  function restore2(s){
+    try{
+      if(s.year){$("#taxyear").value=s.year;buildPayRows();}
+      Object.keys(s.vals||{}).forEach(function(id){var el=document.getElementById(id);if(el)el.value=s.vals[id];});
+      Object.keys(s.checks||{}).forEach(function(id){var el=document.getElementById(id);if(el)el.checked=s.checks[id];});
+      Object.keys(s.radios||{}).forEach(function(name){var el=document.querySelector('input[name="'+name+'"][value="'+s.radios[name]+'"]');if(el)el.checked=true;});
+      $("#dep-list").innerHTML="";(s.dep&&s.dep.length?s.dep:[null]).forEach(function(vals){depRow();if(vals){var r=$("#dep-list").lastChild;$$("input,select",r).forEach(function(i,ix){i.value=vals[ix]||""});}});
+      $("#rent-list").innerHTML="";(s.rent&&s.rent.length?s.rent:[null]).forEach(function(vals){rentRow();if(vals){var r=$("#rent-list").lastChild;$$("input",r).forEach(function(i,ix){i.value=vals[ix]||""});}});
+      (s.pay||[]).forEach(function(vals,ri){var tr=$$("#paybody tr")[ri];if(tr)$$("input",tr).forEach(function(i,ix){i.value=vals[ix]||""});});
+      if(s.sig){sigData=s.sig;}
+    }catch(e){}
+    evalReveals();recalc();sigResize();
+  }
+
+  function flag(msg){var f=$("#saveflag");f.textContent=msg;clearTimeout(flag._t);flag._t=setTimeout(function(){f.textContent=""},2600);}
+
+  $("#btn-save").addEventListener("click",function(){
+    try{localStorage.setItem(KEY,JSON.stringify(collect2()));flag("Borrador guardado ✓");}
+    catch(e){flag("No se pudo guardar en este navegador");}
+  });
+  $("#btn-clear").addEventListener("click",function(){
+    if(!confirm("¿Borrar todo el formulario? Esta acción no se puede deshacer."))return;
+    try{localStorage.removeItem(KEY);}catch(e){}
+    location.reload();
+  });
+  /* ==================================================================
+     DOCUMENTO DE IMPRESIÓN — se construye desde el mismo estado del
+     formulario (una sola fuente de datos). No recalcula nada nuevo:
+     reutiliza num()/fmt() y los mismos valores de los campos.
+     ================================================================== */
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function gv(id){var el=document.getElementById(id);return el?el.value.trim():"";}
+  function isChk(id){var el=document.getElementById(id);return !!(el&&el.checked);}
+  function chosenText(name){var r=document.querySelector('input[name="'+name+'"]:checked');if(!r)return "";var s=r.nextElementSibling;return s&&s.textContent?s.textContent.trim():r.value;}
+  function chosenVal(name){var r=document.querySelector('input[name="'+name+'"]:checked');return r?r.value:"";}
+  function mnum(id){var el=document.getElementById(id);if(!el)return null;if(el.value.trim()==="")return null;return num(el.value);}
+  function mfmt(n){return "$"+fmt(n);}
+  function fmtDate(iso){if(!iso)return "";var p=iso.split("-");if(p.length!==3)return iso;return p[1]+"/"+p[2]+"/"+p[0];}
+  function joinName(a,b,c,d){return [a,b,c,d].filter(function(x){return x&&x.trim();}).join(" ").trim();}
+  function pf(label,val,cls){if(val==null||String(val).trim()==="")return "";return '<div class="pd-f'+(cls?" "+cls:"")+'"><span class="pd-l">'+esc(label)+'</span><span class="pd-v">'+esc(val)+'</span></div>';}
+  function rowVal(row,sel){var el=row.querySelector(sel);return el?el.value.trim():"";}
+
+  var DEDS=[["d_hip","Intereses hipotecarios — vivienda principal"],["d_ira","Aportación a cuenta de retiro individual (IRA)"],["d_edu","Aportación a cuenta de aportación educativa"],["d_don","Donativos a entidades sin fines de lucro"],["d_med","Gastos médicos"],["d_cuido","Cuido de niños o dependientes"],["d_est","Intereses de préstamos estudiantiles"],["d_gob","Aportación al sistema de retiro gubernamental"]];
+  var DOCS=[["doc1","Comprobantes de retención (499R-2/W-2PR, W-2)"],["doc2","Informativas 480.x recibidas"],["doc3","Formularios 1099 federales"],["doc4","Comprobante de intereses hipotecarios"],["doc5","Comprobantes de donativos"],["doc6","Registros / estados de cuenta del negocio"],["doc7","Planilla del año anterior (cliente nuevo)"],["doc8","Identificación con foto"]];
+  var SRCS=[["src_empleo","Empleo (W-2)"],["src_negocio","Negocio / profesión"],["src_alquiler","Alquiler de propiedad"],["src_intereses","Intereses y dividendos"],["src_capital","Ganancias de capital"],["src_retiro","Retiro / IRA"],["src_ssf","Seguro Social federal"],["src_otros","Otros ingresos"]];
+
+  var LOGO="data:image/png;base64,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";
+  function buildPrintDoc(){
+    var host=document.getElementById("print-doc");if(!host)return;
+    var H=[], n=0;
+    function secOpen(title){n++;return '<div class="pd-sec"><div class="pd-sec-h">'+(n<10?"0"+n:n)+' · '+esc(title)+'</div>';}
+
+    /* Encabezado + meta + privacidad */
+    H.push('<div class="pd-head">'+
+      '<img class="pd-logo" src="'+LOGO+'" alt="SL Accounting Services PR">'+
+      '<div class="pd-brandwrap"><div class="pd-brand">SL Accounting Services PR</div><div class="pd-tag">Contabilidad · Contribuciones · Cumplimiento</div></div>'+
+      '<div class="pd-doc"><div class="pd-title">Hoja de Información del Cliente</div><div class="pd-sub">Preparación de Planilla de Individuos</div></div>'+
+    '</div>');
+    H.push('<div class="pd-meta">'+
+      '<span><b>Año contributivo:</b> '+esc(gv("taxyear"))+'</span>'+
+      '<span><b>Tipo de cliente:</b> '+esc(chosenText("clienttype"))+'</span>'+
+      '<span><b>Fecha de preparación:</b> '+esc(fmtDate(gv("fecha")))+'</span>'+
+    '</div>');
+    H.push('<div class="pd-privacy">Documento confidencial. La información se procesa en el navegador del cliente y no se transmite a ningún servidor; se comparte con SL Accounting Services PR solo cuando el cliente entrega este documento.</div>');
+
+    /* 1. Contribuyente */
+    (function(){
+      var s=secOpen("Información del contribuyente");
+      var g=[];
+      g.push(pf("Nombre completo",joinName(gv("c_nombre"),gv("c_inicial"),gv("c_ape1"),gv("c_ape2")),"wide"));
+      g.push(pf("Seguro Social",gv("c_ssn")));
+      g.push(pf("Fecha de nacimiento",fmtDate(gv("c_nac"))));
+      g.push(pf("Ocupación",gv("c_ocup")));
+      g.push(pf("Email",gv("c_email")));
+      g.push(pf("Teléfono celular",gv("c_cel")));
+      g.push(pf("Teléfono residencia / trabajo",gv("c_tel2")));
+      g.push(pf("Dirección física",gv("c_dirf"),"wide"));
+      var dirp=isChk("c_postaligual")?"Igual a la dirección física":gv("c_dirp");
+      g.push(pf("Dirección postal",dirp,"wide"));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      var L=[];
+      L.push('<div class="pd-line"><span class="k">Ciudadano de EE. UU.:</span> <b>'+esc(chosenText("c_ciud"))+'</b>'+(chosenVal("c_ciud")==="no"&&gv("c_ciud_x")?" ("+esc(gv("c_ciud_x"))+")":"")+'</div>');
+      L.push('<div class="pd-line"><span class="k">Residente bona fide de PR:</span> <b>'+esc(chosenText("c_bona"))+'</b>'+(chosenVal("c_bona")==="no"&&gv("c_bona_x")?" ("+esc(gv("c_bona_x"))+")":"")+'</div>');
+      if(gv("c_dias"))L.push('<div class="pd-line"><span class="k">Días físicamente en PR:</span> <b>'+esc(gv("c_dias"))+'</b></div>');
+      L.push('<div class="pd-line"><span class="k">Cuentas financieras en el extranjero:</span> <b>'+esc(chosenText("c_ext"))+'</b>'+(chosenVal("c_ext")==="si"&&gv("c_ext_x")?" ("+esc(gv("c_ext_x"))+")":"")+'</div>');
+      s+='<div class="pd-lines">'+L.join("")+'</div></div>';
+      H.push(s);
+    })();
+
+    /* 2. Estado civil (+ cónyuge si aplica) */
+    (function(){
+      var civ=chosenVal("civil");
+      var s=secOpen("Estado civil"+((civ==="casado_vive"||civ==="casado_separado"||civ==="casado_no_vive")?" y cónyuge":""));
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Estado civil al terminar el año:</span> <b>'+esc(chosenText("civil"))+'</b></div></div>';
+      if(civ==="casado_vive"||civ==="casado_separado"||civ==="casado_no_vive"){
+        var g=[];
+        g.push(pf("Nombre completo",joinName(gv("s_nombre"),gv("s_inicial"),gv("s_ape1"),gv("s_ape2")),"wide"));
+        g.push(pf("Seguro Social",gv("s_ssn")));
+        g.push(pf("Fecha de nacimiento",fmtDate(gv("s_nac"))));
+        g.push(pf("Ocupación",gv("s_ocup")));
+        g.push(pf("Email",gv("s_email")));
+        g.push(pf("Teléfono",gv("s_cel")));
+        var grid='<div class="pd-grid">'+g.join("")+'</div>';
+        if(g.join("")){s+='<div class="pd-sub-h">Cónyuge</div>'+grid+
+          '<div class="pd-lines"><div class="pd-line"><span class="k">Ciudadano de EE. UU.:</span> <b>'+esc(chosenText("s_ciud"))+'</b></div>'+
+          '<div class="pd-line"><span class="k">Residente bona fide de PR:</span> <b>'+esc(chosenText("s_bona"))+'</b></div></div>';}
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* 3. Dependientes */
+    (function(){
+      var deps=$$("#dep-list .dep-row").map(function(r){return {nombre:rowVal(r,".dep-nombre"),nac:rowVal(r,".dep-nac"),ssn:rowVal(r,".dep-ssn"),par:rowVal(r,".dep-par"),cla:rowVal(r,".dep-cla")};}).filter(function(d){return d.nombre||d.ssn||d.nac||d.par||d.cla;});
+      var s=secOpen("Dependientes");
+      if(!deps.length){s+='<div class="pd-empty">No se reclamaron dependientes.</div>';}
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Nombre completo</th><th style="text-align:left">Nacimiento</th><th style="text-align:left">Seguro Social</th><th style="text-align:left">Parentesco</th><th style="text-align:left">Clasif.</th></tr></thead><tbody>';
+        deps.forEach(function(d){s+='<tr><td>'+esc(d.nombre)+'</td><td style="text-align:left">'+esc(fmtDate(d.nac))+'</td><td style="text-align:left">'+esc(d.ssn)+'</td><td style="text-align:left">'+esc(d.par)+'</td><td style="text-align:left">'+esc(d.cla)+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Fuentes de ingreso (línea de contexto) */
+    (function(){
+      var chosen=SRCS.filter(function(x){return isChk(x[0]);}).map(function(x){return x[1];});
+      if(!chosen.length)return;
+      var s=secOpen("Fuentes de ingreso");
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Reportadas:</span> <b>'+esc(chosen.join(" · "))+'</b></div></div></div>';
+      H.push(s);
+    })();
+
+    /* Empleo */
+    if(isChk("src_empleo")){
+      var s=secOpen("Ingreso de empleo");
+      var g=[];
+      g.push(pf("Número de patronos",gv("emp_patronos")));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      s+='<div class="pd-lines"><div class="pd-line"><span class="k">Comprobantes de retención:</span> <b>'+esc(chosenText("emp_comp"))+'</b></div></div></div>';
+      H.push(s);
+    }
+
+    /* Negocio / ledger */
+    if(isChk("src_negocio")){
+      var s=secOpen("Ingreso por negocio, profesión o comisiones");
+      var g=[];
+      g.push(pf("Naturaleza del servicio / industria",gv("biz_nat"),"wide"));
+      g.push(pf("Núm. Registro de Comerciante",gv("biz_rc")));
+      g.push(pf("Método de contabilidad",chosenText("biz_metodo")));
+      var bruto=mnum("biz_bruto");g.push(pf("Ingreso bruto del negocio",bruto!=null?mfmt(bruto):""));
+      var fuera=mnum("biz_fuera");g.push(pf("Ingreso por servicios fuera de PR",fuera!=null?mfmt(fuera):""));
+      s+='<div class="pd-grid">'+g.join("")+'</div>';
+      /* Gastos: tabla compacta, solo categorías con monto > 0, agrupadas */
+      var rows="",anyExp=false;
+      GROUPS.forEach(function(grp){
+        var items=[];
+        grp[1].forEach(function(r){var el=document.getElementById(r[0]);if(el&&el.value.trim()!==""){var nn=num(el.value);if(nn>0)items.push([r[1],nn]);}});
+        if(items.length){anyExp=true;rows+='<tr class="grp"><td colspan="2">'+esc(grp[0])+'</td></tr>';items.forEach(function(it){rows+='<tr><td>'+esc(it[0])+'</td><td>'+mfmt(it[1])+'</td></tr>';});}
+      });
+      s+='<div class="pd-sub-h">Gastos del negocio</div>';
+      if(anyExp)s+='<table class="pd-table"><thead><tr><th>Categoría / gasto</th><th>Cantidad</th></tr></thead><tbody>'+rows+'</tbody></table>';
+      else s+='<div class="pd-empty">No se reportaron gastos de negocio.</div>';
+      var totExp=0;$$(".exp").forEach(function(i){totExp+=num(i.value);});
+      var net=num(gv("biz_bruto"))-totExp;
+      s+='<div class="pd-tot"><div class="item"><span class="t">Total de gastos</span><span class="n">'+mfmt(totExp)+'</span></div>'+
+         '<div class="item'+(net<0?" neg":"")+'"><span class="t">Ganancia (o pérdida) neta</span><span class="n">'+(net<0?"-$":"$")+fmt(Math.abs(net))+'</span></div></div>';
+      s+='</div>';H.push(s);
+    }
+
+    /* Alquiler */
+    if(isChk("src_alquiler")){
+      var props=$$("#rent-list .rent-row").map(function(r){return {dir:rowVal(r,".rent-dir"),inn:rowVal(r,".rent-in"),exx:rowVal(r,".rent-ex")};}).filter(function(p){return p.dir||p.inn||p.exx;});
+      var s=secOpen("Alquiler de propiedad");
+      if(!props.length)s+='<div class="pd-empty">No se reportaron propiedades en alquiler.</div>';
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Propiedad / dirección</th><th>Renta recibida</th><th>Gastos del año</th></tr></thead><tbody>';
+        props.forEach(function(p){s+='<tr><td>'+esc(p.dir)+'</td><td>'+(p.inn!==""?mfmt(num(p.inn)):"—")+'</td><td>'+(p.exx!==""?mfmt(num(p.exx)):"—")+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    }
+
+    /* Otros ingresos */
+    if(isChk("src_intereses")||isChk("src_capital")||isChk("src_retiro")||isChk("src_ssf")||isChk("src_otros")){
+      var g=[];
+      if(isChk("src_intereses")){var a=mnum("oi_int");g.push(pf("Intereses y dividendos",a!=null?mfmt(a):""));}
+      if(isChk("src_capital")){var b=mnum("oi_cap");g.push(pf("Ganancias de capital / ventas",b!=null?mfmt(b):""));}
+      if(isChk("src_retiro")){var c=mnum("oi_ret");g.push(pf("Distribuciones de retiro / IRA",c!=null?mfmt(c):""));}
+      if(isChk("src_ssf")){var d=mnum("oi_ssf");g.push(pf("Seguro Social federal",d!=null?mfmt(d):""));}
+      if(isChk("src_otros"))g.push(pf("Otros ingresos",gv("oi_otros"),"wide"));
+      var joined=g.join("");
+      if(joined){var s=secOpen("Otros ingresos");s+='<div class="pd-grid">'+joined+'</div></div>';H.push(s);}
+    }
+
+    /* Pagos estimados */
+    (function(){
+      var trs=$$("#paybody tr").map(function(tr){var ins=$$("input",tr);return {c:(tr.children[0]?tr.children[0].textContent.trim():""),pr:ins[0]?ins[0].value.trim():"",ss:ins[1]?ins[1].value.trim():"",fe:ins[2]?ins[2].value.trim():""};}).filter(function(r){return num(r.pr)>0||num(r.ss)>0||num(r.fe)>0;});
+      var s=secOpen("Contribución estimada y otros pagos");
+      if(!trs.length)s+='<div class="pd-empty">No se reportaron pagos estimados durante el año.</div>';
+      else{
+        s+='<table class="pd-table"><thead><tr><th>Fecha / concepto</th><th>Puerto Rico</th><th>Seguro Social</th><th>Federal</th></tr></thead><tbody>';
+        trs.forEach(function(r){s+='<tr><td>'+esc(r.c)+'</td><td>'+(num(r.pr)?mfmt(num(r.pr)):"—")+'</td><td>'+(num(r.ss)?mfmt(num(r.ss)):"—")+'</td><td>'+(num(r.fe)?mfmt(num(r.fe)):"—")+'</td></tr>';});
+        s+='</tbody></table>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Deducciones */
+    (function(){
+      var items=DEDS.map(function(d){var amtEl=document.querySelector('[data-ded="'+d[0]+'"]');var raw=amtEl?amtEl.value.trim():"";var amt=raw!==""?num(raw):null;var on=isChk(d[0])||(amt!=null&&amt>0);return {label:d[1],on:on,amt:amt};}).filter(function(x){return x.on;});
+      var s=secOpen("Deducciones y créditos");
+      if(!items.length)s+='<div class="pd-empty">No se reclamaron deducciones.</div>';
+      else{
+        s+='<div class="pd-checks">';
+        items.forEach(function(x){s+='<div class="pd-chk"><span class="pd-box on">✓</span><span>'+esc(x.label)+'</span>'+(x.amt!=null?'<span class="pd-amt">'+mfmt(x.amt)+'</span>':"")+'</div>';});
+        s+='</div>';
+        if(isChk("d_cuido")&&gv("d_cuido_prov"))s+='<div class="pd-lines"><div class="pd-line"><span class="k">Proveedor de cuido:</span> <b>'+esc(gv("d_cuido_prov"))+'</b></div></div>';
+      }
+      s+='</div>';H.push(s);
+    })();
+
+    /* Documentos */
+    (function(){
+      var items=DOCS.filter(function(d){return isChk(d[0]);});
+      if(!items.length&&!gv("doc_otros"))return;
+      var s=secOpen("Documentos a incluir");
+      if(items.length){s+='<div class="pd-checks">';items.forEach(function(d){s+='<div class="pd-chk"><span class="pd-box on">✓</span><span>'+esc(d[1])+'</span></div>';});s+='</div>';}
+      else s+='<div class="pd-empty">No se marcaron documentos.</div>';
+      if(gv("doc_otros"))s+='<div class="pd-lines"><div class="pd-line"><span class="k">Otros documentos:</span> <b>'+esc(gv("doc_otros"))+'</b></div></div>';
+      s+='</div>';H.push(s);
+    })();
+
+    /* Notas + autorización + firma (juntos) */
+    (function(){
+      var s=secOpen("Notas y autorización");
+      s+='<div class="pd-close">';
+      if(gv("notas"))s+='<div class="pd-sub-h">Notas adicionales</div><div class="pd-v" style="font-size:9.5pt">'+esc(gv("notas")).replace(/\n/g,"<br>")+'</div>';
+      s+='<div class="pd-legal">Certifico que la información provista es correcta y completa a mi mejor conocimiento. Autorizo a SL Accounting Services PR a preparar mi planilla con esta información. SL Accounting Services PR no divulga información personal de sus clientes obtenida para sus servicios profesionales, excepto según lo requiera o permita la ley.</div>';
+      var sigImg=sigData?'<img class="pd-sign-img" src="'+sigData+'" alt="Firma">':'<div class="pd-sign-line"></div>';
+      s+='<div class="pd-sign-row">'+
+         '<div class="pd-sign-box">'+sigImg+'<div class="pd-sign-cap">Firma del contribuyente'+(gv("sig_nombre")?' — '+esc(gv("sig_nombre")):"")+'</div></div>'+
+         '<div class="pd-sign-meta"><div class="pd-f"><span class="pd-l">Fecha</span><span class="pd-v">'+esc(fmtDate(gv("sig_fecha")))+'</span></div></div>'+
+      '</div>';
+      s+='</div></div>';H.push(s);
+    })();
+
+    host.innerHTML=H.join("");
+  }
+
+  /* Nombre de archivo seguro (sin SSN) */
+  function sanitize(s){var str=String(s||"");var map={"á":"a","é":"e","í":"i","ó":"o","ú":"u","ü":"u","ñ":"n","Á":"A","É":"E","Í":"I","Ó":"O","Ú":"U","Ü":"U","Ñ":"N"};str=str.replace(/[áéíóúüñÁÉÍÓÚÜÑ]/g,function(c){return map[c]||c;});return str.replace(/[^A-Za-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+  function cleanFilename(){
+    var year=gv("taxyear")||String(new Date().getFullYear());
+    var who=sanitize((gv("c_ape1")||gv("sig_nombre")||"Cliente")+(gv("c_nombre")?"-"+gv("c_nombre"):""))||"Cliente";
+    return "SL-Accounting_Hoja-Cliente_"+year+"_"+who;
+  }
+
+  function doPrint(){
+    $$(".money").forEach(function(i){var nn=num(i.value);i.value=nn?fmt(nn):"";});
+    buildPrintDoc();
+    var prev=document.title;
+    document.title=cleanFilename();
+    var restore=function(){document.title=prev;window.removeEventListener("afterprint",restore);};
+    window.addEventListener("afterprint",restore);
+    window.print();
+  }
+  $("#btn-pdf").addEventListener("click",doPrint);
+  $("#btn-print").addEventListener("click",doPrint);
+  window.addEventListener("beforeprint",buildPrintDoc);
+
+  // auto-load draft
+  (function(){
+    try{var raw=localStorage.getItem(KEY);if(raw){restore2(JSON.parse(raw));flag("Borrador restaurado");}}catch(e){}
+  })();
+
+  // default dates = today
+  (function(){
+    var d=new Date();
+    var iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    var f=$("#fecha");if(f&&!f.value)f.value=iso;
+    var sf=$("#sig_fecha");if(sf&&!sf.value)sf.value=iso;
+  })();
+
+  // lightweight autosave on input (debounced)
+  var at;
+  document.addEventListener("input",function(){clearTimeout(at);at=setTimeout(saveNow,900);});
+
+  // init signature sizing after layout
+  window.addEventListener("load",sigResize);
+  sigResize();
+
+  evalReveals();recalc();
+})();
+</script>
+
+<script defer src="/assets/js/main.min.js"></script>
+</body>
+</html>
