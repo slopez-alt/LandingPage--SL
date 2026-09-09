@@ -88,3 +88,6 @@ sl-accounting-website-github-v4/
 
 # Borradores locales (no publicar)
 _borradores/
+
+# Configuración local de previsualización (específica de cada máquina)
+.claude/launch.json

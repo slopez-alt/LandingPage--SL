@@ -903,8 +903,49 @@
   })();
 
   // -------- GA4 EVENT TRACKING --------
-  // Conecta todos los data-track-event existentes con GA4
+  // Conecta todos los data-track-event existentes con GA4 y añade eventos de
+  // adquisición dedicados (whatsapp_click, phone_click, email_click,
+  // contact_form_submit) que se pueden marcar como Key Events en GA4.
+  // Nunca se envía informacion personal: solo ruta, ubicacion del CTA y la
+  // intencion de la pagina de origen (landing_intent).
   (function(){
+    function send(name, params){
+      if (typeof gtag === 'undefined') return;
+      var base = { page_path: location.pathname };
+      for (var k in params) { if (params[k]) base[k] = params[k]; }
+      gtag('event', name, base);
+    }
+
+    // landing_intent: intencion de la PAGINA desde la que ocurre la conversion,
+    // deducida solo de la ruta. NO es el servicio que el prospecto pide: es el
+    // contexto de contenido donde convirtio. El servicio solicitado, si algun dia
+    // se mide, seria un parametro aparte (requested_service).
+    function landingIntent(){
+      var p = location.pathname;
+      if (p.indexOf('/contabilidad-mensual-corporaciones') === 0) return 'monthly_accounting';
+      if (p.indexOf('/clientes-atrasados') === 0)                 return 'back_filings';
+      if (p.indexOf('/contable-en-') === 0)                       return 'accounting_services';
+      if (p.indexOf('/servicios') === 0)                          return 'services_overview';
+      if (p.indexOf('/blog/') === 0){
+        if (p.indexOf('nomina') > -1)   return 'payroll';
+        if (p.indexOf('ivu') > -1)      return 'ivu_compliance';
+        if (p.indexOf('retencion') > -1)return 'withholding';
+        if (p.indexOf('estimada') > -1) return 'estimated_tax';
+        if (p.indexOf('registro-negocio') > -1 || p.indexOf('llc-vs') > -1 || p.indexOf('entidad-conducto') > -1) return 'business_setup';
+        if (p.indexOf('atrasad') > -1 || p.indexOf('carta') > -1) return 'back_filings';
+        return 'content';
+      }
+      if (p.indexOf('/herramientas/') === 0) return 'tools';
+      return 'general';
+    }
+
+    var LANDING_INTENT = landingIntent();
+
+    function ctaLocation(el){
+      return (el && el.getAttribute('data-track-section')) || 'unclassified';
+    }
+
+    // 1) Se conserva el evento generico existente para no romper el historico.
     document.querySelectorAll('[data-track-event]').forEach(function(el){
       el.addEventListener('click', function(){
         if (typeof gtag === 'undefined') return;
@@ -914,10 +955,73 @@
         });
       });
     });
-    // Email clicks
+
+    // 2) WhatsApp — evento dedicado, sin duplicar por enlaces anidados.
+    document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        send('whatsapp_click', {
+          cta_location:     ctaLocation(el),
+          landing_intent:   LANDING_INTENT
+        });
+      });
+    });
+
+    // 3) Telefono.
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        send('phone_click', {
+          cta_location:     ctaLocation(el),
+          landing_intent:   LANDING_INTENT
+        });
+      });
+    });
+
+    // 4) Email.
     document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
       el.addEventListener('click', function(){
-        if (typeof gtag !== 'undefined') gtag('event', 'email_click', { event_category: 'contact' });
+        send('email_click', {
+          cta_location:     ctaLocation(el),
+          landing_intent:   LANDING_INTENT
+        });
+      });
+    });
+
+    // 5) Envio del formulario. El formulario vive en un iframe de Tally, asi que
+    //    no hay evento submit local: Tally publica un postMessage al enviarse.
+    //    Solo se lee el tipo de evento; nunca las respuestas.
+    var formSubmitted = false;
+
+    // Acepta el mensaje si viene de tally.so o de uno de los iframes de Tally
+    // que hay en esta pagina. Evita escuchar a cualquier origen.
+    function fromTally(e){
+      if (typeof e.origin === 'string' && e.origin.indexOf('tally.so') > -1) return true;
+      var frames = document.querySelectorAll('iframe[data-tally-src], iframe[src*="tally.so"]');
+      for (var i = 0; i < frames.length; i++){
+        if (frames[i].contentWindow === e.source) return true;
+      }
+      return false;
+    }
+
+    window.addEventListener('message', function(e){
+      if (!e || !e.data || !fromTally(e)) return;
+      var payload = e.data;
+      if (typeof payload === 'string'){
+        if (payload.indexOf('Tally.FormSubmitted') === -1) return;
+        try { payload = JSON.parse(payload); } catch (err) { return; }
+      }
+      if (!payload || payload.event !== 'Tally.FormSubmitted') return;
+      if (formSubmitted) return;   // un solo evento por carga de pagina
+      formSubmitted = true;
+      // AVISO: payload.payload.fields contiene TODAS las respuestas del
+      // formulario, incluidos nombre, email y telefono. No leer ni reenviar
+      // ese arreglo a GA4 bajo ninguna circunstancia. Aqui solo se usa el
+      // nombre del evento. Si algun dia se quiere registrar la categoria
+      // seleccionada en "¿Como podriamos ayudarle?", debe hacerse con una
+      // tabla de equivalencias cerrada (allowlist) que traduzca la opcion a un
+      // valor normalizado, y nunca enviando el texto crudo de la respuesta.
+      send('contact_form_submit', {
+        cta_location:     'tally_embed',
+        landing_intent:   LANDING_INTENT
       });
     });
   })();
@@ -967,7 +1071,21 @@
   // -------- NEW VISITOR POPUP: TAX RELIEF CALCULATOR --------
   (function(){
     var calculatorPath = '/herramientas/calculadora-alivio-contributivo-2025/';
-    if (window.location.pathname.indexOf(calculatorPath) === 0) return;
+    var path = window.location.pathname;
+    if (path.indexOf(calculatorPath) === 0) return;
+    // No interrumpir las paginas comerciales ni las de conversion: quien llega
+    // ahi busca contratar un servicio, no una calculadora de alivio individual.
+    var NO_POPUP = [
+      '/contacto',
+      '/contable-en-puerto-rico',
+      '/contable-en-caguas',
+      '/contabilidad-mensual-corporaciones',
+      '/clientes-atrasados',
+      '/servicios'
+    ];
+    for (var i = 0; i < NO_POPUP.length; i++) {
+      if (path.indexOf(NO_POPUP[i]) === 0) return;
+    }
 
     var storageKey = 'sl_tax_relief_popup_seen_v1';
     try {
