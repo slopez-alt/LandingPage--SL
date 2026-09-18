@@ -941,8 +941,64 @@
 
     var LANDING_INTENT = landingIntent();
 
+    // cta_location normalizado. El HTML acumula 24 valores distintos para
+    // describir las mismas zonas (hero, caguas_hero, contable_hero...). Se
+    // traducen aqui a un conjunto cerrado para poder comparar entre paginas.
+    // El evento historico cta_click conserva su event_category sin tocar.
+    var CTA_LOCATION_MAP = {
+      header:              'navigation',
+      footer:              'footer',
+      float:               'floating_button',
+      hero:                'hero',
+      caguas_hero:         'hero',
+      contable_hero:       'hero',
+      corporaciones_hero:  'hero',
+      cta_final:           'final_cta',
+      caguas_cta:          'final_cta',
+      contable_footer:     'final_cta',
+      corporaciones_final: 'final_cta',
+      calendario_cta:      'final_cta',
+      blog_article:        'article_cta',
+      blog_sidebar:        'sidebar',
+      blog_index:          'article_cta',
+      contable_form:       'form_section',
+      servicios_paquetes:  'pricing',
+      contable_mensual:    'pricing',
+      situaciones_comunes: 'service_card',
+      recursos_populares:  'service_card',
+      caguas_problemas:    'service_card',
+      satisfaccion:        'social_proof',
+      nosotros:            'about',
+      clientes_atrasados:  'service_card',
+      hoja_cliente:        'tools'
+    };
+
+    // Muchos enlaces de contacto (sobre todo de WhatsApp) no llevan
+    // data-track-section. En vez de tocar ~97 elementos del HTML, se deduce la
+    // zona por su clase o su contenedor. Asi cta_location deja de ser
+    // 'unclassified' y se puede comparar entre paginas.
+    function inferLocation(el){
+      if (!el) return 'unclassified';
+      if (el.classList){
+        if (el.classList.contains('wa-float'))        return 'floating_button';
+        if (el.classList.contains('blog-sidebar-wa')) return 'sidebar';
+        if (el.classList.contains('calc-wa'))         return 'tools';
+      }
+      if (el.closest){
+        if (el.closest('footer'))                     return 'footer';
+        if (el.closest('header, nav'))                return 'navigation';
+        if (el.closest('.contact-block'))             return 'contact_details';
+        if (el.closest('.blog-sidebar'))              return 'sidebar';
+        if (el.closest('.blog-body, article'))        return 'article_cta';
+        if (el.closest('.hero'))                      return 'hero';
+      }
+      return 'unclassified';
+    }
+
     function ctaLocation(el){
-      return (el && el.getAttribute('data-track-section')) || 'unclassified';
+      var raw = el && el.getAttribute('data-track-section');
+      if (!raw) return inferLocation(el);
+      return CTA_LOCATION_MAP[raw] || raw;
     }
 
     // 1) Se conserva el evento generico existente para no romper el historico.
@@ -960,6 +1016,7 @@
     document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function(el){
       el.addEventListener('click', function(){
         send('whatsapp_click', {
+          contact_method:   'whatsapp',
           cta_location:     ctaLocation(el),
           landing_intent:   LANDING_INTENT
         });
@@ -970,6 +1027,7 @@
     document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
       el.addEventListener('click', function(){
         send('phone_click', {
+          contact_method:   'phone',
           cta_location:     ctaLocation(el),
           landing_intent:   LANDING_INTENT
         });
@@ -980,6 +1038,7 @@
     document.querySelectorAll('a[href^="mailto:"]').forEach(function(el){
       el.addEventListener('click', function(){
         send('email_click', {
+          contact_method:   'email',
           cta_location:     ctaLocation(el),
           landing_intent:   LANDING_INTENT
         });
@@ -990,6 +1049,16 @@
     //    no hay evento submit local: Tally publica un postMessage al enviarse.
     //    Solo se lee el tipo de evento; nunca las respuestas.
     var formSubmitted = false;
+
+    // form_id real, extraido del src del embed (p.ej. 'kdJ6rM'). No es un dato
+    // del usuario: identifica el formulario, no a quien lo llena.
+    var TALLY_FORM_ID = (function(){
+      var f = document.querySelector('iframe[data-tally-src], iframe[src*="tally.so"]');
+      if (!f) return '';
+      var src = f.getAttribute('data-tally-src') || f.getAttribute('src') || '';
+      var m = src.match(/tally\.so\/embed\/([A-Za-z0-9]+)/);
+      return m ? m[1] : '';
+    })();
 
     // Acepta el mensaje si viene de tally.so o de uno de los iframes de Tally
     // que hay en esta pagina. Evita escuchar a cualquier origen.
@@ -1020,10 +1089,104 @@
       // tabla de equivalencias cerrada (allowlist) que traduzca la opcion a un
       // valor normalizado, y nunca enviando el texto crudo de la respuesta.
       send('contact_form_submit', {
+        contact_method:   'form',
+        form_name:        'contact',
+        form_id:          TALLY_FORM_ID,
         cta_location:     'tally_embed',
         landing_intent:   LANDING_INTENT
       });
     });
+
+    // ---- Observador comun para "visto de verdad" -----------------------------
+    // Dispara una sola vez por carga de pagina cuando el elemento estuvo al
+    // menos al 50% visible durante 1 segundo continuo. Volver a hacer scroll
+    // sobre el mismo bloque no vuelve a disparar.
+    function observeOnce(el, onSeen){
+      if (!el || typeof IntersectionObserver === 'undefined') return;
+      var timer = null, done = false;
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (done) return;
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5){
+            if (timer) return;
+            timer = setTimeout(function(){
+              if (done) return;
+              done = true;
+              io.disconnect();
+              onSeen();
+            }, 1000);
+          } else {
+            if (timer){ clearTimeout(timer); timer = null; }
+          }
+        });
+      }, { threshold: [0, 0.5, 1] });
+      io.observe(el);
+    }
+
+    // ---- 6) pricing_view -----------------------------------------------------
+    // Solo en paginas con una seccion de precios real, marcada con
+    // data-pricing-section. Mide si el visitante llego a ver los planes.
+    (function(){
+      var block = document.querySelector('[data-pricing-section]');
+      if (!block) return;
+      observeOnce(block, function(){
+        send('pricing_view', {
+          pricing_section: block.getAttribute('data-pricing-section'),
+          cta_location:    'pricing',
+          landing_intent:  LANDING_INTENT
+        });
+      });
+    })();
+
+    // ---- 7) form_view --------------------------------------------------------
+    // Tally no expone ningun evento de "el usuario empezo a llenar": lo mas
+    // temprano que publica es Tally.FormLoaded, que es renderizado, no
+    // interaccion. Por eso NO existe form_start. Esto mide que el formulario
+    // estuvo realmente delante del visitante, que es lo que si se puede saber.
+    (function(){
+      var frame = document.querySelector('iframe[data-tally-src], iframe[src*="tally.so"]');
+      if (!frame) return;
+      observeOnce(frame, function(){
+        send('form_view', {
+          cta_location:   'form_section',
+          landing_intent: LANDING_INTENT
+        });
+      });
+    })();
+
+    // ---- 8) monthly_service_click -------------------------------------------
+    // Senal de intencion hacia el servicio recurrente. Excluye header y footer,
+    // donde el mismo enlace es navegacion repetida en todas las paginas y no
+    // significa interes comercial.
+    (function(){
+      var MONTHLY_PATH = '/contabilidad-mensual-corporaciones/';
+      var LABELS = [
+        [/paquete/i,                'view_plans'],
+        [/plan(es)?\b/i,            'view_plans'],
+        [/bookkeeping/i,            'bookkeeping'],
+        [/n(o|ó)mina/i,             'payroll_service'],
+        [/contabilidad mensual/i,   'monthly_accounting'],
+        [/mensual/i,                'monthly_accounting']
+      ];
+      function normalizeLabel(txt){
+        var t = (txt || '').replace(/\s+/g, ' ').trim();
+        for (var i = 0; i < LABELS.length; i++){
+          if (LABELS[i][0].test(t)) return LABELS[i][1];
+        }
+        return 'other';
+      }
+      document.querySelectorAll('a[href="' + MONTHLY_PATH + '"]').forEach(function(el){
+        if (el.closest('header, footer, nav')) return;   // navegacion, no intencion
+        el.addEventListener('click', function(){
+          send('monthly_service_click', {
+            cta_location:         ctaLocation(el),
+            landing_intent:       LANDING_INTENT,
+            destination_path:     MONTHLY_PATH,
+            cta_label_normalized: normalizeLabel(el.textContent)
+          });
+        });
+      });
+    })();
   })();
 
   // -------- BLOG: Tabla de contenidos + scroll tracking --------
