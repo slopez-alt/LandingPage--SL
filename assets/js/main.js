@@ -1166,6 +1166,7 @@
         [/bookkeeping/i,            'bookkeeping'],
         [/n(o|ó)mina/i,             'payroll_service'],
         [/contabilidad mensual/i,   'monthly_accounting'],
+        [/monthly accounting/i,     'monthly_accounting'],
         [/mensual/i,                'monthly_accounting']
       ];
       function normalizeLabel(txt){
