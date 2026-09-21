@@ -1162,7 +1162,7 @@
       var MONTHLY_PATH = '/contabilidad-mensual-corporaciones/';
       var LABELS = [
         [/paquete/i,                'view_plans'],
-        [/plan(es)?\b/i,            'view_plans'],
+        [/plan(es|s)?\b/i,          'view_plans'],
         [/bookkeeping/i,            'bookkeeping'],
         [/n(o|ó)mina/i,             'payroll_service'],
         [/contabilidad mensual/i,   'monthly_accounting'],
