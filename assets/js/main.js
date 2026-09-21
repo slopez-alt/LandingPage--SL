@@ -961,6 +961,7 @@
       blog_article:        'article_cta',
       blog_sidebar:        'sidebar',
       blog_index:          'article_cta',
+      faq:                 'faq',
       contable_form:       'form_section',
       servicios_paquetes:  'pricing',
       contable_mensual:    'pricing',
